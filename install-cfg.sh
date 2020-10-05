@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # call with
-# curl -Lks https://bitbucket.org/JozephS/dotfiles/raw/master/install-cfg.sh | /bin/bash
+# curl -Lks https://github.com/JoeSchr/dotfiles/raw/master/install-cfg.sh | /bin/bash
 
 git clone --bare https://bitbucket.org/JozephS/dotfiles.git $HOME/.cfg
 
