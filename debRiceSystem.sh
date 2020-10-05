@@ -183,7 +183,7 @@ rm yarn.lock
 cd ~/Downloads
 git clone https://github.com/neovim/neovim
 cd neovim
-make CMAKE_BUILD_TYPE=RelWithDebInfo
+make CMAKE_BUILD_TYPE=Release
 sudo make install
 # sets accesss rights so normal user can start it
 sudo chown $USER  /usr/bin/nvim
