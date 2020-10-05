@@ -393,6 +393,7 @@ if !exists('g:vscode')
     \ 'coc-pairs',
     \ 'coc-tsserver',
     \ 'coc-eslint',
+    \ 'coc-vetur',
     \ 'coc-prettier',
     \ 'coc-json',
     \ 'coc-html',
