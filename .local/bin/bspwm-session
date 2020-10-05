@@ -1,7 +1,7 @@
 #! /bin/dash
 #
 # bspwm-session
-# From https://github.com/baskerville/bspwm/blob/master/contrib/freedesktop/bspwm-session , 
+# From https://github.com/baskerville/bspwm/blob/master/contrib/freedesktop/bspwm-session ,
 # modified to copy example configs unless user already has some.
 # Later modified to drop multiuser support.
 # This script is a session launcher for bspwm.
@@ -29,7 +29,6 @@ for file in /etc/profile ${HOME}/.profile ${HOME}/.config/bspwm/autostart ; do
 done
 
 # Launch sxhkd:
-[ -e /bin/dash ] && export SXHKD_SHELL="/bin/dash"
-sxhkd &
+launch_sxhkd &
 # Launch bspwm:
 bspwm
