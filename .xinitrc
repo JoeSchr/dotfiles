@@ -16,7 +16,7 @@
 
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/xprofile" ] && . "${XDG_CONFIG_HOME:-$HOME/.config}/xprofile"
 
-[ -f ~/.config/Xresources] && xrdb -merge ~/.config/Xresources -I$HOME
+[ -f ~/.config/Xresources ] && xrdb -merge ~/.config/Xresources -I$HOME
 
 
 userresources=$HOME/.Xresources
@@ -51,32 +51,32 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
     unset f
 fi
 
-session=${1:-dwm}
+# Here bspwm is kept as default
+session=${1:-bspwm}
 get_session(){
-	local dbus_args=(--sh-syntax --exit-with-session)
-# Here dwm is kept as default
+	# local dbus_args=(--sh-syntax --exit-with-session)
 
-case $session in
-	awesome 		  ) exec dbus-launch --sh-syntax --exit-with-session awesome;;
-	jwm 			  ) exec dbus-launch --sh-syntax --exit-with-session jwm;;
-	deepin 			  ) exec dbus-launch --sh-syntax --exit-with-session startdde;;
-	enlightenment 	  ) exec dbus-launch --sh-syntax --exit-with-session enlightenment_start;;
-	gnome 			  ) exec dbus-launch --sh-syntax --exit-with-session gnome-session;;
-	dwm 			  ) exec dbus-launch --sh-syntax --exit-with-session dwm;;
-	bspwm 			  ) exec dbus-launch --sh-syntax --exit-with-session bspwm-session;;
-    i3|i3wm           ) exec dbus-launch --sh-syntax --exit-with-session i3;;
-    lxde 	          ) exec dbus-launch --sh-syntax --exit-with-session startlxde;;
-    lxqt         	  ) exec dbus-launch --sh-syntax --exit-with-session lxqt-session;;
-    i3|i3wm           ) exec dbus-launch --sh-syntax --exit-with-session i3;;
-    kde               ) exec dbus-launch --sh-syntax --exit-with-session startplasma-x11;;
-    cinnamon          ) exec dbus-launch --sh-syntax --exit-with-session cinnamon-session;;
-    budgie            ) exec dbus-launch --sh-syntax --exit-with-session budgie-desktop;;
-    mate              ) exec dbus-launch --sh-syntax --exit-with-session mate-session;;
-    openbox           ) exec dbus-launch --sh-syntax --exit-with-session openbox-session;;
-    xfce|xfce4        ) exec dbus-launch --sh-syntax --exit-with-session startxfce4;;
-    # No known session, try to run it as command
-    *                 ) exec dbus-launch --sh-syntax --exit-with-session $1;;
-esac
+    case $session in
+        awesome 		  ) exec dbus-launch --sh-syntax --exit-with-session awesome;;
+        jwm 			  ) exec dbus-launch --sh-syntax --exit-with-session jwm;;
+        deepin 			  ) exec dbus-launch --sh-syntax --exit-with-session startdde;;
+        enlightenment 	  ) exec dbus-launch --sh-syntax --exit-with-session enlightenment_start;;
+        gnome 			  ) exec dbus-launch --sh-syntax --exit-with-session gnome-session;;
+        dwm 			  ) exec dbus-launch --sh-syntax --exit-with-session dwm;;
+        bspwm 			  ) exec dbus-launch --sh-syntax --exit-with-session bspwm-session;;
+        i3|i3wm           ) exec dbus-launch --sh-syntax --exit-with-session i3;;
+        lxde 	          ) exec dbus-launch --sh-syntax --exit-with-session startlxde;;
+        lxqt         	  ) exec dbus-launch --sh-syntax --exit-with-session lxqt-session;;
+        i3|i3wm           ) exec dbus-launch --sh-syntax --exit-with-session i3;;
+        kde               ) exec dbus-launch --sh-syntax --exit-with-session startplasma-x11;;
+        cinnamon          ) exec dbus-launch --sh-syntax --exit-with-session cinnamon-session;;
+        budgie            ) exec dbus-launch --sh-syntax --exit-with-session budgie-desktop;;
+        mate              ) exec dbus-launch --sh-syntax --exit-with-session mate-session;;
+        openbox           ) exec dbus-launch --sh-syntax --exit-with-session openbox-session;;
+        xfce|xfce4        ) exec dbus-launch --sh-syntax --exit-with-session startxfce4;;
+        # No known session, try to run it as command
+        *                 ) exec dbus-launch --sh-syntax --exit-with-session $1;;
+    esac
 }
 
 xset r rate 600 25
