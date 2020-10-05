@@ -7,13 +7,13 @@ git clone --bare https://bitbucket.org/JozephS/dotfiles.git $HOME/.cfg
 
 config="$(which git) --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 
-mkdir -p $HOME/.config-backup
+mkdir -p $HOME/.backup-cfg
 $config checkout
 if [ $? = 0 ]; then
   echo "Checked out config.";
   else
     echo "Backing up pre-existing dot files.";
-    $config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} rsync -av --remove-source-files {} .config-backup/{}
+    $config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} rsync -av --remove-source-files {} .backup-cfg/{}
 fi;
 $config checkout
 $config config status.showUntrackedFiles no
