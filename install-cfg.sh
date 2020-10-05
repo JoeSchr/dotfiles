@@ -5,7 +5,7 @@
 
 git clone --bare https://bitbucket.org/JozephS/dotfiles.git $HOME/.cfg
 
-config="$(which git) --git-dir=~~/.cfg/ --work-tree=~"
+config="$(which git) --git-dir=~/.cfg/ --work-tree=~"
 
 mkdir -p ~/.config-backup
 $config checkout
