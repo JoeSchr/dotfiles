@@ -238,6 +238,8 @@ if !exists('g:vscode')
     " TMUX
     Plug 'christoomey/vim-tmux-navigator'
     " Clojure(Script)
+    Plug 'digitaltoad/vim-pug'
+    " Clojure(Script)
     Plug 'tpope/vim-fireplace'
 
     " AUTOCOMPLETION: basially port of vscode autocompletion
