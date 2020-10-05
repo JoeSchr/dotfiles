@@ -3,7 +3,7 @@
 # call with
 # curl -Lks https://github.com/JoeSchr/dotfiles/raw/master/install-cfg.sh | /bin/bash
 
-git clone --bare https://bitbucket.org/JozephS/dotfiles.git $HOME/.cfg
+git clone --bare https://github.com/JoeSchr/dotfiles.git $HOME/.cfg
 
 config="$(which git) --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 
@@ -20,5 +20,5 @@ $config config status.showUntrackedFiles no
 
 touch ~/.vimrc.local
 touch ~/.bashrc.local
-mkdir ~/Downloads
-source .bashrc
+mkdir -p ~/Downloads
+. .bashrc
