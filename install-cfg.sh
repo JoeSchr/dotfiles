@@ -5,9 +5,9 @@
 
 git clone --bare https://bitbucket.org/JozephS/dotfiles.git $HOME/.cfg
 
-config="$(which git) --git-dir=~/.cfg/ --work-tree=~"
+config="$(which git) --git-dir=$HOME/.cfg/ --work-tree=~"
 
-mkdir -p ~/.config-backup
+mkdir -p $HOME/.config-backup
 $config checkout
 if [ $? = 0 ]; then
   echo "Checked out config.";
