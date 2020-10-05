@@ -7,8 +7,7 @@ esac
 # vi mode in bash!!!
 set -o vi
 
-# adds yarn global binaries to path"
-export PATH="$PATH:dirname $(which node):~/.local/bin:~/.local/bin/statusbar"
+export PATH="$PATH:~/.local/bin:~/.local/bin/statusbar"
 # adds pip bins to path
 export PY_USER_BIN=$(python -c 'import site; print(site.USER_BASE + "/bin")')
 export PY3_USER_BIN=="$(python3 -m site --user-base)/bin"
