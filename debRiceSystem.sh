@@ -91,11 +91,6 @@ make && sudo make install
 sudo apt install -y xserver-xorg x11-xserver-utils xinit xserver-xorg-legacy
 # add user to tty group
 sudo usermod -a -G tty `whoami`
-# TODO: raspi only
-# sudo apt install --no-install-recommends -y raspberrypi-ui-mods
-# raspi wifi gui
-# sudo apt install --no-install-recommends -y wpagui
-
 #install bspwm, polybar and sxhkd
 cd ~/Downloads/
 
@@ -284,18 +279,10 @@ sudo apt autoremove -y
 
 cd ~
 
-# RASPI
-# bluetooth
-sudo usermod -G bluetooth -a $(whoami)
-# frees 2G+
-sudo apt-get purge wolfram-engine
-
-# /RASPI
-
 # TWEAKS
-# increase numer of file watcher
-echo fs.inotify.max_user_watches=160384 | sudo tee -a /etc/sysctl.conf
-sudo sysctl -p
+  # increase numer of file watcher
+  echo fs.inotify.max_user_watches=160384 | sudo tee -a /etc/sysctl.conf
+  sudo sysctl -p
 
 # docker (refresh group)
 # needs to be at end, because it sources .bashrc again

@@ -5,30 +5,14 @@ chmod +x MC.AppImage
 ./MC.AppImage
 
 
- #sudo apt-get install zlib1g-dev libncurses5-dev libgles2-mesa-dev zlib1g-dev libx11-dev linux-libc-dev uuid-dev libpng-dev libxext6
+# VS Code raspi
+wget -O - https://code.headmelted.com/installers/apt.sh | sudo bash
 
- #cd ~/Downloads
- #wget https://cmake.org/files/v3.7/cmake-3.7.1.tar.gz
- #tar -xzf cmake-3.7.1.tar.gz
- #cd cmake-3.7.1
- #./bootstrap
- #sudo make package install
+#TWEAKS
 
- #cd ~/Downloads
- #git clone https://github.com/marinaluna/mcpelauncher-pi.git
- #cd mcpelaunher-pit
- #cmake .
- #make
+  sudo apt install --no-install-recommends -y raspberrypi-ui-mods wpagui
 
- ##downloader tool
- #sudo apt-get install cmake zlib1g-dev libcurl4-openssl-dev protobuf-compiler
-
- #cd ~/Downloads
- #git clone https://github.com/MCMrARM/Google-Play-API.git
- #cd Google-Play-API
- #mkdir build && cd build
- #cmake ..
- #make
-
- # VS Code raspi
- wget -O - https://code.headmelted.com/installers/apt.sh | sudo bash
+  # bluetooth
+  sudo usermod -G bluetooth -a $(whoami)
+  # frees 2G+
+  sudo apt-get purge wolfram-engine
