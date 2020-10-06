@@ -6,13 +6,40 @@ chmod +x MC.AppImage
 
 
 # VS Code raspi
+wget -qO - https://packagecloud.io/headmelted/codebuilds/gpgkey | sudo apt-key add -
 wget -O - https://code.headmelted.com/installers/apt.sh | sudo bash
 
 #TWEAKS
+  # first install all required software
 
-  sudo apt install --no-install-recommends -y raspberrypi-ui-mods wpagui
+  TWEAK_REQUIRED=raspberrypi-ui
+  # ui tools
+  TWEAK_REQUIRED=$TWEAK_REQUIRED wpagui
+  #bluetooth
+  TWEAK_REQUIRED=$TWEAK_REQUIRED pulseaudio-module-bluetooth pulseaudio
 
-  # bluetooth
-  sudo usermod -G bluetooth -a $(whoami)
   # frees 2G+
   sudo apt-get purge wolfram-engine
+
+  # install all TWEAK_REQUIRED once
+  sudo apt install --no-install-recommends -y  $TWEAK_REQUIRED
+
+  # CONFIG
+
+  #bluetooth enable headset
+  sudo usermod -G bluetooth -a $(whoami)
+  sudo sed -i 's/^\(ExecStart=.*\)/\1--noplugin=sap/' /lib/systemd/system/bluetooth.service
+  echo "ExecStartPre=/bin/sleep 2" | sudo tee -a /lib/systemd/system/bthelper@.service
+  cat << EOT >> ~/.asoundrc
+    # Bluetooth headset
+    defaults.bluealsa {
+      interface "hci0" # host Bluetooth adapter
+      device "E8:AB:FA:38:3C:3A"
+      profile "a2dp"
+    }
+  EOT
+
+  sudo systemctl status bluetooth.service
+
+  # REBOOT
+  sudo reboot
