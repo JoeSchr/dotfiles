@@ -29,3 +29,6 @@ chmod +x MC.AppImage
  #mkdir build && cd build
  #cmake ..
  #make
+
+ # VS Code raspi
+ wget -O - https://code.headmelted.com/installers/apt.sh | sudo bash
