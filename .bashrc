@@ -254,20 +254,23 @@ export LC_CTYPE=en_US.UTF-8
 
 # ## default start tmux, with option to break
 # # exit if inside tmux
-# [[ ! -z "$TMUX" ]] && return 0
+# if [[ "$TERM" =~ "screen".* ]]; then
+#   echo "Already inside TMUX"
+# else
 #
-# read -t 3 -n 1 -p "Start tmux (n/Y)? " answer
-# [ -z "$answer" ] && answer="Y"  # 'yes' efault choice
-# echo
-# case ${answer:0:1} in
-#     n|N )
-#         echo "No Tmux"
-#         ;;
-#     * )
-#         echo "Starting tmux-init"
-#         tmux attach -t base || tmux new -s base
-#     ;;
-# esac
+#   read -t 3 -n 1 -p "Start tmux (n/Y)? " answer
+#   [ -z "$answer" ] && answer="Y"  # 'yes' efault choice
+#   echo
+#   case ${answer:0:1} in
+#       n|N )
+#           echo "No Tmux"
+#           ;;
+#       * )
+#           echo "Starting tmux-init"
+#           tmux attach -t base || tmux new -s base
+#       ;;
+#   esac
+# fi
 #
 ## FIX on WSL so it doesn't get windows npm/yarn
 # export PATH=$(echo "$PATH" | sed -e 's/\/mnt\/c\/Program Files\/nodejs://')
