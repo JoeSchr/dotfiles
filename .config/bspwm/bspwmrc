@@ -43,7 +43,6 @@ bspc rule -a St:$dropdownname state=floating
 # setting keyboard to international
 setxkbmap -layout us -variant altgr-intl -option nodeadkeys
 
-launch_sxhkd
 
 # source xprofile
-[ -f $HOME/.xprofile ] && . $HOME/.xprofile
+. $HOME/.xprofile
