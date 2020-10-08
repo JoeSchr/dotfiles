@@ -171,6 +171,8 @@ super + shift + Print
 # Pick screenshot type
 Print
 	spectacle
+super + shift + s
+	spectacle
 
 super + F6
 	xbacklight -dec 15
