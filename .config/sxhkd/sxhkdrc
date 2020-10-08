@@ -249,10 +249,10 @@ ctrl + alt + {Left,Right}
 	bspc desktop {prev,next}.occupied --focus
 
 # switch to previous workspace
-super + grave
-	bspc desktop last --focus
 super + {Tab,backslash}
 	bspc desktop last --focus
+super + ctrl + grave
+    bspc desktop last --focus
 
 # focus or swap the next node
 super + {_,ctrl + }c
@@ -263,7 +263,7 @@ super + {_,ctrl + }c
 # focus or send to the given desktop
 super + {1-9,0}
 	bspc desktop -f ^{1-9,10}
-super + shift + {1-9,0}
+super + ctrl + shift + {1-9,0}
 	bspc node -d ^{1-9,10} --follow
 
 # preselect the direction
@@ -316,9 +316,10 @@ super + ctrl + o
 # \{ pgrep polybar && \{ killall polybar ; bspc config top_padding 0 \} \} || \{ launch_polybar ; bspc config top_padding 24 \}
 
 
-alt { ,+ shift } + Tab
+# focus the next/previous node in the same window
+alt { + shift, } + grave
     bspc node -f {prev,next}.local
-super + {i,o}
+super + alt + {j,k}
 	bspc node -f {prev,next}.local
 
 # switch between focused nodes
