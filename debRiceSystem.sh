@@ -221,7 +221,7 @@ cd ~/Downloads/
 
 # pywal
 pip3 install --user pywal
-sudo apt install imagemagick
+sudo apt install sxiv
 
 # lazygit
 curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
