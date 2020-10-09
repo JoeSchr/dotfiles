@@ -228,6 +228,15 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 
+# Reboot directly to Windows
+# Inspired by http://askubuntu.com/questions/18170/how-to-reboot-into-windows-from-ubuntu
+reboot_to_windows ()
+{
+    windows_title=$(grep -i windows /boot/grub/grub.cfg | cut -d "'" -f 2)
+    sudo grub-reboot "$windows_title" && sudo reboot
+}
+alias reboot-to-windows='reboot_to_windows'
+
 # source local commands
 . ~/.bashrc.local
 
