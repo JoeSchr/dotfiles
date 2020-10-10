@@ -19,7 +19,7 @@ UUID=fa48b15e-cc24-4674-9f29-75d19b48475b	none      	swap      	defaults,pri=-2	
 # WINDOWS
 # system
 # UUID="01D48B3D76104270" /mnt/win ntfs-3g defaults,nls=utf8,umask=000,dmask=027,fmask=137,uid=1000,gid=1000,windows_names,auto,x-gvfs-show, 0 0
-UUID="01D48B3D76104270" /mnt/win ntfs-3g defaults,nls=utf8,umask=000,dmask=027,uid=1000,gid=1000,windows_names,auto,comment=x-gvfs-show 0 0
+UUID="01D48B3D76104270" /mnt/win ntfs-3g defaults,rw,nls=utf8,umask=000,dmask=027,fmask=137,uid=1000,gid=1000,windows_names,auto,comment=x-gvfs-show 0 0
 # UUID="01D48B3D76104270" /mnt/win ntfs-3g x-gvfs-show,defaults,users,windows_names 0 0
 # cache
 PARTUUID="e0667ae0-8ef1-01d4-7039-33f07847ea00" /mnt/cache ntfs-3g x-gvfs-show,defaults,nls=utf8,umask=000,dmask=027,fmask=137,uid=1000,gid=1000,windows_names,noauto 0 0
@@ -36,7 +36,12 @@ PARTUUID="323b9b63-5f6f-4551-826e-59527ff91f5d" /mnt/dp/MD04ACA4-B/  ntfs-3g   a
 #
 # MERGERFS DRIVE POOL
 # /mnt/dp/ST6000DM003-2CY1/PoolPart.1921c7da-5606-4f74-b677-9137492e5d64:/mnt/dp/HDWE160/PoolPart.2e7526c5-eed4-463a-910c-a5918352334f:/mnt/dp/MD04ACA4-B/PoolPart.adcd6bc9-e0dd-4241-882d-76de238f9565 /mnt/data fuse.mergerfs  auto,x-gvfs-show,defaults,users,fsname=mergerfs,allow_other,use_ino,cache.files=partial,dropcacheonclose=true,category.create=mfs   0       2
-/mnt/dp/ST6000DM003-2CY1/PoolPart.1921c7da-5606-4f74-b677-9137492e5d64:/mnt/dp/HDWE160/PoolPart.2e7526c5-eed4-463a-910c-a5918352334f:/mnt/dp/MD04ACA4-B/PoolPart.adcd6bc9-e0dd-4241-882d-76de238f9565 /mnt/data fuse.mergerfs  auto,fsname=mergerfs,allow_other,use_ino,cache.files=partial,dropcacheonclose=true,category.create=mfs,comment=x-gvfs-show,x-systemd.requires=/mnt/dp/MD04ACA4-B,x-systemd.requires=/mnt/dp/HDWE160,x-systemd.requires=/mnt/dp/ST6000DM003-2CY1,   0       2
+/mnt/dp/ST6000DM003-2CY1/PoolPart.1921c7da-5606-4f74-b677-9137492e5d64:/mnt/dp/HDWE160/PoolPart.2e7526c5-eed4-463a-910c-a5918352334f:/mnt/dp/MD04ACA4-B/PoolPart.adcd6bc9-e0dd-4241-882d-76de238f9565 /mnt/data fuse.mergerfs  auto,fsname=mergerfs,allow_other,use_ino,cache.files=partial,dropcacheonclose=true,category.create=mfs,comment=x-gvfs-show,x-systemd.requires=/mnt/dp/MD04ACA4-B,x-systemd.requires=/mnt/dp/HDWE160,x-systemd.requires=/mnt/dp/ST6000DM003-2CY1   0       2
+
+
+# SHARES
+# # comment=systemd.automount,
+//plex/diskpool /media/plex  cifs  credentials=/home/joe/.smb,iocharset=utf8,noauto,user 0 0
 
 # MD04ACA4-A/PoolPart.13825b86-9112-4293-a512-896073e9307e # maybe?
 
