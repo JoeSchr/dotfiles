@@ -204,7 +204,7 @@ super + y
 	bspc node @focused:/ -R 90
 
 # swap the current node and the biggest local node
-super +shift + space
+super + shift + space
 	bspc node -s biggest.local || bspc node -s next.local
 
 #
@@ -226,8 +226,8 @@ super + shift + b
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
-# super + shift + space
-# 	bspc node focused -t \~floating
+super + shift + ctrl + space 
+	bspc node focused -t \~floating
 
 
 # focus/swap
@@ -288,6 +288,8 @@ super + ctrl + shift + space
 # expand a window by moving one of its side outward
 super + shift + {h,j,k,l}
     bspc node -z {right -20 0,bottom 0 20,bottom 0 -20,right 20 0}
+super + shift + {Left,Down,Up,Right}
+    bspc node -z {right -20 0,bottom 0 20,bottom 0 -20,right 20 0}
 # super + shift + {h,j,k,l}
 #     bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
@@ -321,6 +323,13 @@ alt { + shift, } + grave
     bspc node -f {prev,next}.local
 super + alt + {j,k}
 	bspc node -f {prev,next}.local
+
+# move desktop to different monitor
+super + bracket{left,right}
+  desk=`bspc query -D -d focused`; \
+  bspc desktop -m {prev,next}; \
+  bspc monitor -f {prev,next}; \
+  bspc desktop -f $desk
 
 # switch between focused nodes
 # super +  b # this just works
