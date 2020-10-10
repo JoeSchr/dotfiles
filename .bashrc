@@ -233,9 +233,9 @@ export LC_CTYPE=en_US.UTF-8
 reboot_to_windows ()
 {
     windows_title=$(grep -i windows /boot/grub/grub.cfg | cut -d "'" -f 2)
-    sudo grub-reboot "$windows_title" && sudo reboot
+    sudo grub-reboot "$windows_title" && sudo systemctl hibernate
 }
-alias reboot-to-windows='reboot_to_windows'
+alias winreboot='reboot_to_windows'
 
 # source local commands
 . ~/.bashrc.local
