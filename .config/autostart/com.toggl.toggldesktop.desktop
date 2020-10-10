@@ -2,6 +2,7 @@
 Categories=Office;
 Comment=Free Time Tracking Software
 Exec=TogglDesktop.sh
+Hidden=true
 Icon=toggldesktop
 Name=Toggl Track
 StartupNotify=false
