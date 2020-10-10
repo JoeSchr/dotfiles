@@ -18,7 +18,10 @@ mainmonitor="$(bspc query --monitors --names | grep -v LVDS | head -n 1)"
 # fi
 
 # Start workspaces on the main monitor.
-bspc monitor $mainmonitor -d 1 2 3 4 5 
+for monitor in $(bspc query -M); do
+    bspc monitor $monitor -d 1 2 3 4
+done
+# bspc monitor $mainmonitor -d 1 2 3 4 5 
 bspc desktop -f 1
 
 # If you want a multi-monitor display or something else, I leave that to you to
