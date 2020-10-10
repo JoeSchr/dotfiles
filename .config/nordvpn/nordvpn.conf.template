@@ -1,0 +1,8 @@
+-  -  Technology: NordLynx
+Kill Switch: disabled
+CyberSec: disabled
+Notify: enabled
+Auto-connect: enabled
+DNS: disabled
+Whitelisted subnets:
+	10.0.0.0/24
