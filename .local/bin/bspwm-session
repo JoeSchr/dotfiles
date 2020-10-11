@@ -14,14 +14,11 @@ on_exit() {
 		jobs -p | grep -q $child && kill $child
 	done
 	# Extra paranoia
-	[ -d "${state_path}" && -w "${state_path}" ] && rm -rf -- "${state_path}"
+	[ -d "${state_path}" ] && [ -w "${state_path}" ] && rm -rf -- "${state_path}"
 }
 
 trap on_exit EXIT QUIT INT 30
-#Create example configs if configs are not present
-[ ! -f ${HOME}/.config/sxhkd/sxhkdrc ] && cp /etc/skel/.config/sxhkd/sxhkdrc ${HOME}/.config/sxhkd/sxhkdrc
-[ ! -f ${HOME}/.config/bspwm/bspwmrc ] && cp /etc/skel/.config/bspwm/bspwmrc ${HOME}/.config/bspwm/bspwmrc
-[ ! -f ${HOME}/.config/bspwm/autostart ] && touch ${HOME}/.config/bspwm/autostart
+#
 # Environment and autostart:
 
 for file in /etc/profile ${HOME}/.profile ${HOME}/.config/bspwm/autostart ; do
