@@ -1,0 +1,6 @@
+[Desktop Entry]
+Comment=create Manjaro-Architect launcher
+Exec=/usr/bin/ma-launcher
+Hidden=true
+Name=ma-launcher
+Type=Application

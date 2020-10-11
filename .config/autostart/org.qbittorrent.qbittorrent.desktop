@@ -1,0 +1,22 @@
+[Desktop Entry]
+Categories=Network;FileTransfer;P2P;Qt;
+Comment[en_US]=Download and share files over BitTorrent
+Comment=Download and share files over BitTorrent
+Exec=qbittorrent
+GenericName[en_US]=BitTorrent client
+GenericName=BitTorrent client
+Icon=qbittorrent
+Keywords=bittorrent;torrent;magnet;download;p2p;
+MimeType=application/x-bittorrent;
+Name[en_US]=qBittorrent
+Name=qBittorrent
+Path=
+StartupNotify=false
+StartupWMClass=qbittorrent
+Terminal=false
+TerminalOptions=
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=
