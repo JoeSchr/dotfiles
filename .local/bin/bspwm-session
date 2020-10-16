@@ -25,7 +25,5 @@ for file in /etc/profile ${HOME}/.profile ${HOME}/.config/bspwm/autostart ; do
 	[ -r "${file}" ] && . "${file}"
 done
 
-# Launch sxhkd:
-launch_sxhkd &
 # Launch bspwm:
 bspwm
