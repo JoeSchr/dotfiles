@@ -1,0 +1,32 @@
+# /dev/sdd2
+PARTUUID=edbc96fc-02	/         	ext4      	rw,noatime	0 0
+/swapfile	swap	swap	defaults	0	0
+# windows
+PARTUUID="edbc96fc-01" /mnt/win ntfs-3g defaults,nls=utf8,umask=000,dmask=027,fmask=137,uid=1000,gid=1000,windows_names 0 0
+
+# drive pool disks
+PARTUUID="0c5b629e-f07b-49e1-b844-a35ea1915762" /mnt/dp/DT01ACA3/  ntfs-3g   auto,users,allow_other,defaults,nls=utf8,umask=000,uid=1000,gid=1000,windows_names 0 0
+PARTUUID="7cc61f7b-2288-4045-bb7e-2438d8f27aeb" /mnt/dp/HDWE160/  ntfs-3g   auto,users,allow_other,defaults,nls=utf8,umask=000,uid=1000,gid=1000,windows_names 0 0
+PARTUUID="cf46f40f-59c1-432d-89f4-be665760836e" /mnt/dp/ST4000DM005/  ntfs-3g   auto,users,allow_other,defaults,nls=utf8,umask=000,uid=1000,gid=1000,windows_names 0 0
+PARTUUID="cc962cbe-01" /mnt/dp/WD15EADS00S/  ntfs-3g   auto,users,allow_other,defaults,nls=utf8,umask=000,uid=1000,gid=1000,windows_names 0 0
+PARTUUID="209317a8-507e-41cd-bdc1-cb27df5584be" /mnt/dp/WD15EADS00P/  ntfs-3g   auto,users,allow_other,defaults,nls=utf8,umask=000,uid=1000,gid=1000,windows_names 0 0
+
+# mergerfs pool
+# /mnt/dp/DT01ACA3/PoolPart:/mnt/dp/HDWE160/PoolPart:/mnt/dp/ST4000DM005/PoolPart:/mnt/dp/WD15EADS00S/PoolPart:/mnt/dp/WD15EADS00P/PoolPart: /mnt/diskpool fuse.mergerfs auto,users,defaults 0 2
+
+/mnt/dp/DT01ACA3/PoolPart:/mnt/dp/HDWE160/PoolPart:/mnt/dp/ST4000DM005/PoolPart:/mnt/dp/WD15EADS00S/PoolPart:/mnt/dp/WD15EADS00P/PoolPart: /mnt/diskpool fuse.mergerfs auto,minfreespace=1M,moveonenospc=true,use_ino,cache.files=partial,dropcacheonclose=true,allow_other,umask=000,category.create=mfs,defaults,noforget,inodecalc=path-hash,statfs=base,statfs_ignore=ro,fsname=diskpool,x-systemd.requires=/mnt/dp/DT01ACA3/,x-systemd.requires=/mnt/dp/HDWE160/,x-systemd.requires=/mnt/dp/ST4000DM005/,x-systemd.requires=/mnt/dp/WD15EADS00S/,x-systemd.requires=/mnt/dp/WD15EADS00P/,comment=x-gvfs-show 0 2
+
+
+
+#  sudo blkid:
+# /dev/sda1: PARTLABEL="Microsoft reserved partition" PARTUUID="e823e01e-9f3c-4322-bc99-0ce5f3862954"
+# /dev/sda2: LABEL="3TB-Zac" BLOCK_SIZE="512" UUID="4824DC4D24DC401C" TYPE="ntfs" PARTLABEL="Basic data partition" PARTUUID="0c5b629e-f07b-49e1-b844-a35ea1915762"
+# /dev/sdb1: PARTLABEL="Microsoft reserved partition" PARTUUID="0c2072ef-ea49-409c-822f-a47ff38e991e"
+# /dev/sdb2: LABEL="6TB-WD-2019" BLOCK_SIZE="512" UUID="E0B69622B695F96C" TYPE="ntfs" PARTLABEL="Basic data partition" PARTUUID="7cc61f7b-2288-4045-bb7e-2438d8f27aeb"
+# /dev/sdc1: LABEL="4TB" BLOCK_SIZE="512" UUID="700ECC080ECBC4F6" TYPE="ntfs" PARTLABEL="Basic data partition" PARTUUID="cf46f40f-59c1-432d-89f4-be665760836e"
+# /dev/sdd1: BLOCK_SIZE="512" UUID="FAA2F856A2F818B9" TYPE="ntfs" PARTUUID="edbc96fc-01"
+# /dev/sdd2: UUID="56479d22-acac-4b91-ae14-34d1bd210290" BLOCK_SIZE="4096" TYPE="ext4" PARTUUID="edbc96fc-02"
+# /dev/sdd3: PARTUUID="edbc96fc-03"
+# /dev/sde1: LABEL="1.6TB-MirrorB" BLOCK_SIZE="512" UUID="8AC849FDC849E7D1" TYPE="ntfs" PARTUUID="cc962cbe-01"
+# /dev/sdf1: PARTLABEL="Microsoft reserved partition" PARTUUID="421304b5-d93a-46cc-81e1-8e8db91f07ec"
+# /dev/sdf2: LABEL="1.6TB-MirrorA" BLOCK_SIZE="512" UUID="7E3A33673A331C19" TYPE="ntfs" PARTLABEL="Basic data partition" PARTUUID="209317a8-507e-41cd-bdc1-cb27df5584be"
