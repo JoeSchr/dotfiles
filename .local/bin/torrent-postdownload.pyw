@@ -1,9 +1,10 @@
-#!/usr/bin/env python3
+#! /bin/python3
+
 # Run Program:
-# "C:\path\to\utorrent-postprocess.pyw" "%L" "%S" "%N" "%K" "%F" "%D"
+# utorrent-postprocess.pyw "%L" "%S" "%N" "%K" "%F" "%D"
 #
 # Test with Console:
-# python "C:\path\to\utorrent-postprocess.pyw" "Movie" "5" "Avatar" "multi" "" "X:\Files\Avatar"
+# utorrent-postprocess.pyw "Movie" "5" "Avatar" "multi" "" "X:\Files\Avatar"
 
 
 import sys
@@ -37,7 +38,7 @@ command = [
 	'--def',
 		'excludeList=amc.txt',
 		'subtitle=en',
-		'plex=127.0.0.1:s4x_QvW8Nn4svyx8fDtk',
+		'plex=127.0.0.1:V6zq1wd1L7sXpmNLC9Qn',
 		'deleteAfterExtract=n',
 		'clean=y',
 		'minFileSize=10',
@@ -67,4 +68,6 @@ if state not in ['5', '11']:
 
 
 # execute command (and hide cmd window)
+# creation flag on windows
+# subprocess.run(command, creationflags=0x08000000)
 subprocess.run(command)
