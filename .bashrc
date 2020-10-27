@@ -233,9 +233,10 @@ export LC_CTYPE=en_US.UTF-8
 reboot_to_windows ()
 {
     windows_title=$(grep -i windows /boot/grub/grub.cfg | cut -d "'" -f 2)
-    sudo grub-reboot "$windows_title" && sudo systemctl hibernate
+    sudo grub-reboot "$windows_title" && sudo reboot now
 }
 alias winreboot='reboot_to_windows'
+alias manjaroreboot='sudo grub-reboot "Manjaro Linux" && sudo reboot now' 
 
 # source local commands
 . ~/.bashrc.local
