@@ -169,8 +169,6 @@ super + Print
 super + shift + Print
 	maimpick pic-full-$(date '+%y%m%d-%H%M-%S').png
 # Pick screenshot type
-Print
-	spectacle
 super + shift + s
 	spectacle
 
@@ -212,7 +210,7 @@ super + shift + space
 #
 
 # set the window state
-super + {t,shift + t,shift + space}
+super + {t,shift + t, alt + space}
     bspc node -t {tiled,pseudo_tiled,\~floating}
 
 # float window
@@ -225,9 +223,6 @@ super + shift + b
 # move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
-
-super + shift + ctrl + space 
-	bspc node focused -t \~floating
 
 
 # focus/swap
@@ -267,8 +262,8 @@ super + ctrl + shift + {1-9,0}
 	bspc node -d ^{1-9,10} --follow
 
 # preselect the direction
-# super + {u,o}
-#     bspc node -p {south,east}
+super + {u,o}
+    bspc node -p {south,east}
 
 # preselect the ratio
 super + ctrl + {1-9}
@@ -319,7 +314,7 @@ super + ctrl + o
 
 
 # focus the next/previous node in the same window
-alt { + shift, } + grave
+alt { , + shift} + grave
     bspc node -f {prev,next}.local
 super + alt + {j,k}
 	bspc node -f {prev,next}.local
