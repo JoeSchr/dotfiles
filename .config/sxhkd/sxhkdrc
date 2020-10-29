@@ -328,3 +328,8 @@ super + bracket{left,right}
 
 # switch between focused nodes
 # super +  b # this just works
+# WINDOW SPECIFIC STUFF
+# COH2
+# button8
+#   notify-send $(xdotool getwindowfocus)
+#   run_if_window_matches --class google-chrome -- notify-send button

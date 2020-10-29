@@ -7,14 +7,13 @@ from xkeysnail.transform import *
 define_timeout(1)
 
 # [Global modemap] Change modifier keys as in xmodmap
-# define_modmap({
-#     Key.CAPSLOCK: Key.LEFT_CTRL
-# })
+define_modmap({
+    Key.RIGHT_CTRL: Key.LEFT_META,
+})
 
 # [Conditional modmap] Change modifier keys in certain applications
-define_conditional_modmap(re.compile(r'Emacs'), {
-    Key.RIGHT_CTRL: Key.ESC,
-})
+# define_conditional_modmap(re.compile(r'Emacs'), {
+# })
 
 # [Multipurpose modmap] Give a key two meanings. A normal key when pressed and
 # released, and a modifier key when held down with another key. See Xcape,
@@ -24,7 +23,9 @@ define_multipurpose_modmap(
     # {Key.ENTER: [Key.ENTER, Key.RIGHT_CTRL]}
 
     # Capslock is escape when pressed and released. Control when held down.
-    {Key.CAPSLOCK: [Key.ESC, Key.LEFT_CTRL]
+    {
+        Key.CAPSLOCK: [Key.ESC, Key.LEFT_META]
+    }
     # To use this example, you can't remap capslock with define_modmap.
 )
 
