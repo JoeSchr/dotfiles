@@ -55,7 +55,6 @@ GenericName[uk]=Панель
 GenericName[x-test]=xxDockxx
 GenericName[zh_CN]=停靠栏
 GenericName[zh_TW]=Dock
-Hidden=true
 Icon=latte-dock
 InitialPreference=1
 Name=Latte
