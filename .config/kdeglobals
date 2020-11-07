@@ -128,6 +128,7 @@ Theme=breeze-dark
 AnimationDurationFactor=0.5
 LookAndFeelPackage=org.kde.breezedark.desktop
 ShowDeleteCommand=false
+SingleClick=false
 contrast=4
 widgetStyle=Breeze
 
