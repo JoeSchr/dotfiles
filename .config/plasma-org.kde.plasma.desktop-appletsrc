@@ -26,7 +26,7 @@ ToolBoxButtonState=topcenter
 ToolBoxButtonX=1487
 filterMimeTypes=\\0
 iconSize=2
-positions=6,20,desktop:/chrome-kmhopmchchfpfdcdjodmpfaaphdclmlj-Default.desktop,2,1,desktop:/chrome-fmdoigkamjbpnbhddencmdmehobicdba-Default.desktop,5,4,desktop:/net.lutris.ck3-111.desktop,4,4,desktop:/steam.desktop,5,2,desktop:/chrome-efmjfjelnicpmdcmfikempdhlmainjcb-Default.desktop,3,2,desktop:/Company of Heroes 2.desktop,3,4,desktop:/net.lutris.baldurs-gate-3-114.desktop,3,5,desktop:/Disco Elysium.desktop,4,3,desktop:/Crusader Kings III.desktop,3,6
+positions=7,20,desktop:/net.lutris.ck3-111.desktop,3,1,desktop:/Disco Elysium.desktop,5,0,desktop:/Company of Heroes 2.desktop,2,0,desktop:/chrome-kmhopmchchfpfdcdjodmpfaaphdclmlj-Default.desktop,2,1,desktop:/chrome-fmdoigkamjbpnbhddencmdmehobicdba-Default.desktop,2,2,desktop:/Crusader Kings III.desktop,1,0,desktop:/chrome-efmjfjelnicpmdcmfikempdhlmainjcb-Default.desktop,4,0,desktop:/net.lutris.baldurs-gate-3-114.desktop,1,1,desktop:/steam.desktop,6,0
 sortMode=-1
 
 [Containments][30][Wallpaper][com.github.zren.inactiveblur][General]
@@ -40,7 +40,7 @@ Image=file:///usr/share/wallpapers/EveningGlow/contents/images/2560x1600.jpg
 FillMode=2
 
 [Containments][30][Wallpaper][org.kde.slideshow][General]
-Image=file:///usr/share/wallpapers/OneStandsOut/contents/images/2560x1440.jpg
+Image=file:///usr/share/wallpapers/Cascade/contents/images/3840x2160.png
 SlidePaths=/usr/share/wallpapers
 UncheckedSlides=file:///usr/share/backgrounds/wallpapers-juhraya/Pastures_New_by_micsim35.jpg,file:///usr/share/backgrounds/wallpapers-juhraya/Springtime-Solitaire_by_Isaac-Sloan.jpg,file:///usr/share/backgrounds/wallpapers-2018/manjaro-vcr.jpg,file:///usr/share/backgrounds/manjaro-wallpapers-18.0/illyria-default2.jpg,file:///usr/share/backgrounds/manjaro-wallpapers-18.0/default-adapta.jpg,file:///usr/share/backgrounds/manjaro-wallpapers-18.0/glassfieldManjaro_perspective_center_dark.jpg,file:///usr/share/wallpapers/Breath2/contents/images/3840x2160.png,file:///usr/share/backgrounds/wallpapers-juhraya/Manjaro Juhraya_square.png,file:///usr/share/backgrounds/wallpapers-juhraya/Manjaro Juhraya - simple_dark.png,file:///usr/share/backgrounds/wallpapers-juhraya/Manjaro Juhraya - dark_2.png,file:///usr/share/backgrounds/wallpapers-juhraya/Manjaro Juhraya (without blur) - Mr_Glitch(Projekt:Root).png,file:///usr/share/backgrounds/wallpapers-juhraya/Manjaro Juhraya - Mr_Glitch(Projekt:Root).png,file:///usr/share/backgrounds/manjaro-wallpapers-18.0/block-font-logo3.jpg,file:///usr/share/backgrounds/manjaro-wallpapers-18.0/manjaro-dog.jpg,file:///usr/share/backgrounds/manjaro-wallpapers-18.0/Manjaro-Light2.jpg
 
@@ -87,4 +87,4 @@ showOnlyCurrentScreen=true
 
 [ScreenMapping]
 itemsOnDisabledScreens=
-screenMapping=desktop:/chrome-efmjfjelnicpmdcmfikempdhlmainjcb-Default.desktop,0,desktop:/Company of Heroes 2.desktop,0,desktop:/Disco Elysium.desktop,0,desktop:/steam.desktop,0,desktop:/net.lutris.ck3-111.desktop,0,desktop:/net.lutris.baldurs-gate-3-114.desktop,0,desktop:/chrome-kmhopmchchfpfdcdjodmpfaaphdclmlj-Default.desktop,0,desktop:/Crusader Kings III.desktop,0,desktop:/chrome-fmdoigkamjbpnbhddencmdmehobicdba-Default.desktop,0
+screenMapping=desktop:/net.lutris.baldurs-gate-3-114.desktop,0,desktop:/Company of Heroes 2.desktop,0,desktop:/chrome-efmjfjelnicpmdcmfikempdhlmainjcb-Default.desktop,0,desktop:/chrome-fmdoigkamjbpnbhddencmdmehobicdba-Default.desktop,0,desktop:/chrome-kmhopmchchfpfdcdjodmpfaaphdclmlj-Default.desktop,0,desktop:/Crusader Kings III.desktop,0,desktop:/Disco Elysium.desktop,0,desktop:/net.lutris.ck3-111.desktop,0,desktop:/steam.desktop,0
