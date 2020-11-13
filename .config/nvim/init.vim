@@ -241,6 +241,11 @@ if !exists('g:vscode')
     Plug 'digitaltoad/vim-pug'
     " Clojure(Script)
     Plug 'tpope/vim-fireplace'
+    " colored log file
+    " start with
+    " :AnsiEsc
+    Plug 'powerman/vim-plugin-AnsiEsc'
+
 
     " AUTOCOMPLETION: basially port of vscode autocompletion
     " https://github.com/neoclide/coc.nvim
