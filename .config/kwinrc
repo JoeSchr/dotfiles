@@ -43,27 +43,53 @@ TopLeft=None
 Active=true
 LatitudeAuto=48.2155
 LongitudeAuto=16.3075
+NightTemperature=5000
 
 [Plugins]
 blurEnabled[$d]
 contrastEnabled=false
+desktopchangeosdEnabled=true
 highlightwindowEnabled=true
 krohnkiteEnabled=true
 kwin4_effect_eyeonscreenEnabled=true
 kwin4_effect_windowapertureEnabled=false
+lattewindowcolorsEnabled=true
 minimizeallEnabled=false
 synchronizeskipswitcherEnabled=false
 videowallEnabled=false
 wobblywindowsEnabled=true
 
+[Script-desktopchangeosd]
+PopupHideDelay=500
+TextOnly=true
+
+[Script-krohnkite]
+debug=true
+enableQuarterLayout=true
+limitTileWidth=true
+limitTileWidthRatio=1.8
+maximizeSoleTile=true
+newWindowAsMaster=true
+noTileBorder=true
+tileLayoutGap=15
+
+[SubSession: fb6e5be4-126b-41d2-9768-a966bdeafa7e]
+active=-1
+count=0
+
 [TabBox]
+ActivitiesMode=0
 DesktopLayout=org.kde.breeze.desktop
 DesktopListLayout=org.kde.breeze.desktop
-DesktopMode=2
+HighlightWindows=false
 LayoutName=org.kde.breeze.desktop
+MinimizedMode=2
+SwitchingMode=1
 
 [Windows]
 FocusStealingPreventionLevel=2
+Placement=UnderMouse
+SeparateScreenFocus=true
 
 [org.kde.kdecoration2]
 library=org.kde.breeze
