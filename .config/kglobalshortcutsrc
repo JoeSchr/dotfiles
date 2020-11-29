@@ -52,6 +52,8 @@ _k_friendly_name=Session Management
 
 [kwin]
 Activate Window Demanding Attention=Ctrl+Alt+A,Ctrl+Alt+A,Activate Window Demanding Attention
+Cube=Ctrl+F11,Ctrl+F11,Desktop Cube
+Cylinder=none,none,Desktop Cylinder
 Decrease Opacity=none,none,Decrease Opacity of Active Window by 5 %
 Expose=Meta+Shift+Z\tCtrl+F9,Ctrl+F9,Toggle Present Windows (Current desktop)
 ExposeAll=Ctrl+F10\tLaunch (C),Ctrl+F10\tLaunch (C),Toggle Present Windows (All desktops)
@@ -62,7 +64,7 @@ Kill Window=Ctrl+Alt+Esc,Ctrl+Alt+Esc,Kill Window
 Krohnkite: Cycle Layout=none,none,
 Krohnkite: Decrease=Meta+D,none,
 Krohnkite: Down/Next=Alt+~\tMeta+J,none,
-Krohnkite: Float=Ctrl+Alt+Shift+F,none,
+Krohnkite: Float=Meta+Ctrl+Shift+F,none,
 Krohnkite: Float All=none,none,
 Krohnkite: Floating Layout=none,none,
 Krohnkite: Grow Height=Meta+Ctrl+J,none,
@@ -96,6 +98,7 @@ MoveZoomUp=none,none,Move Zoomed Area Upwards
 Setup Window Shortcut=none,none,Setup Window Shortcut
 Show Desktop=\tMeta+Shift+D,Meta+D,Show Desktop
 ShowDesktopGrid=Ctrl+F8,Ctrl+F8,Show Desktop Grid
+Sphere=none,none,Desktop Sphere
 Suspend Compositing=Alt+Shift+F12,Alt+Shift+F12,Suspend Compositing
 Switch One Desktop Down=none,Meta+Ctrl+Down,Switch One Desktop Down
 Switch One Desktop Up=none,Meta+Ctrl+Up,Switch One Desktop Up
