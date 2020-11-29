@@ -117,6 +117,8 @@ set directory=~/.vim/swap
   if empty(glob('~/.vim/swap'))
     silent !mkdir -p ~/.vim/swap
   endif
+" disable swapfile
+set noswapfile
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
 " yank to windows clipboard
@@ -143,9 +145,13 @@ set langmenu=en_US
 " for everyhere
 let $LANG = 'en_US'
 " save on focus lost
-:au FocusLost * silent! wa
+au FocusLost * silent! wa
 " save on buffer switch
-:set autowrite
+set autowrite
+
+set cursorline
+
+
 
 
 source $VIMRUNTIME/delmenu.vim
@@ -234,7 +240,7 @@ if !exists('g:vscode')
     " yankring with alt+p && alt+shift+p && use :yanks
     Plug 'maxbrunsfeld/vim-yankstack'
     " airline
-    Plug 'bling/vim-airline'
+    Plug 'vim-airline/vim-airline'
     " airline theme
     Plug 'vim-airline/vim-airline-themes'
     " TMUX
@@ -247,7 +253,8 @@ if !exists('g:vscode')
     " start with
     " :AnsiEsc
     Plug 'powerman/vim-plugin-AnsiEsc'
-
+    " nvim in browser
+    Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(-1) } }
 
     " AUTOCOMPLETION: basially port of vscode autocompletion
     " https://github.com/neoclide/coc.nvim
@@ -558,7 +565,31 @@ if !exists('g:vscode')
   " Resume latest coc list.
   nnoremap <silent> <leader>p  :<C-u>CocListResume<CR>-----
   " ---------------- /COC ------------
+  " ----------------- AIRLINE ---------------
+  let g:airline#extensions#tabline#enabled = 1
 
+  " ---------------- FIRENVIM --------------
+  let g:firenvim_config = {
+      \ 'globalSettings': {
+      \  },
+      \ 'localSettings': {
+          \ '.*': {
+              \ 'cmdline': 'firenvim',
+              \ 'priority': 0,
+              \ 'selector': 'textarea',
+              \ 'takeover': 'nonempty',
+          \ },
+      \ }
+  \ }
+  let fc = g:firenvim_config['localSettings']
+  if exists('g:started_by_firenvim')
+    let g:airline_disable_statusline = 1
+    let g:airline#extensions#tabline#enabled = 0
+    " automatically syncing changes to the page
+    " https://github.com/glacambre/firenvim
+    au TextChanged * ++nested write
+    au TextChangedI * ++nested write
+  endif
 endif
 " ============== / only NATIVE VIM  ===================
 
@@ -720,9 +751,9 @@ noremap <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())
 
 " --------- SNEAK-----------
 " 'fs': 2 character Sneak
-map fs <Plug>Sneak_s
-map Fs <Plug>Sneak_S
-let g:sneak#label = 2
+" map fs <Plug>Sneak_s
+" map Fs <Plug>Sneak_S
+" let g:sneak#label = 2
 
 " replace f and/or t with one-character Sneak?
 map f <Plug>Sneak_f
@@ -757,3 +788,17 @@ endif
 source ~/.config/nvim/tddcolors.vim
 
 source ~/.vimrc.local
+" ==== .vimrc.local EXAMPLE =======
+" if exists('g:started_by_firenvim')
+" " " make it light
+"   set background=light
+"   colorscheme onehalflight
+"   let g:airline_solarized_bg='light'
+" else
+"   set background=dark
+"   colorscheme onehalfdark
+"   " " solarized airline
+"   let g:airline_solarized_bg='dark'
+" endif
+" " " guifont to hack and larger
+" set guifont=Hack:h12
