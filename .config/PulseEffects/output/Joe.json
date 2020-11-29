@@ -545,7 +545,7 @@
             "ir-width": "100"
         },
         "crystalizer": {
-            "state": "false",
+            "state": "true",
             "aggressive": "false",
             "input-gain": "0",
             "output-gain": "0",
@@ -616,8 +616,8 @@
             }
         },
         "autogain": {
-            "state": "false",
-            "detect-silence": "false",
+            "state": "true",
+            "detect-silence": "true",
             "use-geometric-mean": "true",
             "input-gain": "0",
             "output-gain": "0",
