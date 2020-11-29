@@ -127,6 +127,7 @@ Theme=breeze-dark
 [KDE]
 AnimationDurationFactor=0.5
 LookAndFeelPackage=org.kde.breezedark.desktop
+ScrollbarLeftClickNavigatesByPage=false
 ShowDeleteCommand=false
 SingleClick=false
 contrast=4
@@ -144,7 +145,7 @@ Show Full Path=false
 Show Inline Previews=true
 Show Preview=false
 Show Speedbar=true
-Show hidden files=true
+Show hidden files=false
 Sort by=Name
 Sort directories first=true
 Sort reversed=false
