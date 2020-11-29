@@ -60,3 +60,5 @@
 	recentlySeenVersion = 2.15.1.windows.2
 [branch]
 	autosetuprebase = always
+[help]
+	autocorrect = 20
