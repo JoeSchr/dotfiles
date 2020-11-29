@@ -29,3 +29,7 @@ fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
+[ -f $HOME/.profile.local ] && . $HOME/.profile.local
+
+# EXAMPLE for .profile.local
+# export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json 
