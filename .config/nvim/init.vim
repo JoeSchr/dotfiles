@@ -356,7 +356,20 @@ if !exists('g:vscode')
   \   'javascript': ['prettier', 'eslint']
   \}
   " ---------------- FZF -----------------
+  " MAIN KEYBIND
   nnoremap <C-p> :FZF<Cr>
+
+  " buffers & history
+  nnoremap <silent> <Leader>B :History<CR>
+
+  " other Keybinds
+  nnoremap <silent> <Leader>pp :Files<CR>
+  nnoremap <silent> <Leader>' :Marks<CR>
+  nnoremap <silent> <Leader>g :Commits<CR>
+  nnoremap <silent> <Leader>H :Helptags<CR>
+  nnoremap <silent> <Leader>rr :History/<CR>
+  nnoremap <silent> <Leader>r: :History:<CR>
+
   " An action can be a reference to a function that processes selected lines
   function! s:build_quickfix_list(lines)
     call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
@@ -771,7 +784,6 @@ if executable('rg')
     " For use with ack.vim
     let g:ackprg = 'rg --vimgrep --no-heading'
     " shortcut: <C-p>a
-    nmap <leader>r :Rg
     nnoremap <C-p>a :Rg
 
     " Adds command :Rg
