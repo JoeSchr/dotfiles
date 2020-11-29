@@ -205,6 +205,8 @@ if !exists('g:vscode')
       Plug 'tpope/vim-surround'
       " unimpaired ([p,]p etc)
       Plug 'tpope/vim-unimpaired'
+      " fish file editing
+      Plug 'dag/vim-fish'
     " >============== / UNIVERSAL PLUGINS: NATIVE VIM ===================
 
     " NATIVE ONLY:
@@ -330,17 +332,21 @@ if !exists('g:vscode')
   " fix files on save
   let g:ale_fix_on_save = 1
 
+  " disable because of coc
+  let g:ale_disable_lsp = 1
+
   " lint after 1000ms after changes are made both on insert mode and normal mode
   let g:ale_lint_on_text_changed = 'always'
   let g:ale_lint_delay = 1000
 
   " use nice symbols for errors and warnings
-  let g:ale_sign_error = '❌'
+  let g:ale_sign_error = '>>'
   let g:ale_sign_warning = '⚠ '
 
   " fixer configurations
   let g:ale_fixers = {
   \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+  \   'javascript': ['prettier', 'eslint']
   \}
   " ---------------- FZF -----------------
   nnoremap <C-p> :FZF<Cr>
@@ -514,11 +520,11 @@ if !exists('g:vscode')
   omap if <Plug>(coc-funcobj-i)
   omap af <Plug>(coc-funcobj-a)
 
-  " Use <TAB> for selections ranges.
   " NOTE: Requires 'textDocument/selectionRange' support from the language server.
   " coc-tsserver, coc-python are the examples of servers that support it.
-  nmap <silent> <TAB> <Plug>(coc-range-select)
   xmap <silent> <TAB> <Plug>(coc-range-select)
+  " don't use TAB in normal mode, it blocks CTRL-I
+  " nmap <silent> <TAB> <Plug>(coc-range-select)
 
   " Add `:Format` command to format current buffer.
   command! -nargs=0 Format :call CocAction('format')
@@ -635,6 +641,8 @@ if exists('g:vscode')
       Plug 'tpope/vim-surround'
       " unimpaired ([p,]p etc)
       Plug 'tpope/vim-unimpaired'
+      " fish file editing
+      Plug 'dag/vim-fish'
     " ============== / UNIVERSAL PLUGINS: VSCODE-NEOVIM ===================
     " Special easymotion fork (only working in VSCode)
     Plug 'asvetliakov/vim-easymotion'

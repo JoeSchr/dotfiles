@@ -293,5 +293,17 @@ alias manjaroreboot='sudo grub-reboot "Manjaro Linux"'
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# export TERMINAL=st
-# export BROWSER=chrome
+## FISH
+# - ESCAPE HATCH:---------------------------------------------------------------------------------------------------------  
+# | In this setup, use                                                                                                   |  
+# | `bash --norc`                                                                                                        |
+# | to manually enter Bash without executing the commands from ~/.bashrc which would run exec fish and drop back into fish. |
+# ------------------------------------------------------------------------------------------------------------------------ 
+
+# To have commands such as `bash -c 'echo test'` run the command in Bash instead of starting fish
+if [ -z "$BASH_EXECUTION_STRING" ]; then exec fish; fi
+# Drop in to fish only if the parent process is not fish. This allows to quickly enter in to bash by invoking bash command without losing ~/.bashrc configuration:
+if [[ $(ps --no-header --pid=$PPID --format=cmd) != "fish" ]]
+then
+    exec fish
+fi

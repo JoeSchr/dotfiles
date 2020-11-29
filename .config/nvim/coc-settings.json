@@ -1,5 +1,7 @@
 {
-  "suggest.noselect": false,
+  "suggest.noselect": true,
+  "coc.preferences.diagnostic.displayByAle": true,
+  "diagnostic.displayByAle": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
     "typescript",

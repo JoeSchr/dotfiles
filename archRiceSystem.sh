@@ -33,7 +33,7 @@ yay -Sy pamac
 
 # ESSENTIALS SYSTEM
 pamac update
-pamac install neovim nvm tmux git docker docker-compose python3 python-pip mosh htop bash-completion duf
+pamac install neovim nvm tmux git docker docker-compose python3 python-pip mosh htop bash-completion duf fish
 # risky/estoric on arm
 yay -S ntfs-3g-fuse lf
 
