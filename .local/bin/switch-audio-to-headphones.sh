@@ -1,3 +1,3 @@
 #! /bin/sh
-amixer -c 0 sset 'Stereo Upmixing' Front
-amixer -c 0 sset 'Front Panel' on
+amixer -c DX sset 'Stereo Upmixing' Front
+amixer -c DX sset 'Front Panel' on
