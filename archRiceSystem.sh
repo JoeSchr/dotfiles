@@ -62,7 +62,7 @@ pip3 install --user wheel pynvim
 
 #INSTALL GUI & RICE
 # ESSENTIALS GUI
-pamac install visual-studio-code-bin signal-desktop xsel latte-dock
+pikaur -S visual-studio-code-bin signal-desktop xsel latte-dock cpupower
 
 # RICE
 pamac install nitrogen xorg-xbacklight x11-ssh-askpass maim xcompmgr picom unclutter neomutt urlview notmuch dunst zathura xcape surf xtitle groff dbus-x12 clang imagemagick
