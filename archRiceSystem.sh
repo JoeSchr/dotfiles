@@ -34,6 +34,13 @@ yay -Sy pamac
 # ESSENTIALS SYSTEM
 pamac update
 pamac install neovim nvm tmux git docker docker-compose python3 python-pip mosh htop bash-completion duf fish
+
+# install OH-MY-FISH
+cd ~/Downloads
+git clone -c core.autocrlf=false https://github.com/oh-my-fish/oh-my-fish
+cd oh-my-fish
+bin/install --offline
+
 # risky/estoric on arm
 yay -S ntfs-3g-fuse lf
 
