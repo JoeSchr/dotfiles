@@ -25,8 +25,10 @@ display=Display\tMeta+P,Display\tMeta+P,Switch Display
 
 [khotkeys]
 _k_friendly_name=Custom Shortcuts Service
+{12fd2fee-6ef9-487b-a3f4-aee00785f4ef}=Ctrl+Alt+T,none,Launch Konsole
 {a83269b6-d823-407e-8bb4-c0eee0ef65ce}=Ctrl+Alt+-,none,Headphones
 {ce914ebe-fcf0-48c8-9c85-b0c7a98235ce}=Ctrl+Alt+=,none,Surround
+{d03619b6-9b3c-48cc-9d9c-a2aadb485550}=none,none,Search
 
 [kmix]
 _k_friendly_name=Audio Volume
@@ -128,9 +130,9 @@ Switch to Desktop 6=Meta+6,none,Switch to Desktop 6
 Switch to Desktop 7=none,none,Switch to Desktop 7
 Switch to Desktop 8=none,none,Switch to Desktop 8
 Switch to Desktop 9=none,none,Switch to Desktop 9
-Switch to Next Desktop=Meta+`,none,Switch to Next Desktop
+Switch to Next Desktop=,none,Switch to Next Desktop
 Switch to Next Screen=Meta+Backspace,none,Switch to Next Screen
-Switch to Previous Desktop=Meta+~,none,Switch to Previous Desktop
+Switch to Previous Desktop=Meta+`,none,Switch to Previous Desktop
 Switch to Previous Screen=none,none,Switch to Previous Screen
 Switch to Screen 0=none,none,Switch to Screen 0
 Switch to Screen 1=none,none,Switch to Screen 1
@@ -277,7 +279,7 @@ new instance for entry 8=none,Meta+Ctrl+8,New Instance for Entry 8
 new instance for entry 9=none,Meta+Ctrl+9,New Instance for Entry 9
 repeat_action=none,Ctrl+Alt+R,Manually Invoke Action on Current Clipboard
 show latte global settings=none,Meta+W,Show Latte Global Settings
-show latte view=Ctrl+Alt+S,Meta+`,Show Latte Dock/Panel
+show latte view=Ctrl+Shift+Esc,Meta+`,Show Latte Dock/Panel
 show view settings=none,Meta+A,Cycle Through Dock/Panel Settings Windows
 show-barcode=none,none,Show Barcode...
 show-on-mouse-pos=none,none,Open Klipper at Mouse Position
@@ -327,7 +329,7 @@ Turn Off Screen=none,none,Turn Off Screen
 _k_friendly_name=Power Management
 
 [plasmashell]
-_k_friendly_name=Latte Dock
+_k_friendly_name=Activity switching
 activate task manager entry 1=none,Meta+1,Activate Task Manager Entry 1
 activate task manager entry 10=none,Meta+0,Activate Task Manager Entry 10
 activate task manager entry 2=none,Meta+2,Activate Task Manager Entry 2
@@ -349,7 +351,7 @@ manage activities=none,Meta+Q,Show Activity Switcher
 next activity=none,Meta+Tab,Walk through activities
 previous activity=none,Meta+Shift+Tab,Walk through activities (Reverse)
 repeat_action=none,Ctrl+Alt+R,Manually Invoke Action on Current Clipboard
-show dashboard=none,Ctrl+F12,Show Desktop
+show dashboard=Ctrl+F12,Ctrl+F12,Show Desktop
 show-barcode=none,none,Show Barcode...
 show-on-mouse-pos=none,none,Open Klipper at Mouse Position
 stop current activity=none,Meta+S,Stop Current Activity
