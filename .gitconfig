@@ -12,6 +12,7 @@
 [alias]
 	go = checkout
 	ci = commit -v
+	co = ci
 	st = status
 	br = branch
     df = diff
