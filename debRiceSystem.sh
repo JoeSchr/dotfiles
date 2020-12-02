@@ -32,7 +32,11 @@ sudo apt dist-upgrade
 
 # install ALL THE THINGS
 # essentials
-sudo apt install -y neovim git tig mosh python3 python3-pip xsel htop xbacklight ssh-askpass lxappearance maim xcompmgr unclutter neomutt urlview notmuch zathura xcape stterm surf xtitle groff groff-base dbus-x11 compton xauth
+sudo apt install -y neovim git tig mosh python3 python3-pip xsel htop xbacklight ssh-askpass lxappearance maim xcompmgr unclutter neomutt urlview notmuch zathura xcape stterm surf xtitle groff groff-base dbus-x11 compton xauth fish
+
+# install oh-my-fish
+curl -L https://github.com/oh-my-fish/oh-my-fish/raw/master/bin/install > install
+fish install
 # code & signal
 sudo apt install -y signal-desktop code
 # fonts
