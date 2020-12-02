@@ -10,9 +10,18 @@
 [push]
 	default = simple
 [alias]
+    # replace .bashrc
+    gl = lg
+    ga = git add
+    gb = br
+    gd = df
+	gcm = ci
+    gov = lg --all
+    rr = rebase --continue
+    ri = rebase --interactive
+    
 	go = checkout
 	ci = commit -v
-	co = ci
 	st = status
 	br = branch
     df = diff
