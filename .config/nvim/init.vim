@@ -110,6 +110,9 @@ set wildmenu
 " =======================
 " from various sources over time
 
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
+
 " Terminal Mode: Escape with SHIFT+ESC
 :tnoremap <C-\><Esc> <C-\><C-n>
 " set vim swap directory
