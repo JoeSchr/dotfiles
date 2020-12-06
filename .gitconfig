@@ -12,9 +12,10 @@
 [alias]
     # replace .bashrc
     gl = lg
-    ga = git add
+    ga = add
     gb = br
     gd = df
+    gs = st
 	gcm = ci
     gov = lg --all
     rr = rebase --continue
