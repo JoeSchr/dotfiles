@@ -6,12 +6,25 @@ touch ~/.config/Xresources.local
 
 # update mirror-list
 sudo pacman-mirrors -g
+
+su -l
+# update keydatabases
+rm -R /etc/pacman.d/gnupg
+rm -R /root/.gnupg
+dirmngr </dev/null
+
+pacman-key --init
+pacman-key --populate archlinux manjaro
+pacman-key --refresh-keys
 # update databases
-sudo pacman -Fy
-sudo pacman -Syy
+pacman -Fy
+pacman -Syy
 
 # install buildtools like eg. git make libffi glibc gcc
-sudo pacman -S --needed base-devel git
+pacman -S --needed base-devel git
+
+# exit su -l
+exit 
 
 # install AUR helper:
 # try automatic
