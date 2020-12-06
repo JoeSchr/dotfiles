@@ -4,36 +4,35 @@ touch ~/.vimrc.local
 touch ~/.bashrc.local
 touch ~/.config/Xresources.local
 
+# update mirror-list
+sudo pacman-mirrors -g
 # update databases
 sudo pacman -Fy
 sudo pacman -Syy
 
 # install buildtools like eg. git make libffi glibc gcc
-sudo pacman -S base-devel
+sudo pacman -S --needed base-devel git
 
-# install YAY helper:
-pamac install yay
-# manual install YAY:
-# _uid="$(id -u)"
-# _uid="$(id -g)"
-# cd /opt
-# sudo git clone https://aur.archlinux.org/yay-git.git
-# sudo chown -R $_uid:$_gid ./yay-git
-# cd yay-git
-# makepkg -si
-# # 2 times to make it stick
-# makepkg -si
+# install AUR helper:
+# try automatic
+pikaur -Sy pikaur
+
+# manual
+cd ~/Downloads
+git clone https://aur.archlinux.org/pikaur.git
+cd pikaur
+makepkg -fsri
+cd ~/Downloads
 
 
 # upgrade all the packages!!!
-sudo yay -Syu
+sudo pikaur -Syu
 
 # install manjaro pacman
-yay -Sy pamac
+pikaur -Sy pamac
 
 # ESSENTIALS SYSTEM
-pamac update
-pamac install neovim nvm tmux git docker docker-compose python3 python-pip mosh htop bash-completion duf fish
+pikaur -Sy neovim nvm tmux git docker docker-compose python3 python-pip mosh htop bash-completion duf fish
 
 # install OH-MY-FISH
 cd ~/Downloads
@@ -41,13 +40,9 @@ git clone -c core.autocrlf=false https://github.com/oh-my-fish/oh-my-fish
 cd oh-my-fish
 bin/install --offline
 
-# install FISHER
-curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 
-fisher install jorgebucaran/nvm.fish
-# install nvm
 # risky/estoric on arm
-yay -S ntfs-3g-fuse lf
+pikaur -Sy ntfs-3g-fuse lf
 
 # NPM / YARN / NODE / NVM
 # export NVM_DIR="$HOME/.nvm"
@@ -60,32 +55,32 @@ nvm use default
 npm install -G yarn
 cd ~
 
+# install FISHER
+curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+
+# install nvm for fish
+fisher install jorgebucaran/nvm.fish
 
 # VIM
-pamac install neovim-nigthly ripgrep fzf
+pikaur -Sy neovim-nigthly ripgrep fzf
 pip3 install --user wheel pynvim
-
 
 #INSTALL GUI & RICE
 # ESSENTIALS GUI
-pikaur -S visual-studio-code-bin signal-desktop xsel latte-dock cpupower
+pikaur -Sy visual-studio-code-bin signal-desktop xsel latte-dock cpupower
 
 # RICE
-pamac install nitrogen xorg-xbacklight x11-ssh-askpass maim xcompmgr picom unclutter neomutt urlview notmuch dunst zathura xcape surf xtitle groff dbus-x12 clang imagemagick
+pikaur -Sy nitrogen xorg-xbacklight x11-ssh-askpass maim xcompmgr picom unclutter neomutt urlview notmuch dunst zathura xcape surf xtitle groff dbus-x12 clang imagemagick
 
 # FONTS
-pamac install noto-fonts powerline-fonts ttf-inconsolata ttf-joypixels
-yay -S nerd-fonts-hack
+pikaur -Sy noto-fonts powerline-fonts ttf-inconsolata ttf-joypixels nerd-fonts-hack
 
 cd ~/Downloads
 
-
-# dependencies
-pamac install libxcb
-yay -S libxft-bgra-git
-
 # ST
-pamac install st-luke-git
+# dependencies
+# pikaur -Sy libxcb libxft-bgra-git
+# pikaur -Sy st-luke-git
 # cd ~/Downloads
 # git clone https://github.com/LukeSmithxyz/st
 # cd st
@@ -137,7 +132,7 @@ sudo cp $HOME/.local/bin/bspwm.desktop /usr/share/xsessions/bspwm.desktop
 sudo ln -s $HOME/.local/bin/launch_bspwm /usr/local/bin/launch_bspwm
 sudo ln -s $HOME/.local/bin/kde-bspwm.sh /usr/local/bin/kde-bspwm
 
-pamac install bspwm
+pikaur -Sy bspwm
 
 # TWEAKS
 # increase number of file watcher
@@ -148,8 +143,9 @@ sudo sysctl -p
 sudo usermod -a -G disk $(whoami)
 
 # fix vscode signin isues
-yay -S qtkeychain gnome-keyring
+pikaur -Sy qtkeychain gnome-keyring
 
+# fix .ssh 
 chmod 600 .ssh/*
 
 # DOCKER
@@ -160,11 +156,14 @@ sudo systemctl start docker
 sudo chown $(id -u):$(id -g) /var/run/docker.sock
 
 # bluetooth a2dp
-pamac install pulseaudio-bt-auto-enable-a2dp pulseaudio-modules-bt
+pikaur -Sy pulseaudio-bt-auto-enable-a2dp pulseaudio-bluetooth
 # equalizer
-pamac install pulseeffects
+pikaur -Sy pulseeffects
 # unify for logitech setpoint
-pamac install ltunify
+pikaur -Sy ltunify
+# nvidia intel hybrid stuff
+sudo mhwd -i pci video-hybrid-intel-nvidia-450xx-prime
+pikaur -S cuda vulkan-mesa-layers vulkan-intel lib32-vulkan-intel  lib32-amdvlk  lib32-nvidia-utils  lib32-vulkan-mesa-layers
 
 
 # DOCKER (REFRESH GROUP)
