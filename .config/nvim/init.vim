@@ -357,13 +357,15 @@ if !exists('g:vscode')
   \}
   " ---------------- FZF -----------------
   " MAIN KEYBIND
-  nnoremap <C-p> :FZF<Cr>
+  nnoremap <C-p> :Files<Cr>
 
-  " buffers & history
+  " buffers & old files history
   nnoremap <silent> <Leader>B :History<CR>
+  nnoremap <silent> <Leader>rb :History<CR>
 
   " other Keybinds
-  nnoremap <silent> <Leader>pp :Files<CR>
+  nnoremap <silent> <Leader>rp :FZF<CR>
+  nnoremap <silent> <Leader>r/ :BLines<CR>
   nnoremap <silent> <Leader>' :Marks<CR>
   nnoremap <silent> <Leader>g :Commits<CR>
   nnoremap <silent> <Leader>H :Helptags<CR>
@@ -512,8 +514,8 @@ if !exists('g:vscode')
   nmap <leader>rn <Plug>(coc-rename)
 
   " Formatting selected code.
-  xmap <leader>f  <Plug>(coc-format-selected)
-  nmap <leader>f  <Plug>(coc-format-selected)
+  xmap <leader>=  <Plug>(coc-format-selected)
+  nmap <leader>=  <Plug>(coc-format-selected)
 
   augroup mygroup
     autocmd!
@@ -770,6 +772,7 @@ noremap <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())
 
 " replace f and/or t with one-character Sneak?
 map f <Plug>Sneak_f
+map <Leader>f <Plug>Sneak_f
 map F <Plug>Sneak_F
 map t <Plug>Sneak_t
 map T <Plug>Sneak_T
