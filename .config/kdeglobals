@@ -116,10 +116,14 @@ BrowserApplication=google-chrome.desktop
 ColorScheme=BreezeDarkNoalternate
 Name=Breeze Dark
 TerminalApplication=konsole
-XftHintStyle=hintslight
+XftHintStyle=hintfull
 XftSubPixel=rgb
+fixed=Noto Mono,8,-1,5,50,0,0,0,0,0
+font=Noto Sans,8,-1,5,50,0,0,0,0,0
+menuFont=Noto Sans,8,-1,5,50,0,0,0,0,0
 shadeSortColumn=true
-toolBarFont=Noto Sans,10,-1,5,50,0,0,0,0,0
+smallestReadableFont=Noto Sans,6,-1,5,50,0,0,0,0,0
+toolBarFont=Noto Sans,8,-1,5,50,0,0,0,0,0
 
 [Icons]
 Theme=breeze-dark
@@ -149,12 +153,12 @@ Show hidden files=false
 Sort by=Name
 Sort directories first=true
 Sort reversed=false
-Speedbar Width=533
+Speedbar Width=153
 View Style=Detail
 
 [KScreen]
-ScaleFactor=2
-ScreenScaleFactors=DP-0=2;DP-1=2;HDMI-0=2;DP-2=2;DP-3=2;DP-4=2;DP-5=2;USB-C-0=2;
+ScaleFactor=1
+ScreenScaleFactors=DP-0=1;DP-1=1;HDMI-0=1;DP-2=1;DP-3=1;DP-4=1;DP-5=1;USB-C-0=1;
 
 [KShortcutsDialog Settings]
 Dialog Size=600,480

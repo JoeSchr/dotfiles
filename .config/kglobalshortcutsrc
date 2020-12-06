@@ -25,10 +25,8 @@ display=Display\tMeta+P,Display\tMeta+P,Switch Display
 
 [khotkeys]
 _k_friendly_name=Custom Shortcuts Service
-{12fd2fee-6ef9-487b-a3f4-aee00785f4ef}=Ctrl+Alt+T,none,Launch Konsole
 {a83269b6-d823-407e-8bb4-c0eee0ef65ce}=Ctrl+Alt+-,none,Headphones
 {ce914ebe-fcf0-48c8-9c85-b0c7a98235ce}=Ctrl+Alt+=,none,Surround
-{d03619b6-9b3c-48cc-9d9c-a2aadb485550}=none,none,Search
 
 [kmix]
 _k_friendly_name=Audio Volume
@@ -37,7 +35,7 @@ decrease_volume=Volume Down\tCtrl+Shift+Down,Volume Down,Decrease Volume
 increase_microphone_volume=Microphone Volume Up,Microphone Volume Up,Increase Microphone Volume
 increase_volume=Volume Up\tCtrl+Shift+Up,Volume Up,Increase Volume
 mic_mute=Microphone Mute,Microphone Mute,Mute Microphone
-mute=Volume Mute\tCtrl+Shift+M,Volume Mute,Mute
+mute=Volume Mute\tCtrl+Alt+Shift+M,Volume Mute,Mute
 
 [krunner.desktop]
 RunClipboard=Alt+Shift+F2,Alt+Shift+F2,Run command on clipboard contents
@@ -329,7 +327,7 @@ Turn Off Screen=none,none,Turn Off Screen
 _k_friendly_name=Power Management
 
 [plasmashell]
-_k_friendly_name=Activity switching
+_k_friendly_name=Latte Dock
 activate task manager entry 1=none,Meta+1,Activate Task Manager Entry 1
 activate task manager entry 10=none,Meta+0,Activate Task Manager Entry 10
 activate task manager entry 2=none,Meta+2,Activate Task Manager Entry 2

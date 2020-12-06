@@ -108,7 +108,3 @@ SwitchingMode=1
 FocusStealingPreventionLevel=2
 Placement=UnderMouse
 SeparateScreenFocus=true
-
-[org.kde.kdecoration2]
-library=org.kde.breeze
-theme=Breeze
