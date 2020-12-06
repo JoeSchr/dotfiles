@@ -236,7 +236,7 @@ reboot_to_windows ()
     sudo grub-reboot "$windows_title"
 }
 alias winreboot='reboot_to_windows'
-alias manjaroreboot='sudo grub-reboot "Manjaro Linux"' 
+alias manjaroreboot='sudo grub-reboot "Manjaro Linux"'
 
 # source local commands
 . ~/.bashrc.local
@@ -262,26 +262,6 @@ alias manjaroreboot='sudo grub-reboot "Manjaro Linux"'
 # search stackoverflow with googler
 #alias so='googler -j -w stackoverflow.com (xsel)'
 
-# ## default start tmux, with option to break
-# # exit if inside tmux
-# if [[ "$TERM" =~ "screen".* ]]; then
-#   echo "Already inside TMUX"
-# else
-#
-#   read -t 3 -n 1 -p "Start tmux (n/Y)? " answer
-#   [ -z "$answer" ] && answer="Y"  # 'yes' efault choice
-#   echo
-#   case ${answer:0:1} in
-#       n|N )
-#           echo "No Tmux"
-#           ;;
-#       * )
-#           echo "Starting tmux-init"
-#           tmux attach -t base || tmux new -s base
-#       ;;
-#   esac
-# fi
-#
 ## FIX on WSL so it doesn't get windows npm/yarn
 # export PATH=$(echo "$PATH" | sed -e 's/\/mnt\/c\/Program Files\/nodejs://')
 # export PATH=$(echo "$PATH" | sed -e 's/\/mnt\/c\/Program Files\/nodejs\/://')
@@ -293,17 +273,46 @@ alias manjaroreboot='sudo grub-reboot "Manjaro Linux"'
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-## FISH
-# - ESCAPE HATCH:---------------------------------------------------------------------------------------------------------  
-# | In this setup, use                                                                                                   |  
-# | `bash --norc`                                                                                                        |
-# | to manually enter Bash without executing the commands from ~/.bashrc which would run exec fish and drop back into fish. |
-# ------------------------------------------------------------------------------------------------------------------------ 
+ # # exit if inside tmux
+# if [[ "$TERM" =~ "screen".* ]]; then
+ #  echo "Already inside TMUX"
+# else
+ #  read -t 2 -n 1 -p "Start tmux (n/Y)? " answer
+ #  [ -z "$answer" ] && answer="Y"  # 'yes' default choice
+ #  case ${answer:0:1} in
+ #     n|N )
+ #         echo "No Tmux"
+ #         ;;
+ #     * )
+ #         echo "Starting tmux-init"
+ #         tmux attach -t base || tmux new -s base
+ #     ;;
+ #  esac
+# fi
 
-## To have commands such as `bash -c 'echo test'` run the command in Bash instead of starting fish
+# alias ca="config add"
+
+# export LANGUAGE=en_US.UTF-8
+# export LANG=en_US.UTF-8
+# export LC_ALL=en_US.UTF-8
+
+
+# export NVM_DIR="$HOME/.nvm"
+# . "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json
+
+# ## FISH
+# # - ESCAPE HATCH:---------------------------------------------------------------------------------------------------------
+# # | In this setup, use                                                                                                   |
+# # | `bash --norc`                                                                                                        |
+# # | to manually enter Bash without executing the commands from ~/.bashrc which would run exec fish and drop back into fish. |
+# # ------------------------------------------------------------------------------------------------------------------------
+
+# # To have commands such as `bash -c 'echo test'` run the command in Bash instead of starting fish
 # if [ -z "$BASH_EXECUTION_STRING" ]; then exec fish; fi
-## Drop in to fish only if the parent process is not fish. This allows to quickly enter in to bash by invoking bash command without losing ~/.bashrc configuration:
+# # Drop in to fish only if the parent process is not fish. This allows to quickly enter in to bash by invoking bash command without losing ~/.bashrc configuration:
 # if [[ $(ps --no-header --pid=$PPID --format=cmd) != "fish" ]]
 # then
-#     exec fish
+ #    exec fish
 # fi
