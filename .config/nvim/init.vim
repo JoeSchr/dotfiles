@@ -74,6 +74,26 @@ set wildignore+=node_modules/*,bower_components/*
 " Show all matching files above the command line when tab complete
 " from: https://gist.github.com/csswizardry/9a33342dace4786a9fee35c73fa5deeb
 set wildmenu
+
+" ============================== UI  ========================================= "
+
+" Enable true color support
+set termguicolors
+
+" Vim airline theme
+" let g:airline_theme='space'
+
+" Change vertical split character to be a space (essentially hide it)
+set fillchars+=vert:.
+
+" Set preview window to appear at bottom
+set splitbelow
+
+" Don't dispay mode in command line (airilne already shows it)
+set noshowmode
+
+" Set floating window to be slightly transparent
+set winbl=10
 " NOW WE CAN:
 " - Hit tab to :find by partial match
 " - Use * to make it fuzzy
@@ -199,8 +219,11 @@ if !exists('g:vscode')
       " ------ needs to be duplicated because can't call plug#begin twice
       Plug 'bkad/CamelCaseMotion'
       " Fuzzy Find, use :ctrlp or <c-p>
-      Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-      Plug 'junegunn/fzf.vim'
+      " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+      " Plug 'junegunn/fzf.vim'
+      " Fuzzy project file search
+      " Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+      Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
       " Easymotion fuzzy search
       Plug 'haya14busa/incsearch.vim'
       Plug 'haya14busa/incsearch-fuzzy.vim'
@@ -232,7 +255,7 @@ if !exists('g:vscode')
     " -- typescript support
     Plug 'leafgarland/typescript-vim'
     " -- vue
-    Plug 'posva/vim-vue'
+    " Plug 'posva/vim-vue'
     Plug 'pangloss/vim-javascript'
     " -- other
     " Make sure you use single quotes
@@ -258,6 +281,8 @@ if !exists('g:vscode')
     Plug 'powerman/vim-plugin-AnsiEsc'
     " nvim in browser
     Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(-1) } }
+    " Manage any Kubernetes resource from Vim.
+    Plug 'rottencandy/vimkubectl'
 
     " AUTOCOMPLETION: basially port of vscode autocompletion
     " https://github.com/neoclide/coc.nvim
@@ -360,17 +385,17 @@ if !exists('g:vscode')
   \}
   " ---------------- FZF -----------------
   " MAIN KEYBIND
-  nnoremap <C-p> :Files<Cr>
+  nnoremap <C-t> :Files<Cr>
 
   " buffers & old files history
   nnoremap <silent> <Leader>B :History<CR>
   nnoremap <silent> <Leader>rb :History<CR>
 
   " other Keybinds
-  nnoremap <silent> <Leader>rp :FZF<CR>
+  " nnoremap <silent> <Leader>rp :FZF<CR>
   nnoremap <silent> <Leader>r/ :BLines<CR>
   nnoremap <silent> <Leader>' :Marks<CR>
-  nnoremap <silent> <Leader>g :Commits<CR>
+  " nnoremap <silent> <Leader>g :Commits<CR>
   nnoremap <silent> <Leader>H :Helptags<CR>
   nnoremap <silent> <Leader>rr :History/<CR>
   nnoremap <silent> <Leader>r: :History:<CR>
@@ -422,6 +447,44 @@ if !exists('g:vscode')
   let g:fzf_history_dir = '~/.local/share/fzf-history'
 
   " ---------------- / FZF ------------
+  " === leaderF setup ==="
+  " don't show the help in normal mode
+  let g:Lf_HideHelp = 0
+  let g:Lf_UseCache = 1
+  let g:Lf_UseVersionControlTool = 1
+  let g:Lf_IgnoreCurrentBufferName = 1
+  " popup mode
+  let g:Lf_WindowPosition = 'popup'
+  let g:Lf_PreviewInPopup = 1
+  let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2", 'font': "DejaVu Sans Mono for Powerline" }
+  let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0 }
+
+  " === leaderF shorcuts === "
+  "   <ctrl>p - Browse list of buffers & files  in current directory
+  "   <leader>t - Browse list of files in current directory
+  "   <leader>;         - Browser currently open buffers
+  "   <ctrl><alt>f - Search current directory for occurences of given term and close window if no results
+  "   <leader>* - Search current directory for occurences of word under cursor
+  "   <leader>/ - Search lines of current buffer
+  "   <Ctrl-R>: - Search command history
+  "   <Ctrl-N> - Dir Browser
+  " unmap <C-p>
+  let g:Lf_ShortcutF = '<C-P>'
+  noremap <leader>; :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
+  noremap <leader>r :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
+  " noremap <leader>ft :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
+  noremap <C-t> :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
+
+  noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR>
+  noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR><CR>
+  " search visually selected text literally
+  xnoremap <leader>* :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
+  noremap <leader>r* :<C-U>Leaderf! rg --recall<CR>
+
+  " C-k / C-j are mapped to window change
+  " let g:Lf_CommandMap = {'<C-k>': ['<Up>'], '<C-j>': ['<Down>']}
+  " ---------------- /leaderF --------
+  "
   " ---------------- COC ------------
   " coc config
   " automatically installs this coc extension
@@ -790,7 +853,7 @@ if executable('rg')
     " For use with ack.vim
     let g:ackprg = 'rg --vimgrep --no-heading'
     " shortcut: <C-p>a
-    nnoremap <C-p>a :Rg
+    " nnoremap <C-p>a :Rg
 
     " Adds command :Rg
     command! -bang -nargs=* Rg
