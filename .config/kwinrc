@@ -40,6 +40,9 @@ BorderActivateAll=9
 [Effect-Slide]
 SlideBackground=false
 
+[Effect-Zoom]
+ZoomFactor=0.9999999999999998
+
 [Effect-kwin4_effect_translucency]
 Inactive=96
 IndividualMenuConfig=true
@@ -56,7 +59,7 @@ NightTemperature=5000
 
 [Plugins]
 blurEnabled=false
-contrastEnabled=false
+contrastEnabled=true
 cubeslideEnabled=true
 desktopchangeosdEnabled=true
 diminactiveEnabled=true
@@ -76,6 +79,7 @@ slidebackEnabled=true
 synchronizeskipswitcherEnabled=false
 videowallEnabled=false
 wobblywindowsEnabled=true
+zoomEnabled=false
 
 [Script-desktopchangeosd]
 PopupHideDelay=500
