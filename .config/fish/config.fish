@@ -1,7 +1,5 @@
 fish_vi_key_bindings
 
-fzf_key_bindings
-
 # C-p completes history expand
 bind -M insert \cP forward-char
 # C-f moves one word forward
