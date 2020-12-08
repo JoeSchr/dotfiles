@@ -178,6 +178,12 @@ pikaur -Sy ltunify
 sudo mhwd -i pci video-hybrid-intel-nvidia-450xx-prime
 pikaur -S cuda vulkan-mesa-layers vulkan-intel lib32-vulkan-intel  lib32-amdvlk  lib32-nvidia-utils  lib32-vulkan-mesa-layers
 
+# OPEN SHIFT
+# Minishift & OC Cli
+pikaur -Sy minishift origin-client
+# ODO Cli
+sudo curl -L https://mirror.openshift.com/pub/openshift-v4/clients/odo/latest/odo-linux-amd64 -o /usr/local/bin/odo
+sudo chmod +x /usr/local/bin/odo
 
 # DOCKER (REFRESH GROUP)
 # needs to be at end, because it sources .bashrc again
