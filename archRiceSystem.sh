@@ -24,7 +24,7 @@ pacman -Syy
 pacman -S --needed base-devel git
 
 # exit su -l
-exit 
+exit
 
 # install AUR helper:
 # try automatic
@@ -45,7 +45,10 @@ sudo pikaur -Syu
 pikaur -Sy pamac
 
 # ESSENTIALS SYSTEM
-pikaur -Sy neovim nvm tmux git docker docker-compose python3 python-pip mosh htop bash-completion duf fish
+pikaur -Sy neovim nvm tmux git docker docker-compose python3 python-pip mosh htop bash-completion duf fish fzf
+
+# risky/estoric on arm
+pikaur -Sy ntfs-3g-fuse lf
 
 # install OH-MY-FISH
 cd ~/Downloads
@@ -53,29 +56,26 @@ git clone -c core.autocrlf=false https://github.com/oh-my-fish/oh-my-fish
 cd oh-my-fish
 bin/install --offline
 
+# install FISHER
+fish -c 'curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher'
 
-# risky/estoric on arm
-pikaur -Sy ntfs-3g-fuse lf
+# fzf
+fish -c 'fisher install jethrokuan/fzf'
+
 
 # NPM / YARN / NODE / NVM
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 nvm install --lts
 nvm use --lts
 nvm alias default 12
 nvm use default
 npm install -G yarn
 cd ~
-
-# install FISHER
-curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
-
 # install nvm for fish
-fisher install jorgebucaran/nvm.fish
+fish -c 'fisher install jorgebucaran/nvm.fish'
+
 
 # VIM
-pikaur -Sy neovim-nigthly ripgrep fzf
+pikaur -Sy neovim-nigthly ripgrep
 pip3 install --user wheel pynvim
 
 #INSTALL GUI & RICE
@@ -158,7 +158,7 @@ sudo usermod -a -G disk $(whoami)
 # fix vscode signin isues
 pikaur -Sy qtkeychain gnome-keyring
 
-# fix .ssh 
+# fix .ssh
 chmod 600 .ssh/*
 
 # DOCKER

@@ -8,7 +8,8 @@ touch ~/.config/Xresources.local
 
 ## Adds current GIT
 sudo add-apt-repository ppa:git-core/ppa -y
-
+# Fish
+sudo apt-add-repository ppa:fish-shell/release-3
 ## Adds to APT repository
 # lazygit
 #sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 68CCF87596E97291
@@ -32,13 +33,19 @@ sudo apt dist-upgrade
 
 # install ALL THE THINGS
 # essentials
-sudo apt install -y neovim git tig mosh python3 python3-pip xsel htop xbacklight ssh-askpass lxappearance maim xcompmgr unclutter neomutt urlview notmuch zathura xcape stterm surf xtitle groff groff-base dbus-x11 compton xauth fish
+sudo apt install -y neovim git tig mosh python3 python3-pip xsel htop xbacklight ssh-askpass lxappearance maim xcompmgr unclutter neomutt urlview notmuch zathura xcape stterm surf xtitle groff groff-base dbus-x11 compton xauth fish fzf
 
 # install OH-MY-FISH
 cd ~/Downloads
 git clone -c core.autocrlf=false https://github.com/oh-my-fish/oh-my-fish
 cd oh-my-fish
 bin/install --offline
+
+# install FISHER
+fish -c 'curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher'
+
+# fzf
+fish -c 'fisher install jethrokuan/fzf'
 
 # code & signal
 sudo apt install -y signal-desktop code
