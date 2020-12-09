@@ -1,0 +1,2 @@
+#! /bin/sh
+amixer -c DX sset Master 0
