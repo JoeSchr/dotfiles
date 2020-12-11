@@ -1,2 +1,0 @@
-"DELETE ME and `sudo mv ./90forceyes/etc/apt/90forceyes`
-APT::Get::Assume-Yes "true";
