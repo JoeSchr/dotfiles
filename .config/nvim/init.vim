@@ -219,8 +219,8 @@ if !exists('g:vscode')
       " ------ needs to be duplicated because can't call plug#begin twice
       Plug 'bkad/CamelCaseMotion'
       " Fuzzy Find, use :ctrlp or <c-p>
-      " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-      " Plug 'junegunn/fzf.vim'
+      Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+      Plug 'junegunn/fzf.vim'
       " Fuzzy project file search
       " Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
       Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
@@ -255,7 +255,6 @@ if !exists('g:vscode')
     " -- typescript support
     Plug 'leafgarland/typescript-vim'
     " -- vue
-    " Plug 'posva/vim-vue'
     Plug 'pangloss/vim-javascript'
     " -- other
     " Make sure you use single quotes
@@ -271,8 +270,9 @@ if !exists('g:vscode')
     Plug 'vim-airline/vim-airline-themes'
     " TMUX
     Plug 'christoomey/vim-tmux-navigator'
-    " Clojure(Script)
+    " Vue syntax highlight
     Plug 'digitaltoad/vim-pug'
+    Plug 'posva/vim-vue'
     " Clojure(Script)
     Plug 'tpope/vim-fireplace'
     " colored log file
@@ -397,8 +397,8 @@ if !exists('g:vscode')
   nnoremap <silent> <Leader>' :Marks<CR>
   " nnoremap <silent> <Leader>g :Commits<CR>
   nnoremap <silent> <Leader>H :Helptags<CR>
-  nnoremap <silent> <Leader>rr :History/<CR>
-  nnoremap <silent> <Leader>r: :History:<CR>
+  " nnoremap <silent> <Leader>rr :History/<CR>
+  " nnoremap <silent> i<Leader>r: :History:<CR>
 
   " An action can be a reference to a function that processes selected lines
   function! s:build_quickfix_list(lines)
@@ -463,7 +463,7 @@ if !exists('g:vscode')
   "   <ctrl>p - Browse list of buffers & files  in current directory
   "   <leader>t - Browse list of files in current directory
   "   <leader>;         - Browser currently open buffers
-  "   <ctrl><alt>f - Search current directory for occurences of given term and close window if no results
+  "   <ctrl><shift>f - Search current directory for occurences of given term and close window if no results
   "   <leader>* - Search current directory for occurences of word under cursor
   "   <leader>/ - Search lines of current buffer
   "   <Ctrl-R>: - Search command history
@@ -471,16 +471,15 @@ if !exists('g:vscode')
   " unmap <C-p>
   let g:Lf_ShortcutF = '<C-P>'
   noremap <leader>; :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
-  noremap <leader>r :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
+  noremap <leader>rr :<C-U><C-R>=:<C-U><C-R>=printf("Leaderf cmdHistory", "")<CR><CR>
   " noremap <leader>ft :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
   noremap <C-t> :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
 
   noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR>
-  noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR><CR>
+  noremap <C-S-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR><CR>
   " search visually selected text literally
   xnoremap <leader>* :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
   noremap <leader>r* :<C-U>Leaderf! rg --recall<CR>
-
   " C-k / C-j are mapped to window change
   " let g:Lf_CommandMap = {'<C-k>': ['<Up>'], '<C-j>': ['<Down>']}
   " ---------------- /leaderF --------
