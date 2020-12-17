@@ -9,6 +9,10 @@ Switch keyboard layout to English (intl., with AltGr dead keys)=,none,Switch key
 Switch to Next Keyboard Layout=,Ctrl+Alt+K,Switch to Next Keyboard Layout
 _k_friendly_name=Keyboard Layout Switcher
 
+[goneovim.desktop]
+_k_friendly_name=Goneovim
+_launch=Ctrl+Alt+N,,Goneovim
+
 [kaccess]
 Toggle Screen Reader On and Off=,Meta+Alt+S,Toggle Screen Reader On and Off
 _k_friendly_name=Accessibility
@@ -25,9 +29,11 @@ _k_friendly_name=KDE Daemon
 display=Display\tMeta+P,Display\tMeta+P,Switch Display
 
 [khotkeys]
-_k_friendly_name=KDE Daemon
+_k_friendly_name=Custom Shortcuts Service
+{12fd2fee-6ef9-487b-a3f4-aee00785f4ef}=none,none,Launch Konsole
 {a83269b6-d823-407e-8bb4-c0eee0ef65ce}=Ctrl+Alt+-,none,Headphones
-{ce914ebe-fcf0-48c8-9c85-b0c7a98235ce}=none,none,Surround
+{ce914ebe-fcf0-48c8-9c85-b0c7a98235ce}=Ctrl+Alt+=,none,Surround
+{d03619b6-9b3c-48cc-9d9c-a2aadb485550}=none,none,Search
 
 [kmix]
 _k_friendly_name=Audio Volume
@@ -41,7 +47,7 @@ mute=Volume Mute\tCtrl+Alt+Shift+M,Volume Mute,Mute
 [krunner.desktop]
 RunClipboard=Alt+Shift+F2,Alt+Shift+F2,Run command on clipboard contents
 _k_friendly_name=KRunner
-_launch=Alt+F2\tSearch\tMeta+Space\tAlt+Space,Alt+Space\tAlt+F2\tSearch,KRunner
+_launch=Alt+Space\tMeta+S\tAlt+F2\tMeta+Space\tSearch,Alt+Space\tAlt+F2\tSearch,KRunner
 
 [ksmserver]
 Halt Without Confirmation=Ctrl+Alt+Shift+PgDown,Ctrl+Alt+Shift+PgDown,Halt Without Confirmation
@@ -160,7 +166,7 @@ Walk Through Windows of Current Application Alternative (Reverse)=none,none,Walk
 Window Above Other Windows=none,none,Keep Window Above Others
 Window Below Other Windows=none,none,Keep Window Below Others
 Window Close=Meta+Q\tAlt+F4\tCtrl+Alt+Q,Alt+F4,Close Window
-Window Fullscreen=none,none,Make Window Fullscreen
+Window Fullscreen=Ctrl+Alt+Shift+F,none,Make Window Fullscreen
 Window Grow Horizontal=none,none,Pack Grow Window Horizontally
 Window Grow Vertical=none,none,Pack Grow Window Vertically
 Window Lower=none,none,Lower Window
@@ -243,15 +249,15 @@ activate entry 16=,Meta+N,Activate Entry 16
 activate entry 17=,Meta+M,Activate Entry 17
 activate entry 18=,Meta+\\,,Activate Entry 18
 activate entry 19=,Meta+.,Activate Entry 19
-activate entry 2=,Meta+2,Activate Entry 2
-activate entry 3=,Meta+3,Activate Entry 3
-activate entry 4=,Meta+4,Activate Entry 4
-activate entry 5=,Meta+5,Activate Entry 5
-activate entry 6=,Meta+6,Activate Entry 6
-activate entry 7=,Meta+7,Activate Entry 7
-activate entry 8=,Meta+8,Activate Entry 8
-activate entry 9=,Meta+9,Activate Entry 9
-activate widget 4=Meta+S,none,Activate Application Launcher Widget
+activate entry 2=none,Meta+2,Activate Entry 2
+activate entry 3=none,Meta+3,Activate Entry 3
+activate entry 4=none,Meta+4,Activate Entry 4
+activate entry 5=none,Meta+5,Activate Entry 5
+activate entry 6=none,Meta+6,Activate Entry 6
+activate entry 7=none,Meta+7,Activate Entry 7
+activate entry 8=none,Meta+8,Activate Entry 8
+activate entry 9=none,Meta+9,Activate Entry 9
+activate widget 4=,none,Activate Application Launcher Widget
 clear-history=none,none,Clear Clipboard History
 clipboard_action=none,Ctrl+Alt+X,Enable Clipboard Actions
 cycleNextAction=none,none,Next History Item
@@ -277,7 +283,7 @@ new instance for entry 7=none,Meta+Ctrl+7,New Instance for Entry 7
 new instance for entry 8=none,Meta+Ctrl+8,New Instance for Entry 8
 new instance for entry 9=none,Meta+Ctrl+9,New Instance for Entry 9
 repeat_action=none,Ctrl+Alt+R,Manually Invoke Action on Current Clipboard
-show latte global settings=Meta+W,Meta+W,Show Latte Global Settings
+show latte global settings=none,Meta+W,Show Latte Global Settings
 show latte view=Ctrl+Shift+Esc,Meta+`,Show Latte Dock/Panel
 show view settings=none,Meta+A,Cycle Through Dock/Panel Settings Windows
 show-barcode=none,none,Show Barcode...
@@ -288,7 +294,7 @@ _k_friendly_name=Media Controller
 mediavolumedown=,none,Media volume down
 mediavolumeup=,none,Media volume up
 nextmedia=Ctrl+Shift+J\tMedia Next,Media Next,Media playback next
-playpausemedia=Media Play\tCtrl+Shift+Space,Media Play,Play/Pause media playback
+playpausemedia=Ctrl+Shift+Space\tMedia Play,Media Play,Play/Pause media playback
 previousmedia=Media Previous\tCtrl+Shift+K,Media Previous,Media playback previous
 stopmedia=Media Stop,Media Stop,Stop media playback
 
@@ -328,7 +334,7 @@ Turn Off Screen=,none,Turn Off Screen
 _k_friendly_name=Power Management
 
 [plasmashell]
-_k_friendly_name=Latte Dock
+_k_friendly_name=Plasma
 activate task manager entry 1=none,Meta+1,Activate Task Manager Entry 1
 activate task manager entry 10=none,Meta+0,Activate Task Manager Entry 10
 activate task manager entry 2=none,Meta+2,Activate Task Manager Entry 2
@@ -341,6 +347,7 @@ activate task manager entry 8=none,Meta+8,Activate Task Manager Entry 8
 activate task manager entry 9=none,Meta+9,Activate Task Manager Entry 9
 activate widget 23=none,none,Activate Icons-only Task Manager Widget
 activate widget 33=none,none,Activate Hard Disk Activity Widget
+activate widget 38=Alt+F1,none,Activate Application Launcher Widget
 clear-history=none,none,Clear Clipboard History
 clipboard_action=none,Ctrl+Alt+X,Enable Clipboard Actions
 cycleNextAction=none,none,Next History Item
@@ -364,4 +371,4 @@ _launch=Tools,Tools,System Settings
 
 [yakuake]
 _k_friendly_name=Yakuake
-toggle-window-state=F12\tAlt+Shift+Return,F12,Open/Retract Yakuake
+toggle-window-state=F12\tAlt+Shift+Return\tCtrl+Alt+Return,F12,Open/Retract Yakuake

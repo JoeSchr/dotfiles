@@ -16,8 +16,13 @@
     gb = branch
     gd = df
     gs = st
-	gco = ci
+	gco = gci
+	gci = ci
+	gcm = ci -m
+	gca = ci -a
     gla = lg --all
+    gov = gla
+    lga = gla
     rr = rebase --continue
     ri = rebase --interactive
     

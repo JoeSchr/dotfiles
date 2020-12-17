@@ -242,6 +242,11 @@ if !exists('g:vscode')
     " >============== / UNIVERSAL PLUGINS: NATIVE VIM ===================
 
     " NATIVE ONLY:
+    " -- themes
+    Plug 'artanikin/vim-synthwave84'
+    Plug 'dracula/vim'
+    Plug 'flazz/vim-colorschemes'
+
     " -- git helper
     Plug 'tpope/vim-fugitive'
     " -- linter (works with elint)
@@ -461,27 +466,38 @@ if !exists('g:vscode')
 
   " === leaderF shorcuts === "
   "   <ctrl>p - Browse list of buffers & files  in current directory
-  "   <leader>t - Browse list of files in current directory
-  "   <leader>;         - Browser currently open buffers
-  "   <ctrl><shift>f - Search current directory for occurences of given term and close window if no results
-  "   <leader>* - Search current directory for occurences of word under cursor
-  "   <leader>/ - Search lines of current buffer
-  "   <Ctrl-R>: - Search command history
-  "   <Ctrl-N> - Dir Browser
+  "   <leader>: - Search command history
+  "   <leader>; - Search for open buffers
+  "   <Control-/> - Search lines in open buffer
+  "   <Control-P>a - Search current directory (rg)
+  "   <leader>*p - Search current directory for occurences of word under cursor
+  "   <leader>*f - Search current directory for occurences visually selected text
+  "   <leader>*r - recall last search
+  "   <leader>*/ - search visually selected text literally
+  "   <leader>*/ - Search open buffer for word under cursor
   " unmap <C-p>
   let g:Lf_ShortcutF = '<C-P>'
-  noremap <leader>; :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
-  noremap <leader>rr :<C-U><C-R>=:<C-U><C-R>=printf("Leaderf cmdHistory", "")<CR><CR>
-  " noremap <leader>ft :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
-  noremap <C-t> :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
 
-  noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR>
-  noremap <C-S-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR><CR>
-  " search visually selected text literally
-  xnoremap <leader>* :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
-  noremap <leader>r* :<C-U>Leaderf! rg --recall<CR>
+  noremap <leader>: :<C-U><C-R>=printf("Leaderf cmdHistory %s", "")<CR><CR>
+  noremap <leader>; :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
+  noremap <C-/> :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
+  " Control-/ weird behavior on linux: https://stackoverflow.com/questions/9051837/how-to-map-c-to-toggle-comments-in-vim
+  noremap <C-_> :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
+  noremap <C-p>a :<C-U><C-R>=printf("Leaderf rg %s", "")<CR><CR>
+
+  " noremap <leader>*/ :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR><CR>
+  noremap <leader>*p :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR><CR>
+
+  xnoremap <leader>*f :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR><CR>
+  noremap <leader>*r :<C-U>Leaderf! rg --recall<CR>
   " C-k / C-j are mapped to window change
-  " let g:Lf_CommandMap = {'<C-k>': ['<Up>'], '<C-j>': ['<Down>']}
+  " let g:Lf_CommandMap = {'<C-p>': ['<C-k>'], '<C-n>': ['<C-j>']}
+  " let g:Lf_NormalMap = {
+  "       \   "_": [
+  "       \      ['<C-p>', '<Up>'],
+  "       \      ['<C-n>', '<Down>'],
+  "       \   ],
+  "       \}
   " ---------------- /leaderF --------
   "
   " ---------------- COC ------------
@@ -837,7 +853,6 @@ noremap <silent><expr> <leader>/ incsearch#go(<SID>config_easyfuzzymotion())
 
 " replace f and/or t with one-character Sneak?
 map f <Plug>Sneak_f
-map <Leader>f <Plug>Sneak_f
 map F <Plug>Sneak_F
 map t <Plug>Sneak_t
 map T <Plug>Sneak_T

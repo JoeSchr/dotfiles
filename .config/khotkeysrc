@@ -933,7 +933,7 @@ Comment=Simple_action
 TriggersCount=1
 
 [Data_5Triggers0]
-Key=
+Key=Ctrl+Alt+=
 Type=SHORTCUT
 Uuid={ce914ebe-fcf0-48c8-9c85-b0c7a98235ce}
 

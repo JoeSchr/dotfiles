@@ -25,6 +25,10 @@ Rows=2
 [Effect-Blur]
 BlurStrength=15
 
+[Effect-CoverSwitch]
+TabBox=true
+TabBoxAlternative=true
+
 [Effect-Cube]
 ZOrdering=true
 
@@ -51,6 +55,9 @@ MoveResize=69
 [ElectricBorders]
 TopLeft=None
 
+[ModifierOnlyShortcuts]
+Meta=org.kde.lattedock,/Latte,org.kde.LatteDock,activateLauncherMenu
+
 [NightColor]
 Active=true
 LatitudeAuto=48.2155
@@ -60,6 +67,7 @@ NightTemperature=5000
 [Plugins]
 blurEnabled=false
 contrastEnabled=true
+coverswitchEnabled=true
 cubeslideEnabled=true
 desktopchangeosdEnabled=true
 diminactiveEnabled=true
@@ -104,11 +112,18 @@ ActivitiesMode=0
 DesktopLayout=org.kde.breeze.desktop
 DesktopListLayout=org.kde.breeze.desktop
 HighlightWindows=false
-LayoutName=org.kde.breeze.desktop
+LayoutName=coverswitch
 MinimizedMode=2
 SwitchingMode=1
+
+[TabBoxAlternative]
+LayoutName=coverswitch
 
 [Windows]
 FocusStealingPreventionLevel=2
 Placement=UnderMouse
 SeparateScreenFocus=true
+
+[org.kde.kdecoration2]
+library=org.kde.kwin.aurorae
+theme=__aurorae__svg__Sweet-Dark
