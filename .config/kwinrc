@@ -22,6 +22,9 @@ Name_6=6
 Number=6
 Rows=2
 
+[DrmOutputs][e5b7a8239c][e5b7a8239c]
+Scale=1
+
 [Effect-Blur]
 BlurStrength=15
 
@@ -126,4 +129,4 @@ SeparateScreenFocus=true
 
 [org.kde.kdecoration2]
 library=org.kde.kwin.aurorae
-theme=__aurorae__svg__Sweet-Dark
+theme=__aurorae__svg__Sweet-Dark-transparent
