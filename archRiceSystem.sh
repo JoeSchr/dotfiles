@@ -47,7 +47,21 @@ sudo pikaur -Syu
 pikaur -Sy pamac
 
 # ESSENTIALS SYSTEM
-pikaur -Sy neovim nvm tmux git docker docker-compose python3 python-pip mosh htop bash-completion duf fish fzf
+pikaur -Sy neovim nvm tmux git python3 python-pip mosh htop bash-completion fish fzf
+
+# podman
+pikaur -S podman btrfs-progs catatonit crun
+# needed for cgroups
+# see: https://wiki.archlinux.org/index.php/Podman
+sudo touch /etc/sub{u,g}id
+sudo  usermod --add-subuids 165536-231072 --add-subgids 165536-231072 $(whoami)
+# add dockerhub
+echo "[registries.search]
+registries = ['docker.io']" | sudo tee -a /etc/containers/registries.conf
+
+# install docker-compose
+sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
 
 # risky/estoric on arm
 pikaur -Sy ntfs-3g-fuse lf
@@ -186,6 +200,12 @@ pikaur -Sy minishift origin-client
 # ODO Cli
 sudo curl -L https://mirror.openshift.com/pub/openshift-v4/clients/odo/latest/odo-linux-amd64 -o /usr/local/bin/odo
 sudo chmod +x /usr/local/bin/odo
+
+# nordvpn
+sudo groupadd -r nordvpn
+pikaur -Syu nordvpn-bin
+sudo systemctl enable --now nordvpnd.service
+sudo gpasswd -a $(whoami) nordvpn
 
 # DOCKER (REFRESH GROUP)
 # needs to be at end, because it sources .bashrc again
