@@ -1,3 +1,5 @@
+#! /bin/sh
+
 mkdir ~/Downloads
 mkdir ~/.config
 touch ~/.vimrc.local
