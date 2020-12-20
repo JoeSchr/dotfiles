@@ -4,3 +4,5 @@ fish_vi_key_bindings
 bind -M insert \cP forward-char
 # C-f moves one word forward
 bind -M insert \cF nextd-or-forward-word
+
+set-wallpaper
