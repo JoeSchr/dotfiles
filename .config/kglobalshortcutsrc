@@ -8,6 +8,34 @@ Switch keyboard layout to English (intl., with AltGr dead keys)=none,none,Switch
 Switch to Next Keyboard Layout=none,Ctrl+Alt+K,Switch to Next Keyboard Layout
 _k_friendly_name=Keyboard Layout Switcher
 
+[chrome-liilpfdpgflgkkhnlidnoibpejakplck-profile_2.desktop]
+_k_friendly_name=ViRTC
+_launch=none,none,Launch ViRTC
+
+[com.blackmagicdesign.rawplayer.desktop]
+_k_friendly_name=Blackmagic RAW Player
+_launch=none,none,Launch Blackmagic RAW Player
+
+[com.blackmagicdesign.rawspeedtest.desktop]
+_k_friendly_name=Blackmagic RAW Speed Test
+_launch=none,none,Launch Blackmagic RAW Speed Test
+
+[com.blackmagicdesign.resolve-capturelogs.desktop]
+_k_friendly_name=DaVinci Resolve Capture Logs
+_launch=none,none,Launch DaVinci Resolve Capture Logs
+
+[com.blackmagicdesign.resolve-installer.desktop]
+_k_friendly_name=Uninstall DaVinci Resolve
+_launch=none,none,Launch Uninstall DaVinci Resolve
+
+[com.blackmagicdesign.resolve-panels.desktop]
+_k_friendly_name=DaVinci Control Panels Setup
+_launch=none,none,Launch DaVinci Control Panels Setup
+
+[com.blackmagicdesign.resolve.desktop]
+_k_friendly_name=DaVinci Resolve
+_launch=none,none,Launch DaVinci Resolve
+
 [goneovim.desktop]
 _k_friendly_name=Goneovim
 _launch=Ctrl+Alt+N,,Goneovim
@@ -29,8 +57,10 @@ display=Display\tMeta+P,Display\tMeta+P,Switch Display
 
 [khotkeys]
 _k_friendly_name=Custom Shortcuts Service
+{12fd2fee-6ef9-487b-a3f4-aee00785f4ef}=none,none,Launch Konsole
 {a83269b6-d823-407e-8bb4-c0eee0ef65ce}=Ctrl+Alt+-,none,Headphones
 {ce914ebe-fcf0-48c8-9c85-b0c7a98235ce}=Ctrl+Alt+=,none,Surround
+{d03619b6-9b3c-48cc-9d9c-a2aadb485550}=none,none,Search
 
 [kmix]
 _k_friendly_name=Audio Volume
@@ -254,7 +284,6 @@ activate entry 6=none,Meta+6,Activate Entry 6
 activate entry 7=none,Meta+7,Activate Entry 7
 activate entry 8=none,Meta+8,Activate Entry 8
 activate entry 9=none,Meta+9,Activate Entry 9
-activate widget 4=none,none,Activate Application Launcher Widget
 clear-history=none,none,Clear Clipboard History
 clipboard_action=none,Ctrl+Alt+X,Enable Clipboard Actions
 cycleNextAction=none,none,Next History Item
@@ -345,6 +374,7 @@ activate task manager entry 9=none,Meta+9,Activate Task Manager Entry 9
 activate widget 23=none,none,Activate Icons-only Task Manager Widget
 activate widget 27=Meta+S,none,Activate Application Menu Widget
 activate widget 33=none,none,Activate Hard Disk Activity Widget
+activate widget 46=none,none,Activate Battery and Brightness Widget
 clear-history=none,none,Clear Clipboard History
 clipboard_action=none,Ctrl+Alt+X,Enable Clipboard Actions
 cycleNextAction=none,none,Next History Item
