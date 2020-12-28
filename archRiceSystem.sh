@@ -99,7 +99,7 @@ pip3 install --user wheel pynvim
 pikaur -Sy visual-studio-code-bin signal-desktop xsel latte-dock cpupower
 
 # RICE
-pikaur -Sy nitrogen xorg-xbacklight x11-ssh-askpass maim xcompmgr picom unclutter neomutt urlview notmuch dunst zathura xcape surf xtitle groff dbus-x12 clang imagemagick
+pikaur -Sy nitrogen xorg-xbacklight x11-ssh-askpass maim  neomutt urlview notmuch zathura xsurf xtitle groff dbus-x12 clang imagemagick
 
 # FONTS
 pikaur -Sy noto-fonts powerline-fonts ttf-inconsolata ttf-joypixels nerd-fonts-hack
