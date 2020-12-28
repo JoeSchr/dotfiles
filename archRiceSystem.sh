@@ -30,7 +30,7 @@ exit
 
 # install AUR helper:
 # try automatic
-pikaur -Sy pikaur
+pacman -Sy pikaur
 
 # manual
 cd ~/Downloads
@@ -50,7 +50,7 @@ pikaur -Sy pamac
 pikaur -Sy neovim nvm tmux git python3 python-pip mosh htop bash-completion fish fzf
 
 # podman
-pikaur -S podman btrfs-progs catatonit crun
+pikaur -S podman catatonit crun
 # needed for cgroups
 # see: https://wiki.archlinux.org/index.php/Podman
 sudo touch /etc/sub{u,g}id
@@ -91,12 +91,12 @@ fish -c 'fisher install jorgebucaran/nvm.fish'
 
 
 # VIM
-pikaur -Sy neovim-nigthly ripgrep
+pikaur -Sy neovim-git ripgrep
 pip3 install --user wheel pynvim
 
 #INSTALL GUI & RICE
 # ESSENTIALS GUI
-pikaur -Sy visual-studio-code-bin signal-desktop xsel latte-dock cpupower
+pikaur -Sy visual-studio-code-bin signal-desktop latte-dock cpupower urlview zathura
 
 # RICE
 pikaur -Sy nitrogen xorg-xbacklight x11-ssh-askpass maim  neomutt urlview notmuch zathura xsurf xtitle groff dbus-x12 clang imagemagick
@@ -116,20 +116,20 @@ cd ~/Downloads
 # sudo make install
 # cd ~/Downloads
 
-git clone https://github.com/LukeSmithxyz/dwm.git
-cd dwm
-make && sudo make install
+# git clone https://github.com/LukeSmithxyz/dwm.git
+# cd dwm
+# make && sudo make install
 
-cd ~/Downloads/
-git clone https://github.com/LukeSmithxyz/mutt-wizard
-cd mutt-wizard
-sudo make install
+# cd ~/Downloads/
+# git clone https://github.com/LukeSmithxyz/mutt-wizard
+# cd mutt-wizard
+# sudo make install
 
 # pywal
-pip3 install --user pywal
+# pip3 install --user pywal
 
 # mpd with google music
-pip3 install --user mopidy
+# pip3 install --user mopidy
 
 # powerline fonts
 cd ~/Downloads
@@ -140,28 +140,28 @@ cd ..
 rm -rf fonts
 
 # CONFIGURE DWM
-sudo cp $HOME/.local/bin/dwm.desktop /usr/share/xsessions/dwm.desktop
-sudo ln -s $HOME/.local/bin/kde-dwm.sh /usr/local/bin/kde-dwm
-# picom
-sudo ln -s .config/xdg/picom.conf  /etc/xdg/picom.conf
+# sudo cp $HOME/.local/bin/dwm.desktop /usr/share/xsessions/dwm.desktop
+# sudo ln -s $HOME/.local/bin/kde-dwm.sh /usr/local/bin/kde-dwm
+# # picom
+# sudo ln -s .config/xdg/picom.conf  /etc/xdg/picom.conf
 
 
-cd ~/Downloads
-git clone https://github.com/LukeSmithxyz/dwmblocks.git
-cd dwmblocks
-make && sudo make install
+# cd ~/Downloads
+# git clone https://github.com/LukeSmithxyz/dwmblocks.git
+# cd dwmblocks
+# make && sudo make install
 
-cd ~/Downloads
-git clone https://github.com/LukeSmithxyz/dmenu.git
-cd dmenu
-make && sudo make install
+# cd ~/Downloads
+# git clone https://github.com/LukeSmithxyz/dmenu.git
+# cd dmenu
+# make && sudo make install
 
-# CONFIGURE BSPWM
-sudo cp $HOME/.local/bin/bspwm.desktop /usr/share/xsessions/bspwm.desktop
-sudo ln -s $HOME/.local/bin/launch_bspwm /usr/local/bin/launch_bspwm
-sudo ln -s $HOME/.local/bin/kde-bspwm.sh /usr/local/bin/kde-bspwm
+# # CONFIGURE BSPWM
+# sudo cp $HOME/.local/bin/bspwm.desktop /usr/share/xsessions/bspwm.desktop
+# sudo ln -s $HOME/.local/bin/launch_bspwm /usr/local/bin/launch_bspwm
+# sudo ln -s $HOME/.local/bin/kde-bspwm.sh /usr/local/bin/kde-bspwm
 
-pikaur -Sy bspwm
+# pikaur -Sy bspwm
 
 # TWEAKS
 # increase number of file watcher
@@ -191,7 +191,7 @@ pikaur -Sy pulseeffects
 # unify for logitech setpoint
 pikaur -Sy ltunify
 # nvidia intel hybrid stuff
-sudo mhwd -i pci video-hybrid-intel-nvidia-450xx-prime
+# sudo mhwd -i pci video-hybrid-intel-nvidia-450xx-prime
 pikaur -S cuda vulkan-mesa-layers vulkan-intel lib32-vulkan-intel  lib32-amdvlk  lib32-nvidia-utils  lib32-vulkan-mesa-layers
 
 # OPEN SHIFT
