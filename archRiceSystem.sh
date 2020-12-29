@@ -65,7 +65,7 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 
 # risky/estoric on arm
-pikaur -Sy ntfs-3g-fuse lf
+pikaur -Sy ntfs-3g-fuse
 
 # install OH-MY-FISH
 cd ~/Downloads
@@ -94,10 +94,9 @@ fish -c 'fisher install jorgebucaran/nvm.fish'
 
 #INSTALL GUI & RICE
 # ESSENTIALS GUI
-pikaur -Sy visual-studio-code-bin signal-desktop latte-dock cpupower urlview zathura google-chrome google-chrome-remotedesktop
-
+pikaur -Sy latte-dock-git visual-studio-code-bin signal-desktop cpupower-gui cpupower urlview zathura google-chrome
 # RICE
-pikaur -Sy nitrogen xorg-xbacklight x11-ssh-askpass maim neomutt urlview notmuch zathura xsurf xtitle groff dbus-x12 clang imagemagick
+pikaur -Sy nitrogen xorg-xbacklight x11-ssh-askpass maim neomutt urlview notmuch zathura xsurf xtitle groff dbus-x12 clang imagemagick mntray
 
 # FONTS
 pikaur -Sy noto-fonts powerline-fonts ttf-inconsolata ttf-joypixels nerd-fonts-hack
@@ -184,6 +183,10 @@ pikaur -Sy ltunify
 # nvidia intel hybrid stuff
 # sudo mhwd -i pci video-hybrid-intel-nvidia-450xx-prime
 # pikaur -S cuda vulkan-mesa-layers vulkan-intel lib32-vulkan-intel  lib32-amdvlk  lib32-nvidia-utils  lib32-vulkan-mesa-layers
+sudo mhwd -r pci video-nvidia-455xx                         00:18:41
+sudo pikaur -S lib32-opencl-nvidia-455xx opencl-nvidia                                                                                  
+
+# sudo pikaur -S nvidia-dkms-beta vulkan-mesa-layers lib32-vulkan-intel lib32-nvidia-utils-beta lib32-vulkan-mesa-layers
 
 # OPEN SHIFT
 # Minishift & OC Cli
@@ -212,7 +215,14 @@ sudo pacman-key -r 5EE46C4C --keyserver hkp://pool.sks-keyservers.net && sudo pa
 sudo pacman -Syy
 
 # install kernel
-sudo pacman -Syu linux-ck linux-ck-headers
+echo "[repo-ck]
+Server = https://mirror.lesviallon.fr/$repo/os/$arch
+Server = http://repo-ck.com/$arch" | sudo tee -a /etc/pacman.conf
+
+sudo gpg --recv-keys 79BE3E4300411886
+sudo pacman-key -r 5EE46C4C --keyserver hkp://pool.sks-keyservers.net && sudo pacman-key --lsign-key 5EE46C4C
+sudo pikaur -Syu linux-ck linux-ck-headers
+
 
 # DOCKER (REFRESH GROUP)
 # needs to be at end, because it sources .bashrc again
