@@ -200,6 +200,21 @@ pikaur -Syu nordvpn-bin
 sudo systemctl enable --now nordvpnd.service
 sudo gpasswd -a $(whoami) nordvpn
 
+# CUSTOM KERNEL
+
+# add repo
+echo "
+[repo-ck]
+Server = https://mirror.lesviallon.fr/$repo/os/$arch
+Server = http://repo-ck.com/$arch
+" | sudo tee -a /etc/pacman.conf
+
+# add sig
+sudo pacman-key -r 5EE46C4C --keyserver hkp://pool.sks-keyservers.net && sudo pacman-key --lsign-key 5EE46C4C
+
+# install kernel
+sudo pacman -Syu linux-ck linux-ck-headers
+
 # DOCKER (REFRESH GROUP)
 # needs to be at end, because it sources .bashrc again
 # DOCKER
