@@ -23,7 +23,7 @@ pacman -Fy
 pacman -Syy
 
 # install buildtools like eg. git make libffi glibc gcc
-pacman -S --needed base-devel git
+pacman -S --needed base-devel git ed
 
 # exit su -l
 exit
@@ -47,7 +47,8 @@ sudo pikaur -Syu
 pikaur -Sy pamac
 
 # ESSENTIALS SYSTEM
-pikaur -Sy neovim nvm tmux git python3 python-pip mosh htop bash-completion fish fzf
+pikaur -Sy neovim-git ripgrep nvm tmux git python3 python-pip mosh htop bash-completion fish fzf
+pip3 install --user wheel pynvim
 
 # podman
 pikaur -S podman catatonit crun
@@ -90,16 +91,13 @@ cd ~
 mkdir -p ~/.local/share/nvm
 fish -c 'fisher install jorgebucaran/nvm.fish'
 
-# VIM
-pikaur -Sy neovim-git ripgrep
-pip3 install --user wheel pynvim
 
 #INSTALL GUI & RICE
 # ESSENTIALS GUI
 pikaur -Sy visual-studio-code-bin signal-desktop latte-dock cpupower urlview zathura google-chrome google-chrome-remotedesktop
 
 # RICE
-pikaur -Sy nitrogen xorg-xbacklight x11-ssh-askpass maim  neomutt urlview notmuch zathura xsurf xtitle groff dbus-x12 clang imagemagick
+pikaur -Sy nitrogen xorg-xbacklight x11-ssh-askpass maim neomutt urlview notmuch zathura xsurf xtitle groff dbus-x12 clang imagemagick
 
 # FONTS
 pikaur -Sy noto-fonts powerline-fonts ttf-inconsolata ttf-joypixels nerd-fonts-hack
@@ -169,7 +167,7 @@ echo fs.inotify.max_user_watches=1048576 | sudo tee -a /etc/sysctl.d/50-max_user
 sudo sysctl -p
 
 # fix ntfs-3g disk access on mount as user
-sudo usermod -a -G disk $(whoami)
+sudo usermod -a -G disk (whoami)
 
 # fix vscode signin isues
 pikaur -Sy qtkeychain gnome-keyring
@@ -185,7 +183,7 @@ pikaur -Sy pulseeffects
 pikaur -Sy ltunify
 # nvidia intel hybrid stuff
 # sudo mhwd -i pci video-hybrid-intel-nvidia-450xx-prime
-pikaur -S cuda vulkan-mesa-layers vulkan-intel lib32-vulkan-intel  lib32-amdvlk  lib32-nvidia-utils  lib32-vulkan-mesa-layers
+# pikaur -S cuda vulkan-mesa-layers vulkan-intel lib32-vulkan-intel  lib32-amdvlk  lib32-nvidia-utils  lib32-vulkan-mesa-layers
 
 # OPEN SHIFT
 # Minishift & OC Cli
@@ -211,6 +209,7 @@ Server = http://repo-ck.com/$arch
 
 # add sig
 sudo pacman-key -r 5EE46C4C --keyserver hkp://pool.sks-keyservers.net && sudo pacman-key --lsign-key 5EE46C4C
+sudo pacman -Syy
 
 # install kernel
 sudo pacman -Syu linux-ck linux-ck-headers
