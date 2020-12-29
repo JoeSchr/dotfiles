@@ -87,8 +87,8 @@ nvm use default
 npm install -G yarn
 cd ~
 # install nvm for fish
+mkdir -p ~/.local/share/nvm
 fish -c 'fisher install jorgebucaran/nvm.fish'
-
 
 # VIM
 pikaur -Sy neovim-git ripgrep
@@ -96,7 +96,7 @@ pip3 install --user wheel pynvim
 
 #INSTALL GUI & RICE
 # ESSENTIALS GUI
-pikaur -Sy visual-studio-code-bin signal-desktop latte-dock cpupower urlview zathura
+pikaur -Sy visual-studio-code-bin signal-desktop latte-dock cpupower urlview zathura google-chrome google-chrome-remotedesktop
 
 # RICE
 pikaur -Sy nitrogen xorg-xbacklight x11-ssh-askpass maim  neomutt urlview notmuch zathura xsurf xtitle groff dbus-x12 clang imagemagick
@@ -177,13 +177,6 @@ pikaur -Sy qtkeychain gnome-keyring
 # fix .ssh
 chmod 600 .ssh/*
 
-# DOCKER
-sudo groupadd docker
-sudo usermod -aG docker $(whoami)
-sudo systemctl enable docker
-sudo systemctl start docker
-sudo chown $(id -u):$(id -g) /var/run/docker.sock
-
 # bluetooth a2dp
 pikaur -Sy pulseaudio-bt-auto-enable-a2dp pulseaudio-bluetooth
 # equalizer
@@ -209,5 +202,12 @@ sudo gpasswd -a $(whoami) nordvpn
 
 # DOCKER (REFRESH GROUP)
 # needs to be at end, because it sources .bashrc again
+# DOCKER
+sudo groupadd docker
+sudo usermod -aG docker $(whoami)
+sudo systemctl enable docker
+sudo systemctl start docker
+sudo chown $(id -u):$(id -g) /var/run/docker.sock
+
 newgrp docker
 cd
