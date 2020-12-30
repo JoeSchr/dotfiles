@@ -184,7 +184,7 @@ pikaur -Sy ltunify
 # sudo mhwd -i pci video-hybrid-intel-nvidia-450xx-prime
 # pikaur -S cuda vulkan-mesa-layers vulkan-intel lib32-vulkan-intel  lib32-amdvlk  lib32-nvidia-utils  lib32-vulkan-mesa-layers
 sudo mhwd -r pci video-nvidia-455xx                         00:18:41
-sudo pikaur -S lib32-opencl-nvidia-455xx opencl-nvidia                                                                                  
+sudo pikaur -S lib32-opencl-nvidia-455xx opencl-nvidia
 
 # sudo pikaur -S nvidia-dkms-beta vulkan-mesa-layers lib32-vulkan-intel lib32-nvidia-utils-beta lib32-vulkan-mesa-layers
 
@@ -203,25 +203,11 @@ sudo gpasswd -a $(whoami) nordvpn
 
 # CUSTOM KERNEL
 
-# add repo
-echo "
-[repo-ck]
-Server = https://mirror.lesviallon.fr/$repo/os/$arch
-Server = http://repo-ck.com/$arch
-" | sudo tee -a /etc/pacman.conf
+## xenomod
+pikaur -S linux-manjaro-xanmod linux-manjaro-xanmod-headers
+sudo ln -s /usr/src/linux-manjaro-xanmod -r) /usr/src/linux
 
-# add sig
-sudo pacman-key -r 5EE46C4C --keyserver hkp://pool.sks-keyservers.net && sudo pacman-key --lsign-key 5EE46C4C
-sudo pacman -Syy
-
-# install kernel
-echo "[repo-ck]
-Server = https://mirror.lesviallon.fr/$repo/os/$arch
-Server = http://repo-ck.com/$arch" | sudo tee -a /etc/pacman.conf
-
-sudo gpg --recv-keys 79BE3E4300411886
-sudo pacman-key -r 5EE46C4C --keyserver hkp://pool.sks-keyservers.net && sudo pacman-key --lsign-key 5EE46C4C
-sudo pikaur -Syu linux-ck linux-ck-headers
+pikaur -S nvidia-vulkan-dkms xorg-server-devel opencl-nvidia-vulkan
 
 
 # DOCKER (REFRESH GROUP)
