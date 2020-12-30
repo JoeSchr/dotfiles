@@ -207,7 +207,8 @@ sudo gpasswd -a $(whoami) nordvpn
 pikaur -S linux-manjaro-xanmod linux-manjaro-xanmod-headers
 sudo ln -s /usr/src/linux-manjaro-xanmod  /usr/src/linux
 
-pikaur -S nvidia-vulkan-dkms xorg-server-devel opencl-nvidia-vulkan lib32-nvidia-utils-full-vulkan-all nvidia-utils-full-vulkan-all 
+# install beta, because of DKMS
+pikaur -Sy nvidia-beta-dkms xorg-server-devel lib32-nvidia-utils-beta nvidia-settings-beta opencl-nvidia-beta
 
 
 # DOCKER (REFRESH GROUP)
