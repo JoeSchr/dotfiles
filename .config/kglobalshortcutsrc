@@ -1,5 +1,6 @@
 [ActivityManager]
 _k_friendly_name=Activity Manager
+switch-to-activity-22e0fcca-4eab-401e-a71b-71d553cd1fd6=none,none,Switch to activity "Default"
 switch-to-activity-7f74c8e4-8029-49bf-b627-91f7fe05e938=none,none,Switch to activity "Default"
 switch-to-activity-8746a399-d795-48d4-825e-8b4497c90b4f=none,none,Switch to activity "Default"
 
@@ -12,30 +13,6 @@ _k_friendly_name=Keyboard Layout Switcher
 [chrome-liilpfdpgflgkkhnlidnoibpejakplck-profile_2.desktop]
 _k_friendly_name=ViRTC
 _launch=none,none,Launch ViRTC
-
-[com.blackmagicdesign.rawplayer.desktop]
-_k_friendly_name=Blackmagic RAW Player
-_launch=none,none,Launch Blackmagic RAW Player
-
-[com.blackmagicdesign.rawspeedtest.desktop]
-_k_friendly_name=Blackmagic RAW Speed Test
-_launch=none,none,Launch Blackmagic RAW Speed Test
-
-[com.blackmagicdesign.resolve-capturelogs.desktop]
-_k_friendly_name=DaVinci Resolve Capture Logs
-_launch=none,none,Launch DaVinci Resolve Capture Logs
-
-[com.blackmagicdesign.resolve-installer.desktop]
-_k_friendly_name=Uninstall DaVinci Resolve
-_launch=none,none,Launch Uninstall DaVinci Resolve
-
-[com.blackmagicdesign.resolve-panels.desktop]
-_k_friendly_name=DaVinci Control Panels Setup
-_launch=none,none,Launch DaVinci Control Panels Setup
-
-[com.blackmagicdesign.resolve.desktop]
-_k_friendly_name=DaVinci Resolve
-_launch=none,none,Launch DaVinci Resolve
 
 [goneovim.desktop]
 _k_friendly_name=Goneovim
@@ -88,7 +65,7 @@ Activate Window Demanding Attention=Ctrl+Alt+A,Ctrl+Alt+A,Activate Window Demand
 Cube=Ctrl+F11,Ctrl+F11,Desktop Cube
 Cylinder=none,none,Desktop Cylinder
 Decrease Opacity=Meta+Shift+O,none,Decrease Opacity of Active Window by 5 %
-Expose=Ctrl+F9,Ctrl+F9,Toggle Present Windows (Current desktop)
+Expose=Meta+Z,Ctrl+F9,Toggle Present Windows (Current desktop)
 ExposeAll=Ctrl+F10\tLaunch (C),Ctrl+F10\tLaunch (C),Toggle Present Windows (All desktops)
 ExposeClass=Ctrl+F7,Ctrl+F7,Toggle Present Windows (Window class)
 Increase Opacity=Meta+O,none,Increase Opacity of Active Window by 5 %
@@ -192,7 +169,7 @@ Walk Through Windows of Current Application Alternative (Reverse)=none,none,Walk
 Window Above Other Windows=none,none,Keep Window Above Others
 Window Below Other Windows=none,none,Keep Window Below Others
 Window Close=Meta+Q\tAlt+F4\tCtrl+Alt+Q,Alt+F4,Close Window
-Window Fullscreen=Meta+Z\tCtrl+Alt+Shift+F,none,Make Window Fullscreen
+Window Fullscreen=Ctrl+Alt+Shift+F,none,Make Window Fullscreen
 Window Grow Horizontal=none,none,Pack Grow Window Horizontally
 Window Grow Vertical=none,none,Pack Grow Window Vertically
 Window Lower=none,none,Lower Window
@@ -283,6 +260,7 @@ activate entry 6=none,Meta+6,Activate Entry 6
 activate entry 7=none,Meta+7,Activate Entry 7
 activate entry 8=none,Meta+8,Activate Entry 8
 activate entry 9=none,Meta+9,Activate Entry 9
+activate widget 4=,none,Activate Application Launcher Widget
 clear-history=none,none,Clear Clipboard History
 clipboard_action=none,Ctrl+Alt+X,Enable Clipboard Actions
 cycleNextAction=none,none,Next History Item
@@ -341,7 +319,7 @@ _launch=Meta+.,Meta+.,Emoji Selector
 ActiveWindowScreenShot=Meta+Print,Meta+Print,Capture Active Window
 CurrentMonitorScreenShot=,none,Capture Current Monitor
 FullScreenScreenShot=Shift+Print,Shift+Print,Capture Entire Desktop
-RectangularRegionScreenShot=Meta+Shift+Print,Meta+Shift+Print,Capture Rectangular Region
+RectangularRegionScreenShot=Meta+Shift+Print\tMeta+Shift+S,Meta+Shift+Print,Capture Rectangular Region
 _k_friendly_name=Spectacle
 _launch=Print,Print,Launch Spectacle
 

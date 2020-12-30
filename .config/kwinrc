@@ -73,6 +73,7 @@ contrastEnabled=true
 coverswitchEnabled=true
 cubeslideEnabled=true
 desktopchangeosdEnabled=true
+desktopgridEnabled=false
 diminactiveEnabled=true
 highlightwindowEnabled=true
 krohnkiteEnabled=true
