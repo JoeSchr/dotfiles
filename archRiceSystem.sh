@@ -205,9 +205,9 @@ sudo gpasswd -a $(whoami) nordvpn
 
 ## xenomod
 pikaur -S linux-manjaro-xanmod linux-manjaro-xanmod-headers
-sudo ln -s /usr/src/linux-manjaro-xanmod -r) /usr/src/linux
+sudo ln -s /usr/src/linux-manjaro-xanmod  /usr/src/linux
 
-pikaur -S nvidia-vulkan-dkms xorg-server-devel opencl-nvidia-vulkan
+pikaur -S nvidia-vulkan-dkms xorg-server-devel opencl-nvidia-vulkan lib32-nvidia-utils-full-vulkan-all nvidia-utils-full-vulkan-all 
 
 
 # DOCKER (REFRESH GROUP)
