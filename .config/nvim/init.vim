@@ -242,6 +242,8 @@ if !exists('g:vscode')
     " >============== / UNIVERSAL PLUGINS: NATIVE VIM ===================
 
     " NATIVE ONLY:
+    " Center Text
+    Plug 'junegunn/goyo.vim'
     " -- themes
     Plug 'artanikin/vim-synthwave84'
     Plug 'dracula/vim'
