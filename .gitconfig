@@ -28,6 +28,7 @@
     
 	go = checkout
 	ci = commit -v
+    cim = ci -m
 	st = status
 	br = branch
     df = diff
@@ -78,12 +79,3 @@
 	autosetuprebase = always
 [help]
 	autocorrect = 20
-; [url "git@github.com:"]
-; 	insteadOf = https://github.com/
-; # Enforce SSH
-; [url "ssh://git@github.com/"]
-;   insteadOf = https://github.com/
-; [url "ssh://git@gitlab.com/"]
-;   insteadOf = https://gitlab.com/
-; [url "ssh://git@bitbucket.org/"]
-;   insteadOf = https://bitbucket.org/
