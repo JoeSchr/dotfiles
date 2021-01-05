@@ -10,17 +10,11 @@ OpenGLIsUnsafe=false
 Id_1=95d0502a-c549-4d67-b087-549883865cad
 Id_2=56d7c0b2-c502-4c09-a3a5-5f97bf6ee652
 Id_3=99329017-01c0-43bb-96ee-b7490a0bb645
-Id_4=26a1f0a7-c527-41e3-920a-6ed5823e2a36
-Id_5=6ec613e7-42c1-4144-999a-c53809d94565
-Id_6=cdad86e3-63be-4bf1-97f5-5c1709d92ba8
 Name_1=1
 Name_2=2
 Name_3=3
-Name_4=4
-Name_5=5
-Name_6=6
-Number=6
-Rows=2
+Number=3
+Rows=3
 
 [DrmOutputs][e5b7a8239c][e5b7a8239c]
 Scale=1
@@ -41,6 +35,9 @@ DontSlideStickyWindows=false
 RotationDuration=1250
 UsePagerLayout=false
 
+[Effect-DimInactive]
+DimFullScreen=false
+
 [Effect-PresentWindows]
 BorderActivateAll=9
 
@@ -51,7 +48,6 @@ SlideBackground=false
 ZoomFactor=0.9999999999999998
 
 [Effect-kwin4_effect_translucency]
-Inactive=96
 IndividualMenuConfig=true
 MoveResize=69
 
