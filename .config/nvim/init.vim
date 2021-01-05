@@ -471,21 +471,22 @@ if !exists('g:vscode')
   "   <leader>: - Search command history
   "   <leader>; - Search for open buffers
   "   <Control-/> - Search lines in open buffer
-  "   <Control-P>a - Search current directory (rg)
+  "   <leader>f - Search current directory (rg)
   "   <leader>*p - Search current directory for occurences of word under cursor
   "   <leader>*f - Search current directory for occurences visually selected text
   "   <leader>*r - recall last search
   "   <leader>*/ - search visually selected text literally
   "   <leader>*/ - Search open buffer for word under cursor
+
   " unmap <C-p>
-  let g:Lf_ShortcutF = '<C-P>'
+  let g:Lf_ShortcutF = '<C-p>'
 
   noremap <leader>: :<C-U><C-R>=printf("Leaderf cmdHistory %s", "")<CR><CR>
   noremap <leader>; :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
   noremap <C-/> :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
   " Control-/ weird behavior on linux: https://stackoverflow.com/questions/9051837/how-to-map-c-to-toggle-comments-in-vim
   noremap <C-_> :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
-  noremap <C-p>a :<C-U><C-R>=printf("Leaderf rg %s", "")<CR><CR>
+  noremap <leader>f :<C-U><C-R>=printf("Rg ")<CR><CR>
 
   " noremap <leader>*/ :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR><CR>
   noremap <leader>*p :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR><CR>
