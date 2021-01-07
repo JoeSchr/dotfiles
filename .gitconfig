@@ -15,7 +15,7 @@
     ga = add
     gb = branch
     gd = df
-    gs = st
+    gs = status
 	gco = gci
 	gci = ci
 	gcm = ci -m
