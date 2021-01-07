@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/fish
 
 mkdir ~/Downloads
 mkdir ~/.config
@@ -33,30 +33,33 @@ exit
 pamac -S pikaur
 
 # manual
+pip install --user commonmark wheel pyalpm
 cd ~/Downloads
 git clone https://aur.archlinux.org/pikaur.git
 cd pikaur
-pip install --user commonmark
 makepkg -fsri
 cd ~/Downloads
 
 
 # upgrade all the packages!!!
-sudo pikaur -Syyu
+pikaur -Syyu
 
 # install manjaro pacman
 pikaur -Sy pamac
 
 # ESSENTIALS SYSTEM
-pikaur -Sy neovim-git ripgrep nvm tmux git python3 python-pip mosh htop bash-completion fish fzf
+pikaur -Sy neovim-git ripgrep nvm tmux urlview python3 python-pip mosh htop bash-completion fish fzf
 pip3 install --user wheel pynvim
+# risky/estoric on arm
+pikaur -Sy ntfs-3g-fuse
 
-# podman
+
+# PODMAN
 pikaur -S podman catatonit crun
 # needed for cgroups
 # see: https://wiki.archlinux.org/index.php/Podman
 sudo touch /etc/sub{u,g}id
-sudo  usermod --add-subuids 165536-231072 --add-subgids 165536-231072 $(whoami)
+sudo  usermod --add-subuids 165536-231072 --add-subgids 165536-231072 (whoami)
 # add dockerhub
 echo "[registries.search]
 registries = ['docker.io']" | sudo tee -a /etc/containers/registries.conf
@@ -65,21 +68,21 @@ registries = ['docker.io']" | sudo tee -a /etc/containers/registries.conf
 sudo curl -L https://github.com/docker/compose/releases/download/1.27.4/docker-compose-(uname -s)-(uname -m) -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 
-# risky/estoric on arm
-pikaur -Sy ntfs-3g-fuse
-
-# install OH-MY-FISH
-cd ~/Downloads
-git clone -c core.autocrlf=false https://github.com/oh-my-fish/oh-my-fish
-cd oh-my-fish
-bin/install --offline
-
-# install FISHER
+# FISHER
 fish -c 'curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher'
 
+# omf
+fish -c 'fisher install oh-my-fish/oh-my-fish'
+# omf theme
+fish -c 'omf install yimmy'
 # fzf
 fish -c 'fisher install jethrokuan/fzf'
 
+# MANUAL: install OH-MY-FISH
+# cd ~/Downloads
+# git clone -c core.autocrlf=false https://github.com/oh-my-fish/oh-my-fish
+# cd oh-my-fish
+# bin/install --offline
 
 # NPM / YARN / NODE / NVM
 nvm install --lts
@@ -94,10 +97,10 @@ fish -c 'fisher install jorgebucaran/nvm.fish'
 
 
 #INSTALL GUI & RICE
-# ESSENTIALS GUI
-pikaur -Sy latte-dock-git visual-studio-code-bin signal-desktop cpupower-gui cpupower urlview zathura google-chrome
+# ESSENTIALS DESKTOP
+pikaur -Sy visual-studio-code-bin signal-desktop cpupower-gui cpupower google-chrome zathura
 # RICE
-pikaur -Sy nitrogen xorg-xbacklight x11-ssh-askpass maim neomutt urlview notmuch zathura xsurf xtitle groff dbus-x12 clang imagemagick mntray
+pikaur -Sy latte-dock-git mntray maim neomutt urlview notmuch  xsurf xtitle groff dbus-x12 clang imagemagick
 
 # FONTS
 pikaur -Sy noto-fonts powerline-fonts ttf-inconsolata ttf-joypixels nerd-fonts-hack
@@ -163,8 +166,7 @@ rm -rf fonts
 
 # TWEAKS
 # increase number of file watcher
-echo fs.inotify.max_user_watches=1048576 | sudo tee -a /etc/sysctl.d/50-max_user_watches.conf && \
-sudo sysctl -p
+echo fs.inotify.max_user_watches=1048576 | sudo tee -a /etc/sysctl.d/50-max_user_watches.conf && sudo touch /etc/sysctl.conf && sudo sysctl -p
 
 # fix ntfs-3g disk access on mount as user
 sudo usermod -a -G disk (whoami)
@@ -205,6 +207,7 @@ sudo gpasswd -a $(whoami) nordvpn
 # CUSTOM KERNEL
 
 ## xenomod
+gpg --receive-keys 38DBBDC86092693E
 pikaur -S linux-manjaro-xanmod linux-manjaro-xanmod-headers
 sudo ln -s /usr/src/linux-manjaro-xanmod  /usr/src/linux
 
