@@ -3,6 +3,7 @@ _k_friendly_name=Activity Manager
 switch-to-activity-22e0fcca-4eab-401e-a71b-71d553cd1fd6=none,none,Switch to activity "Default"
 switch-to-activity-7f74c8e4-8029-49bf-b627-91f7fe05e938=none,none,Switch to activity "Default"
 switch-to-activity-8746a399-d795-48d4-825e-8b4497c90b4f=none,none,Switch to activity "Default"
+switch-to-activity-ef581a10-edd3-4f56-a66f-f5d408d066ca=none,none,Switch to activity "Default"
 
 [KDE Keyboard Layout Switcher]
 Switch keyboard layout to English (US)=none,none,Switch keyboard layout to English (US)
@@ -347,6 +348,7 @@ activate task manager entry 6=none,Meta+6,Activate Task Manager Entry 6
 activate task manager entry 7=none,Meta+7,Activate Task Manager Entry 7
 activate task manager entry 8=none,Meta+8,Activate Task Manager Entry 8
 activate task manager entry 9=none,Meta+9,Activate Task Manager Entry 9
+activate widget 2=,none,Activate Application Launcher Widget
 activate widget 23=none,none,Activate Icons-only Task Manager Widget
 activate widget 27=,none,Activate Application Menu Widget
 activate widget 3=,none,Activate Application Launcher Widget

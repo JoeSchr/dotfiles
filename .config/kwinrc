@@ -30,9 +30,7 @@ TabBoxAlternative=true
 ZOrdering=true
 
 [Effect-CubeSlide]
-DontSlidePanels=false
-DontSlideStickyWindows=false
-RotationDuration=1250
+RotationDuration=350
 UsePagerLayout=false
 
 [Effect-DimInactive]
