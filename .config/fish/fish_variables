@@ -11,7 +11,8 @@ SETUVAR __fish_initialized:3100
 SETUVAR _fisher_jethrokuan_2F_fzf_files:/home/joe/\x2econfig/fish/functions/__fzf_cd\x2efish\x1e/home/joe/\x2econfig/fish/functions/__fzf_complete\x2efish\x1e/home/joe/\x2econfig/fish/functions/__fzf_complete_preview\x2efish\x1e/home/joe/\x2econfig/fish/functions/__fzf_find_file\x2efish\x1e/home/joe/\x2econfig/fish/functions/__fzf_get_dir\x2efish\x1e/home/joe/\x2econfig/fish/functions/__fzf_open\x2efish\x1e/home/joe/\x2econfig/fish/functions/__fzf_parse_commandline\x2efish\x1e/home/joe/\x2econfig/fish/functions/__fzf_reverse_isearch\x2efish\x1e/home/joe/\x2econfig/fish/functions/__fzfcmd\x2efish\x1e/home/joe/\x2econfig/fish/conf\x2ed/fzf\x2efish\x1e/home/joe/\x2econfig/fish/conf\x2ed/fzf_key_bindings\x2efish
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:/home/joe/\x2econfig/fish/functions/fisher\x2efish\x1e/home/joe/\x2econfig/fish/completions/fisher\x2efish
 SETUVAR _fisher_jorgebucaran_2F_nvm_2E_fish_files:/home/joe/\x2econfig/fish/functions/_nvm_index_update\x2efish\x1e/home/joe/\x2econfig/fish/functions/_nvm_list\x2efish\x1e/home/joe/\x2econfig/fish/functions/_nvm_version_activate\x2efish\x1e/home/joe/\x2econfig/fish/functions/_nvm_version_deactivate\x2efish\x1e/home/joe/\x2econfig/fish/functions/nvm\x2efish\x1e/home/joe/\x2econfig/fish/conf\x2ed/nvm\x2efish\x1e/home/joe/\x2econfig/fish/completions/nvm\x2efish
-SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ejorgebucaran/nvm\x2efish\x1ejethrokuan/fzf
+SETUVAR _fisher_oh_2D_my_2D_fish_2F_oh_2D_my_2D_fish_files:/home/joe/\x2econfig/fish/functions/init\x2efish
+SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ejorgebucaran/nvm\x2efish\x1ejethrokuan/fzf\x1eoh\x2dmy\x2dfish/oh\x2dmy\x2dfish
 SETUVAR fish_color_autosuggestion:4c566a
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:81a1c1
