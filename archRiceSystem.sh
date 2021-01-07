@@ -6,10 +6,10 @@ touch ~/.vimrc.local
 touch ~/.bashrc.local
 touch ~/.config/Xresources.local
 
-# update mirror-list
-sudo pacman-mirrors -g
 
 su -l
+# update mirror-list
+pacman-mirrors -g
 # update keydatabases
 rm -R /etc/pacman.d/gnupg
 rm -R /root/.gnupg
@@ -23,25 +23,26 @@ pacman -Fy
 pacman -Syy
 
 # install buildtools like eg. git make libffi glibc gcc
-pacman -S --needed base-devel git ed
+pacman -S --noconfirm --needed base-devel git ed
 
 # exit su -l
 exit
 
 # install AUR helper:
 # try automatic
-pacman -Sy pikaur
+pamac -S pikaur
 
 # manual
 cd ~/Downloads
 git clone https://aur.archlinux.org/pikaur.git
 cd pikaur
+pip install --user commonmark
 makepkg -fsri
 cd ~/Downloads
 
 
 # upgrade all the packages!!!
-sudo pikaur -Syu
+sudo pikaur -Syyu
 
 # install manjaro pacman
 pikaur -Sy pamac

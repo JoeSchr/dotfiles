@@ -231,7 +231,7 @@ export LC_CTYPE=en_US.UTF-8
 # source local commands
 . ~/.bashrc.local
 
-# -- EXAMPLES BASHRC.LOCAL
+# # -- EXAMPLES BASHRC.LOCAL
 # # Reboot directly to Windows
 # # Inspired by http://askubuntu.com/questions/18170/how-to-reboot-into-windows-from-ubuntu
 # reboot_to_windows ()
@@ -242,9 +242,6 @@ export LC_CTYPE=en_US.UTF-8
 # alias winreboot='reboot_to_windows'
 # alias manjaroreboot='sudo grub-reboot "Manjaro Linux"'
 
-# # needed to make X11 forward for electron apps work
-# # see: https://github.com/electron/electron/issues/22775
-# export QT_X11_NO_MITSHM=1
 
 # ## TMUX
 # alias tmux-init="tmux attach -t base || tmux new -s base"
@@ -252,65 +249,80 @@ export LC_CTYPE=en_US.UTF-8
 # ## POSTGRAPHILE DOCKER
 # export PG_DUMP="docker-compose exec -T db pg_dump"
 
-# ## ALIASES
-# # show battery
-# alias battery="acpi -b"
 
-# alias pip="pip3"
-
-# search stackoverflow with googler
-#alias so='googler -j -w stackoverflow.com (xsel)'
-
-## FIX on WSL so it doesn't get windows npm/yarn
+# ## WSL
+# # FIX on WSL so it doesn't get windows npm/yarn
 # export PATH=$(echo "$PATH" | sed -e 's/\/mnt\/c\/Program Files\/nodejs://')
 # export PATH=$(echo "$PATH" | sed -e 's/\/mnt\/c\/Program Files\/nodejs\/://')
 # export PATH=$(echo "$PATH" | sed -e 's/\/mnt\/c\/Users\/Joe\/AppData\/Roaming\/npm://')
 # export PATH=$(echo "$PATH" | sed -e 's/\/mnt\/c\/Program Files (x86)\/Yarn\/bin\/://')
 # export PATH=$(echo "$PATH" | sed -e 's/\/mnt\/c\/Users\/Joe\/AppData\/Local\/Yarn\/bin://')
 
+## NVM
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
- # # exit if inside tmux
-# if [[ "$TERM" =~ "screen".* ]]; then
- #  echo "Already inside TMUX"
-# else
- #  read -t 2 -n 1 -p "Start tmux (n/Y)? " answer
- #  [ -z "$answer" ] && answer="Y"  # 'yes' default choice
- #  case ${answer:0:1} in
- #     n|N )
- #         echo "No Tmux"
- #         ;;
- #     * )
- #         echo "Starting tmux-init"
- #         tmux attach -t base || tmux new -s base
- #     ;;
- #  esac
-# fi
-
-# alias ca="config add"
-
+# ## EXPORTS
+# # needed to make X11 forward for electron apps work
+# # see: https://github.com/electron/electron/issues/22775
+# export QT_X11_NO_MITSHM=1
+# POSTGRAPHILE DOCKER
+# export PG_DUMP="docker-compose exec -T db pg_dump"
+#
 # export LANGUAGE=en_US.UTF-8
 # export LANG=en_US.UTF-8
-
-
+#
+# ## ALIASES
+# # TMUX
+# alias tmux-init="tmux attach -t base || tmux new -s base"
+# alias pip="pip3"
+#
+# # search stackoverflow with googler
+# #alias so='googler -j -w stackoverflow.com (xsel)'
+#
+# # exit if inside tmux
+# if [[ "$TERM" =~ "screen".* ]]; then
+#   echo "Already inside TMUX"
+# else
+#   read -t 2 -n 1 -p "Start tmux (n/Y)? " answer
+#   [ -z "$answer" ] && answer="Y"  # 'yes' default choice
+#   case ${answer:0:1} in
+#      n|N )
+#          echo "No Tmux"
+#          ;;
+#      * )
+#          echo "Starting tmux-init"
+#          tmux attach -t base || tmux new -s base
+#      ;;
+#   esac
+# fi
+#
+# alias ca="config add"
+# alias cs="config status"
+#
+#
+#
 # export NVM_DIR="$HOME/.nvm"
 # . "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 # export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json
-
+#
 # ## FISH
-# # - ESCAPE HATCH:---------------------------------------------------------------------------------------------------------
-# # | In this setup, use                                                                                                   |
-# # | `bash --norc`                                                                                                        |
-# # | to manually enter Bash without executing the commands from ~/.bashrc which would run exec fish and drop back into fish. |
-# # ------------------------------------------------------------------------------------------------------------------------
-
+# # - ESCAPE HATCH:-------------------------------------------------------------------------------------------------------
+# # | In this setup, use                                                                                                 |
+# # | `bash --norc`                                                                                                      |
+# # | to manually enter Bash                                                                                             |
+# # | without executing the commands from ~/.bashrc which would run exec fish and drop back into fish.                   |
+# # ----------------------------------------------------------------------------------------------------------------------
+#
 # # To have commands such as `bash -c 'echo test'` run the command in Bash instead of starting fish
 # if [ -z "$BASH_EXECUTION_STRING" ]; then exec fish; fi
-# # Drop in to fish only if the parent process is not fish. This allows to quickly enter in to bash by invoking bash command without losing ~/.bashrc configuration:
+#
+# # Drop in to fish only if the parent process is not fish. 
+# # This allows to quickly enter in to bash by invoking bash 
+# # command without losing ~/.bashrc configuration:
 # if [[ $(ps --no-header --pid=$PPID --format=cmd) != "fish" ]]
 # then
- #    exec fish
+#     exec fish
 # fi
