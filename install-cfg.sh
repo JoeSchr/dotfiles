@@ -7,7 +7,7 @@ git clone --bare https://github.com/JoeSchr/dotfiles.git $HOME/.cfg
 
 config="$(which git) --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 
-mkdir -p $HOME/.backup-cfg/
+mkdir -p $HOME/.backup-cfg/.config/autostart/
 $config checkout
 if [ $? = 0 ]; then
   echo "Checked out config.";
