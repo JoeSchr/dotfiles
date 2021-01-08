@@ -48,25 +48,12 @@ pikaur -Syyu
 pikaur -Sy pamac
 
 # ESSENTIALS SYSTEM
-pikaur -Sy neovim-git ripgrep nvm tmux urlview python3 python-pip mosh htop bash-completion fish fzf
+pikaur -S --noconfirm neovim-git ripgrep nvm tmux urlview python3 python-pip mosh htop bash-completion fish fzf nodejs
 pip3 install --user wheel pynvim
 # risky/estoric on arm
-pikaur -Sy ntfs-3g-fuse
+pikaur -S  ntfs-3g-fuse
 
 
-# PODMAN
-pikaur -S podman catatonit crun
-# needed for cgroups
-# see: https://wiki.archlinux.org/index.php/Podman
-sudo touch /etc/sub{u,g}id
-sudo  usermod --add-subuids 165536-231072 --add-subgids 165536-231072 (whoami)
-# add dockerhub
-echo "[registries.search]
-registries = ['docker.io']" | sudo tee -a /etc/containers/registries.conf
-
-# install docker-compose
-sudo curl -L https://github.com/docker/compose/releases/download/1.27.4/docker-compose-(uname -s)-(uname -m) -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
 
 # FISHER
 fish -c 'curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher'
@@ -98,40 +85,12 @@ fish -c 'fisher install jorgebucaran/nvm.fish'
 
 #INSTALL GUI & RICE
 # ESSENTIALS DESKTOP
-pikaur -Sy visual-studio-code-bin signal-desktop cpupower-gui cpupower google-chrome zathura
+pikaur -S --noconfirm visual-studio-code-bin signal-desktop cpupower-gui cpupower google-chrome zathura
 # RICE
-pikaur -Sy latte-dock-git mntray maim neomutt urlview notmuch  xsurf xtitle groff dbus-x12 clang imagemagick
+pikaur -S --noconfirm latte-dock-git mntray maim neomutt urlview notmuch xtitle groff imagemagick
 
 # FONTS
 pikaur -Sy noto-fonts powerline-fonts ttf-inconsolata ttf-joypixels nerd-fonts-hack
-
-cd ~/Downloads
-
-# ST
-# dependencies
-# pikaur -Sy libxcb libxft-bgra-git
-# pikaur -Sy st-luke-git
-# cd ~/Downloads
-# git clone https://github.com/LukeSmithxyz/st
-# cd st
-# sudo make install
-# cd ~/Downloads
-
-# git clone https://github.com/LukeSmithxyz/dwm.git
-# cd dwm
-# make && sudo make install
-
-# cd ~/Downloads/
-# git clone https://github.com/LukeSmithxyz/mutt-wizard
-# cd mutt-wizard
-# sudo make install
-
-# pywal
-# pip3 install --user pywal
-
-# mpd with google music
-# pip3 install --user mopidy
-
 # powerline fonts
 cd ~/Downloads
 git clone https://github.com/powerline/fonts.git --depth=1
@@ -139,30 +98,22 @@ cd fonts
 ./install.sh
 cd ..
 rm -rf fonts
+cd ~/Downloads
 
-# CONFIGURE DWM
-# sudo cp $HOME/.local/bin/dwm.desktop /usr/share/xsessions/dwm.desktop
-# sudo ln -s $HOME/.local/bin/kde-dwm.sh /usr/local/bin/kde-dwm
-# # picom
-# sudo ln -s .config/xdg/picom.conf  /etc/xdg/picom.conf
+# DOCKER/PODMAN
+pikaur -S --noconfirm podman catatonit crun
+# needed for cgroups
+# see: https://wiki.archlinux.org/index.php/Podman
+sudo touch /etc/sub{u,g}id
+sudo  usermod --add-subuids 165536-231072 --add-subgids 165536-231072 (whoami)
+# add dockerhub
+echo "[registries.search]
+registries = ['docker.io']" | sudo tee -a /etc/containers/registries.conf
 
+# install docker-compose
+sudo curl -L https://github.com/docker/compose/releases/download/1.27.4/docker-compose-(uname -s)-(uname -m) -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
 
-# cd ~/Downloads
-# git clone https://github.com/LukeSmithxyz/dwmblocks.git
-# cd dwmblocks
-# make && sudo make install
-
-# cd ~/Downloads
-# git clone https://github.com/LukeSmithxyz/dmenu.git
-# cd dmenu
-# make && sudo make install
-
-# CONFIGURE BSPWM
-# sudo cp $HOME/.local/bin/bspwm.desktop /usr/share/xsessions/bspwm.desktop
-# sudo ln -s $HOME/.local/bin/launch_bspwm /usr/local/bin/launch_bspwm
-# sudo ln -s $HOME/.local/bin/kde-bspwm.sh /usr/local/bin/kde-bspwm
-
-# pikaur -Sy bspwm
 
 # TWEAKS
 # increase number of file watcher
@@ -172,22 +123,22 @@ echo fs.inotify.max_user_watches=1048576 | sudo tee -a /etc/sysctl.d/50-max_user
 sudo usermod -a -G disk (whoami)
 
 # fix vscode signin isues
-pikaur -Sy qtkeychain gnome-keyring
+pikaur -S --nonconfirm qtkeychain gnome-keyring
 
 # fix .ssh
 chmod 600 .ssh/*
 
 # bluetooth a2dp
-pikaur -Sy pulseaudio-bt-auto-enable-a2dp pulseaudio-bluetooth
+# pikaur -Sy pulseaudio-bt-auto-enable-a2dp pulseaudio-bluetooth
 # equalizer
 pikaur -Sy pulseeffects
 # unify for logitech setpoint
-pikaur -Sy ltunify
-# nvidia intel hybrid stuff
+pikaur -S --noconfirm ltunify
+# NVIDIA INTEL HYBRID STUFF
 # sudo mhwd -i pci video-hybrid-intel-nvidia-450xx-prime
 # pikaur -S cuda vulkan-mesa-layers vulkan-intel lib32-vulkan-intel  lib32-amdvlk  lib32-nvidia-utils  lib32-vulkan-mesa-layers
-sudo mhwd -r pci video-nvidia-455xx                         00:18:41
-sudo pikaur -S lib32-opencl-nvidia-455xx opencl-nvidia
+# sudo mhwd -r pci video-nvidia-455xx                         
+# sudo pikaur -S lib32-opencl-nvidia-455xx opencl-nvidia
 
 # sudo pikaur -S nvidia-dkms-beta vulkan-mesa-layers lib32-vulkan-intel lib32-nvidia-utils-beta lib32-vulkan-mesa-layers
 
