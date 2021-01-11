@@ -351,6 +351,7 @@ activate widget 23=none,none,Activate Icons-only Task Manager Widget
 activate widget 27=,none,Activate Application Menu Widget
 activate widget 3=Meta+S,none,Activate Application Launcher Widget
 activate widget 33=none,none,Activate Hard Disk Activity Widget
+activate widget 4=Meta+S,none,Activate Application Launcher Widget
 activate widget 46=none,none,Activate Battery and Brightness Widget
 clear-history=none,none,Clear Clipboard History
 clipboard_action=none,Ctrl+Alt+X,Enable Clipboard Actions
