@@ -170,10 +170,11 @@ pikaur -Sy nvidia-beta-dkms xorg-server-devel lib32-nvidia-utils-beta nvidia-set
 # needs to be at end, because it sources .bashrc again
 # DOCKER
 sudo groupadd docker
-sudo usermod -aG docker $(whoami)
+sudo usermod -aG docker (whoami)
 sudo systemctl enable docker
 sudo systemctl start docker
-sudo chown $(id -u):$(id -g) /var/run/docker.sock
+sudo chown (id -u):(id -g) /var/run/docker.sock
 
 newgrp docker
 cd
+patch -i chrome-remote-desktop--use_existing_session.patch chrome-remote-desktop
