@@ -364,6 +364,9 @@ if !exists('g:vscode')
   " show dotfiles
   let NERDTreeShowHidden=1
   map <C-n> :NERDTreeToggle<CR>
+  " open current file in nerdtree
+  map <leader>n :NERDTreeToggle %<CR>
+
 
   " ---------------- CAMELCASE -----------------
   " call camelcasemotion#CreateMotionMappings('<leader><leader>')
