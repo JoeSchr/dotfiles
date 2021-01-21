@@ -32,4 +32,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -f $HOME/.profile.local ] && . $HOME/.profile.local
 
 # EXAMPLE for .profile.local
-# export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json 
+# export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json
