@@ -221,6 +221,7 @@ if !exists('g:vscode')
       " Fuzzy Find, use :ctrlp or <c-p>
       Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
       Plug 'junegunn/fzf.vim'
+      Plug 'stsewd/fzf-checkout.vim'
       " Fuzzy project file search
       " Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
       Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
@@ -250,11 +251,13 @@ if !exists('g:vscode')
     Plug 'flazz/vim-colorschemes'
 
     " -- git helper
+    Plug 'airblade/vim-gitgutter'
     Plug 'tpope/vim-fugitive'
     " -- linter (works with elint)
     Plug 'dense-analysis/ale'
     " -- emulate vscode-vim stuff
     Plug 'sonph/onehalf', {'rtp': 'vim/'}
+    Plug 'morhetz/gruvbox'
     Plug 'ericbn/vim-solarized'
     Plug 'tpope/vim-commentary'
     " -- original easymotion
@@ -397,6 +400,18 @@ if !exists('g:vscode')
   " MAIN KEYBIND
   nnoremap <C-t> :Files<Cr>
 
+  " fzf-checkout
+  " Define a diff action using fugitive. You can use it with :GBranches diff or with :GBranches and pressing ctrl-f:
+  let g:fzf_branch_actions = {
+        \ 'diff': {
+        \   'prompt': 'Diff> ',
+        \   'execute': 'Git diff {branch}',
+        \   'multiple': v:false,
+        \   'keymap': 'ctrl-f',
+        \   'required': ['branch'],
+        \   'confirm': v:false,
+        \ },
+        \}
   " buffers & old files history
   nnoremap <silent> <Leader>B :History<CR>
   nnoremap <silent> <Leader>rb :History<CR>
@@ -666,6 +681,13 @@ if !exists('g:vscode')
   nnoremap <silent> <leader>k  :<C-u>CocPrev<CR>
   " Resume latest coc list.
   nnoremap <silent> <leader>p  :<C-u>CocListResume<CR>-----
+  " hover popup scroll "
+  if has('nvim-0.4.3') || has('patch-8.2.0750')
+            nnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+            nnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+            inoremap <nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+            inoremap <nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+  endif
   " ---------------- /COC ------------
   " ----------------- AIRLINE ---------------
   let g:airline#extensions#tabline#enabled = 1
@@ -692,6 +714,47 @@ if !exists('g:vscode')
     au TextChanged * ++nested write
     au TextChangedI * ++nested write
   endif
+  " ---------------- FUGITIVE --------------
+  command! GHistory call s:view_git_history()
+
+  function! s:view_git_history() abort
+    Git difftool --name-only ! !^@
+    call s:diff_current_quickfix_entry()
+    " Bind <CR> for current quickfix window to properly set up diff split layout after selecting an item
+    " There's probably a better way to map this without changing the window
+    copen
+    nnoremap <buffer> <CR> <CR><BAR>:call <sid>diff_current_quickfix_entry()<CR>
+    wincmd p
+  endfunction
+
+  function s:diff_current_quickfix_entry() abort
+    " Cleanup windows
+    for window in getwininfo()
+      if window.winnr !=? winnr() && bufname(window.bufnr) =~? '^fugitive:'
+        exe 'bdelete' window.bufnr
+      endif
+    endfor
+    cc
+    call s:add_mappings()
+    let qf = getqflist({'context': 0, 'idx': 0})
+    if get(qf, 'idx') && type(get(qf, 'context')) == type({}) && type(get(qf.context, 'items')) == type([])
+      let diff = get(qf.context.items[qf.idx - 1], 'diff', [])
+      echom string(reverse(range(len(diff))))
+      for i in reverse(range(len(diff)))
+        exe (i ? 'leftabove' : 'rightbelow') 'vert diffsplit' fnameescape(diff[i].filename)
+        call s:add_mappings()
+      endfor
+    endif
+  endfunction
+
+  function! s:add_mappings() abort
+    nnoremap <buffer>]q :cnext <BAR> :call <sid>diff_current_quickfix_entry()<CR>
+    nnoremap <buffer>[q :cprevious <BAR> :call <sid>diff_current_quickfix_entry()<CR>
+    " Reset quickfix height. Sometimes it messes up after selecting another item
+    11copen
+    wincmd p
+  endfunction
+  " ------------------ /FUGITIVE -------------"
 endif
 " ============== / only NATIVE VIM  ===================
 
@@ -761,6 +824,7 @@ if exists('g:vscode')
       " Fuzzy Find, use :ctrlp or <c-p>
       Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
       Plug 'junegunn/fzf.vim'
+      Plug 'stsewd/fzf-checkout.vim'
       " Easymotion fuzzy search
       Plug 'haya14busa/incsearch.vim'
       Plug 'haya14busa/incsearch-fuzzy.vim'
@@ -890,16 +954,22 @@ source ~/.config/nvim/tddcolors.vim
 
 source ~/.vimrc.local
 " ==== .vimrc.local EXAMPLE =======
+
+" set relativenumber!
+" set number!
+
 " if exists('g:started_by_firenvim')
-" " " make it light
+"   " make it light
 "   set background=light
 "   colorscheme onehalflight
 "   let g:airline_solarized_bg='light'
+"   " guifont to hack and larger
+"   set guifont=Hack:h23
 " else
 "   set background=dark
-"   colorscheme onehalfdark
+"   let g:gruvbox_contrast_dark='hard'
+"   let g:gruvbox_transparent_bg=1
+"   colorscheme gruvbox
 "   " " solarized airline
 "   let g:airline_solarized_bg='dark'
 " endif
-" " " guifont to hack and larger
-" set guifont=Hack:h12
