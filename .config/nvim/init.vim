@@ -970,6 +970,11 @@ source ~/.vimrc.local
 "   let g:gruvbox_contrast_dark='hard'
 "   let g:gruvbox_transparent_bg=1
 "   colorscheme gruvbox
-"   " " solarized airline
+"   " solarized airline
 "   let g:airline_solarized_bg='dark'
 " endif
+"
+" set background transparent
+" need to come after colorscheme
+" set background transparent
+" hi Normal guibg=NONE ctermbg=NONE
