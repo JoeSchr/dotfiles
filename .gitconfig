@@ -11,18 +11,6 @@
 	default = simple
 [alias]
     # replace .bashrc
-    gl = lg
-    ga = add
-    gb = branch
-    gd = df
-    gs = status
-	gco = gci
-	gci = ci
-	gcm = ci -m
-	gca = ci -a
-    gla = lg --all
-    gov = gla
-    lga = gla
     rr = rebase --continue
     ri = rebase --interactive
     
@@ -60,6 +48,20 @@
 	stash-rename = "!_() { rev=$(git rev-parse $1) && git stash drop $1 || exit 1 ; git stash store -m \"$2\" $rev; }; _"
 	stash-all = stash -u
     stashall = stash-all
+    # shorthands
+    gl = lg
+    ga = add
+    gb = branch
+    gbdr = branch-delete-remote
+    gd = df
+    gs = status
+	gco = gci
+	gci = ci
+	gcm = ci -m
+	gca = ci -a
+    gla = lg --all
+    gov = gla
+    lga = gla
 [rerere]
 	enabled = true
 [mergetool]
