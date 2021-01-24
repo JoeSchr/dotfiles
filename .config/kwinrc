@@ -74,8 +74,10 @@ krohnkiteEnabled=true
 kwin4_effect_eyeonscreenEnabled=true
 kwin4_effect_fadeEnabled=false
 kwin4_effect_scaleEnabled=true
+kwin4_effect_squashEnabled=false
 kwin4_effect_windowapertureEnabled=false
 lattewindowcolorsEnabled=true
+magiclampEnabled=true
 minimizeallEnabled=false
 resizeEnabled=true
 screenedgeEnabled=false
@@ -118,6 +120,7 @@ SwitchingMode=1
 LayoutName=coverswitch
 
 [Windows]
+BorderlessMaximizedWindows=true
 FocusStealingPreventionLevel=2
 Placement=UnderMouse
 SeparateScreenFocus=true

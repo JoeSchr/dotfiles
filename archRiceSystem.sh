@@ -87,7 +87,7 @@ fish -c 'fisher install jorgebucaran/nvm.fish'
 # ESSENTIALS DESKTOP
 pikaur -S --noconfirm visual-studio-code-bin signal-desktop cpupower-gui cpupower google-chrome zathura
 # RICE
-pikaur -S --noconfirm latte-dock-git mntray maim neomutt urlview notmuch xtitle groff imagemagick
+pikaur -S --noconfirm latte-dock-git mntray maim neomutt urlview notmuch xtitle groff imagemagick appmenu-gtk-module
 
 # FONTS
 pikaur -Sy noto-fonts powerline-fonts ttf-inconsolata ttf-joypixels nerd-fonts-hack
@@ -137,7 +137,7 @@ pikaur -S --noconfirm ltunify
 # NVIDIA INTEL HYBRID STUFF
 # sudo mhwd -i pci video-hybrid-intel-nvidia-450xx-prime
 # pikaur -S cuda vulkan-mesa-layers vulkan-intel lib32-vulkan-intel  lib32-amdvlk  lib32-nvidia-utils  lib32-vulkan-mesa-layers
-# sudo mhwd -r pci video-nvidia-455xx                         
+# sudo mhwd -r pci video-nvidia-455xx
 # sudo pikaur -S lib32-opencl-nvidia-455xx opencl-nvidia
 
 # sudo pikaur -S nvidia-dkms-beta vulkan-mesa-layers lib32-vulkan-intel lib32-nvidia-utils-beta lib32-vulkan-mesa-layers
