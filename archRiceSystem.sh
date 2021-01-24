@@ -149,6 +149,19 @@ pikaur -Sy minishift origin-client
 sudo curl -L https://mirror.openshift.com/pub/openshift-v4/clients/odo/latest/odo-linux-amd64 -o /usr/local/bin/odo
 sudo chmod +x /usr/local/bin/odo
 
+# openshift crc
+# install `crc` first from here:
+# https://access.redhat.com/documentation/en-us/red_hat_codeready_containers/1.20/html/getting_started_guide/using-codeready-containers_gsg
+# https://wiki.archlinux.org/index.php/OpenShift#openshift_v4
+
+# INSTALL
+pikaur -S libvirt qemu qemu-arch-extra
+sudo pacman -Syu ebtables dnsmasq
+sudo systemctl restart libvirtd
+# CRC SETUP
+crc setup
+crc start
+
 # nordvpn
 sudo groupadd -r nordvpn
 pikaur -Syu nordvpn-bin
