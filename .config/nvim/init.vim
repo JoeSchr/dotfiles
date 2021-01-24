@@ -174,7 +174,8 @@ set autowrite
 
 set cursorline
 
-
+" only keep open buffer
+command! BufOnly silent! execute "%bd|e#|bd#"
 
 
 source $VIMRUNTIME/delmenu.vim
@@ -240,6 +241,8 @@ if !exists('g:vscode')
       Plug 'tpope/vim-unimpaired'
       " fish file editing
       Plug 'dag/vim-fish'
+      " close other buffers (and more)
+      Plug 'Asheq/close-buffers.vim'
     " >============== / UNIVERSAL PLUGINS: NATIVE VIM ===================
 
     " NATIVE ONLY:
@@ -635,7 +638,7 @@ if !exists('g:vscode')
   " Remap keys for applying codeAction to the current line.
   nmap <leader>ac  <Plug>(coc-codeaction)
   " Apply AutoFix to problem on the current line.
-  nmap <leader>qf  <Plug>(coc-fix-current)
+  nmap <leader>aq  <Plug>(coc-fix-current)
 
   " Introduce function text object
   " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
@@ -715,6 +718,7 @@ if !exists('g:vscode')
     au TextChangedI * ++nested write
   endif
   " ---------------- FUGITIVE --------------
+  nnoremap <silent> <leader>g :G <CR>
   command! GHistory call s:view_git_history()
 
   function! s:view_git_history() abort
@@ -840,6 +844,8 @@ if exists('g:vscode')
       Plug 'tpope/vim-unimpaired'
       " fish file editing
       Plug 'dag/vim-fish'
+      " close other buffers (and more)
+      Plug 'Asheq/close-buffers.vim'
     " ============== / UNIVERSAL PLUGINS: VSCODE-NEOVIM ===================
     " Special easymotion fork (only working in VSCode)
     Plug 'asvetliakov/vim-easymotion'
@@ -946,6 +952,11 @@ if executable('rg')
       \   fzf#vim#with_preview(), <bang>0)
 
 endif
+
+" --------- CLOSE-BUFFERS ---------
+nnoremap <silent> Q     :bd <CR>
+nnoremap <silent> <leader>q     :Bdelete other<CR>
+nnoremap <silent> <leader><C-q> :Bdelete menu<CR>
 " ================== / UNIVERSAL PLUGINS CONFIG =================
 
 

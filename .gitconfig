@@ -16,7 +16,7 @@
     
 	go = checkout
 	ci = commit -v
-    cim = ci -m
+    cim = commit -v -m
 	st = status
 	br = branch
     df = diff
