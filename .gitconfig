@@ -59,9 +59,7 @@
 	gci = ci
 	gcm = ci -m
 	gca = ci -a
-    gla = lg --all
-    gov = gla
-    lga = gla
+    lga = lg --all
 [rerere]
 	enabled = true
 [mergetool]

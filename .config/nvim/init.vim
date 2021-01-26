@@ -379,6 +379,7 @@ if !exists('g:vscode')
   " ------------------ Vinegar ------------------
   map <C-n> <Plug>VinegarUp
   nmap <leader>n <Plug>VinegarUp
+  nmap - <Plug>VinegarUp
 
   " ---------------- CAMELCASE -----------------
   " call camelcasemotion#CreateMotionMappings('<leader><leader>')
@@ -511,7 +512,9 @@ if !exists('g:vscode')
   noremap <leader>: :<C-U><C-R>=printf("Leaderf cmdHistory %s", "")<CR><CR>
   " search MRU
   noremap <leader>; :<C-U><C-R>=printf("LeaderfMruCwd")<CR><CR>
-  noremap <leader>B :<C-U><C-R>=printf("LeaderfMruCwd")<CR><CR>
+  noremap <leader>P :<C-U><C-R>=printf("LeaderfMruCwd")<CR><CR>
+  " search open BUFFER
+  noremap <leader>B :<C-U><C-R>=printf("LeaderfBufferAll")<CR><CR>
 
   " search tag/all tags
   noremap <leader>t :<C-U><C-R>=printf("LeaderfBufTagAll")<CR><CR>
