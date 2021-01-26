@@ -296,8 +296,9 @@ if !exists('g:vscode')
     Plug 'powerman/vim-plugin-AnsiEsc'
     " nvim in browser
     Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(-1) } }
-    " Manage any Kubernetes resource from Vim.
-    Plug 'rottencandy/vimkubectl'
+
+    " see tags
+    Plug 'liuchengxu/vista.vim'
 
     " AUTOCOMPLETION: basially port of vscode autocompletion
     " https://github.com/neoclide/coc.nvim
@@ -406,7 +407,7 @@ if !exists('g:vscode')
   \}
   " ---------------- FZF -----------------
   " MAIN KEYBIND
-  nnoremap <C-t> :Files<Cr>
+  " nnoremap <C-t> :Files<Cr>
 
   " fzf-checkout
   " Define a diff action using fugitive. You can use it with :GBranches diff or with :GBranches and pressing ctrl-f:
@@ -421,15 +422,15 @@ if !exists('g:vscode')
         \ },
         \}
   " buffers & old files history
-  nnoremap <silent> <Leader>B :History<CR>
-  nnoremap <silent> <Leader>rb :History<CR>
+  " nnoremap <silent> <Leader>B :History<CR>
+  " nnoremap <silent> <Leader>rb :History<CR>
 
   " other Keybinds
   " nnoremap <silent> <Leader>rp :FZF<CR>
-  nnoremap <silent> <Leader>r/ :BLines<CR>
-  nnoremap <silent> <Leader>' :Marks<CR>
-  " nnoremap <silent> <Leader>g :Commits<CR>
-  nnoremap <silent> <Leader>H :Helptags<CR>
+  " nnoremap <silent> <Leader>r/ :BLines<CR>
+  nnoremap <silent> <Leader>" :Marks<CR>
+  nnoremap <silent> <Leader>L :Commits<CR>
+  " nnoremap <silent> <Leader>H :Helptags<CR>
   " nnoremap <silent> <Leader>rr :History/<CR>
   " nnoremap <silent> i<Leader>r: :History:<CR>
 
@@ -508,9 +509,19 @@ if !exists('g:vscode')
   let g:Lf_ShortcutF = '<C-p>'
 
   noremap <leader>: :<C-U><C-R>=printf("Leaderf cmdHistory %s", "")<CR><CR>
-  noremap <leader>; :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
-  noremap <C-/> :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
+  " search MRU
+  noremap <leader>; :<C-U><C-R>=printf("LeaderfMruCwd")<CR><CR>
+  noremap <leader>B :<C-U><C-R>=printf("LeaderfMruCwd")<CR><CR>
+
+  " search tag/all tags
+  noremap <leader>t :<C-U><C-R>=printf("LeaderfBufTagAll")<CR><CR>
+  noremap <leader>T :<C-U><C-R>=printf("Vista coc")<CR><CR>
+  " search HELP
+  noremap <leader>H :<C-U><C-R>=printf("LeaderfHelp")<CR><CR>
+
+")<CR><CR>
   " Control-/ weird behavior on linux: https://stackoverflow.com/questions/9051837/how-to-map-c-to-toggle-comments-in-vim
+  noremap <C-/> :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
   noremap <C-_> :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
   noremap <leader>f :<C-U><C-R>=printf("Rg ")<CR><CR>
 
@@ -528,7 +539,23 @@ if !exists('g:vscode')
   "       \   ],
   "       \}
   " ---------------- /leaderF --------
-  "
+  " ---------------- Vista --------
+  " How each level is indented and what to prepend.
+  " This could make the display more compact or more spacious.
+  " e.g., more compact: ["▸ ", ""]
+  " Note: this option only works the LSP executives, doesn't work for `:Vista ctags`.
+  let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
+
+
+  " To enable fzf's preview window set g:vista_fzf_preview.
+  " The elements of g:vista_fzf_preview will be passed as arguments to fzf#vim#with_preview()
+  " For example:
+  let g:vista_fzf_preview = ['right:50%']
+  " Ensure you have installed some decent font to show these pretty symbols, then you can enable icon for the kind.
+  let g:vista#renderer#enable_icon = 1
+
+
+
   " ---------------- COC ------------
   " coc config
   " automatically installs this coc extension
