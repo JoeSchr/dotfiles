@@ -272,7 +272,9 @@ if !exists('g:vscode')
     " -- other
     " Make sure you use single quotes
     " On-demand loading
-    Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+    " Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+    Plug 'tpope/vim-vinegar'
+
     " zooms font with + and -
     Plug 'thinca/vim-fontzoom'
     " yankring with alt+p && alt+shift+p && use :yanks
@@ -364,15 +366,18 @@ if !exists('g:vscode')
   " CONFIG NATIVE PLUGINS:
   " ----------------------
   " ------------------ NERDTREE ------------------
-  " use split model instead of drawer (so better netrw)
-  " http://vimcasts.org/blog/2013/01/oil-and-vinegar-split-windows-and-project-drawer/
-  let NERDTreeHijackNetrw=1
-  " show dotfiles
-  let NERDTreeShowHidden=1
-  map <C-n> :NERDTreeToggle<CR>
-  " open current file in nerdtree
-  map <leader>n :NERDTreeToggle %<CR>
+  " " use split model instead of drawer (so better netrw)
+  " " http://vimcasts.org/blog/2013/01/oil-and-vinegar-split-windows-and-project-drawer/
+  " let NERDTreeHijackNetrw=1
+  " " show dotfiles
+  " let NERDTreeShowHidden=1
+  " map <C-n> :NERDTreeToggle<CR>
+  " " open current file in nerdtree
+  " map <leader>n :NERDTreeToggle %<CR>
 
+  " ------------------ Vinegar ------------------
+  map <C-n> <Plug>VinegarUp
+  nmap <leader>n <Plug>VinegarUp
 
   " ---------------- CAMELCASE -----------------
   " call camelcasemotion#CreateMotionMappings('<leader><leader>')
