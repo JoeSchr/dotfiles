@@ -15,6 +15,7 @@ if status --is-interactive
   abbr cng 'git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
   abbr config 'git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
   abbr e 'nvim'
+  alias e 'nvim'
   abbr rsync-mv 'rsync -avzh --remove-source-files --progress'
   abbr pinstall 'pikaur -Syu --needed --noconfirm'
   abbr ssh-add-all 'ssh-add ~/.ssh/id_rsa_*'
