@@ -246,6 +246,8 @@ if !exists('g:vscode')
     " >============== / UNIVERSAL PLUGINS: NATIVE VIM ===================
 
     " NATIVE ONLY:
+    " Repeat.vim remaps . in a way that plugins can tap into it.
+    Plug 'tpope/vim-repeat'
     " Center Text
     Plug 'junegunn/goyo.vim'
     " -- themes
@@ -277,8 +279,10 @@ if !exists('g:vscode')
 
     " zooms font with + and -
     Plug 'thinca/vim-fontzoom'
+    " another yankring
+    Plug 'svermeulen/vim-yoink'
     " yankring with alt+p && alt+shift+p && use :yanks
-    Plug 'maxbrunsfeld/vim-yankstack'
+    " Plug 'maxbrunsfeld/vim-yankstack'
     " airline
     Plug 'vim-airline/vim-airline'
     " airline theme
@@ -384,9 +388,30 @@ if !exists('g:vscode')
   " ---------------- CAMELCASE -----------------
   " call camelcasemotion#CreateMotionMappings('<leader><leader>')
   " ---------------- YANKSTACK -----------------
-  nmap <M-p> <Plug>yankstack_substitute_older_paste
-  nmap <M-P> <Plug>yankstack_substitute_newer_paste
-  " ---------------- ALEl ----------------------
+  " nmap <M-p> <Plug>yankstack_substitute_older_paste
+  " nmap <M-P> <Plug>yankstack_substitute_newer_paste
+  " ---------------- YOINK -----------------
+  " after performing a paste, cycle through history by hitting <c-n> and <c-p>
+  " for it to work in VISUAL we need vim-subversive
+  nmap <c-n> <plug>(YoinkPostPasteSwapBack)
+  nmap <c-p> <plug>(YoinkPostPasteSwapForward)
+  " We also need to override the p and P keys to notify Yoink
+  nmap p <plug>(YoinkPaste_p)
+  nmap P <plug>(YoinkPaste_P)
+
+  " [y/]y change current yank and preview in status bar
+  nmap [y <plug>(YoinkRotateBack)
+  nmap ]y <plug>(YoinkRotateForward)
+
+  " toggling whether the current paste is formatted or not:
+  " now hitting <c-=> after a paste will toggle between formatted and unformatted
+  " (equivalent to using the = key)
+  nmap <c-=> <plug>(YoinkPostPasteToggleFormat)
+
+  " cursor position will not change after performing a yank
+  nmap y <plug>(YoinkYankPreserveCursorPosition)
+  xmap y <plug>(YoinkYankPreserveCursorPosition)
+  " ---------------- ALE ----------------------
   " fix files on save
   let g:ale_fix_on_save = 1
 
