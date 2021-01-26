@@ -21,4 +21,6 @@ if status --is-interactive
   abbr reboot-linux 'sudo grub-reboot "Manjaro Linux"'
   abbr yay 'pikaur'
   abbr rg 'rg -S'
+  alias pbcopy 'xsel --clipboard --input'
+  alias pbpaste 'xsel --clipboard --output'
   end
