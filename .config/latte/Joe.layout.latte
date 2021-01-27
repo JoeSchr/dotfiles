@@ -30,12 +30,12 @@ plugin=org.kde.latte.plasmoid
 PreloadWeight=0
 
 [Containments][1][Applets][57][Configuration][General]
-animationWindowAddedInGroup=false
-groupTasksByDefault=false
 groupingAppIdBlacklist=google-chrome.desktop
 groupingLauncherUrlBlacklist=applications:google-chrome.desktop
 infoBadgeProminentColorEnabled=true
+isInLatteDock=true
 launchers59=applications:org.kde.dolphin.desktop,applications:org.kde.konsole.desktop,applications:google-chrome.desktop,applications:ytmdesktop.desktop
+launchersGroup=Global
 showOnlyCurrentActivity=false
 showWindowActions=true
 
@@ -44,7 +44,7 @@ immutability=1
 plugin=org.kde.plasma.kickoff
 
 [Containments][1][Applets][59][Configuration]
-PreloadWeight=92
+PreloadWeight=97
 
 [Containments][1][Applets][59][Configuration][ConfigDialog]
 DialogHeight=2160
@@ -56,8 +56,8 @@ icon=5961_Defunct_x86.0
 systemApplications=systemsettings.desktop,org.kde.kinfocenter.desktop
 
 [Containments][1][ConfigDialog]
-DialogHeight=896
-DialogWidth=1051
+DialogHeight=1894
+DialogWidth=1259
 
 [Containments][1][Configuration]
 PreloadWeight=0
@@ -69,6 +69,7 @@ alignmentUpgraded=true
 appletOrder=59;57
 autoDecreaseIconSize=false
 configurationSticker=true
+disablePanelShadowForMaximized=true
 durationTime=x1
 groupTasksByDefault=false
 iconMargin=0
@@ -76,7 +77,9 @@ iconSize=48
 lengthExtMargin=4
 maxLength=60
 panelPosition=10
-panelSize=5
+panelSize=9
+panelTransparency=63
+plasmaBackgroundForPopups=true
 proportionIconSize=4.5
 shadowOpacity=35
 shadowSize=45
@@ -98,6 +101,9 @@ enabled=true
 enabledForApplets=true
 padding=0.07999999821186066
 type=org.kde.latte.default
+
+[Containments][1][Indicator][org.kde.latte.default][General]
+minimizedTaskColoredDifferently=true
 
 [LayoutSettings]
 activities=
