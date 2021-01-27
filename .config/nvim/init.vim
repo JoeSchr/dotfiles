@@ -170,9 +170,17 @@ let $LANG = 'en_US'
 " save on focus lost
 au FocusLost * silent! wa
 " save on buffer switch
+"
 set autowrite
 
 set cursorline
+
+" Use the same symbols as TextMate for tabstops and EOLs
+set listchars=tab:▸\ ,eol:¬,trail:☠,extends:▷
+set list
+"Invisible character colors
+highlight NonText guifg=#4a4a59
+highlight SpecialKey guifg=#4a4a59
 
 " only keep open buffer
 command! BufOnly silent! execute "%bd|e#|bd#"
@@ -856,7 +864,7 @@ filetype plugin on
 " (still using NERDTREE as well, because of a lot of bugs in netrw)
 " Tweaks for browsing
 let g:netrw_banner=0        " disable annoying banner
-let g:netrw_browse_split=4  " open in prior window
+let g:netrw_browse_split=0  " open in prior window
 let g:netrw_altv=1          " open splits to the right
 let g:netrw_liststyle=3     " tree view
 let g:netrw_list_hide=netrw_gitignore#Hide()
