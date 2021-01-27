@@ -402,7 +402,7 @@ if !exists('g:vscode')
   " after performing a paste, cycle through history by hitting <c-n> and <c-p>
   " for it to work in VISUAL we need vim-subversive
   nmap <c-n> <plug>(YoinkPostPasteSwapBack)
-  nmap <c-p> <plug>(YoinkPostPasteSwapForward)
+  nmap <leader><c-p> <plug>(YoinkPostPasteSwapForward)
   " We also need to override the p and P keys to notify Yoink
   nmap p <plug>(YoinkPaste_p)
   nmap P <plug>(YoinkPaste_P)
@@ -542,10 +542,10 @@ if !exists('g:vscode')
   " unmap <C-p>
   let g:Lf_ShortcutF = '<C-p>'
 
+  noremap <leader>P :<C-U><C-R>=printf("Leaderf cmdHistory %s", "")<CR><CR>
   noremap <leader>: :<C-U><C-R>=printf("Leaderf cmdHistory %s", "")<CR><CR>
   " search MRU
   noremap <leader>; :<C-U><C-R>=printf("LeaderfMruCwd")<CR><CR>
-  noremap <leader>P :<C-U><C-R>=printf("LeaderfMruCwd")<CR><CR>
   " search open BUFFER
   noremap <leader>B :<C-U><C-R>=printf("LeaderfBufferAll")<CR><CR>
 
