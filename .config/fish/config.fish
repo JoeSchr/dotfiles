@@ -31,4 +31,5 @@ if status --is-interactive
   set -x VISUAL nvim
   # always try to set DISPLAY
   set -q DISPLAY; or set DISPLAY ":0"
+  abbr psa 'ps ax | grep'
 end
