@@ -5,8 +5,8 @@ bind -M insert \cP forward-char
 # C-f moves one word forward
 bind -M insert \cF nextd-or-forward-word
 
-echo -n Setting abbreviations...
 if status --is-interactive
+  echo -n Setting abbreviations...
   set -g fish_user_abbreviations
   abbr g 'git'
   abbr ga 'git add -p'
@@ -24,4 +24,11 @@ if status --is-interactive
   abbr rg 'rg -S'
   alias pbcopy 'xsel --clipboard --input'
   alias pbpaste 'xsel --clipboard --output'
-  end
+
+  echo -n Setting exports...
+  set -x PAGER less
+  set -x EDITOR nvim
+  set -x VISUAL nvim
+  # always try to set DISPLAY
+  set -q DISPLAY; or set DISPLAY ":0"
+end
