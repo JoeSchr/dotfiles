@@ -168,6 +168,13 @@ pikaur -Syu nordvpn-bin
 sudo systemctl enable --now nordvpnd.service
 sudo gpasswd -a $(whoami) nordvpn
 
+# cmdg
+git clone https://github.com/JoeSchr/cmdg.git ~/.local/sources/cmdg
+cd ~/.local/sources/cmdg
+go build ./cmd/cmdg
+sudo cp cmdg /usr/local/bin
+
+
 # CUSTOM KERNEL
 
 ## xenomod
