@@ -50,6 +50,7 @@
     stashall = stash-all
     # shorthands
     gl = lg
+    gov = lga
     ga = add
     gb = branch
     gbdr = branch-delete-remote
