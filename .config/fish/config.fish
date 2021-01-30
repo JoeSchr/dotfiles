@@ -13,7 +13,7 @@ if status --is-interactive
   abbr gs 'git status'
   abbr gov 'git lg --all'
   abbr cng 'git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-  abbr config 'git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+  alias config 'git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
   abbr e 'nvim'
   alias e 'nvim'
   abbr rsync-mv 'rsync -avzh --remove-source-files --progress'
