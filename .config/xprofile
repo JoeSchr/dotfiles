@@ -5,93 +5,93 @@
 #Add this when you include flatpak in your system
 # dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY &
 
-. $HOME/.config/xprofile.local
-xrdb ~/.config/Xresources 	# Uncomment to use Xresources colors/settings on startup
-xrdb -merge ~/.config/Xresources.local 	# Include local file
+# [ -f $HOME/.config/xprofile.local ] && . $HOME/.config/xprofile.local
+# xrdb ~/.config/Xresources 	# Uncomment to use Xresources colors/settings on startup
+# xrdb -merge ~/.config/Xresources.local 	# Include local file
 
-$COMP &
-$PLASMA &
-$STATUSBAR &
-$CLUTTER &
-$SHORTCUTS &
+# $COMP &
+# $PLASMA &
+# $STATUSBAR &
+# $CLUTTER &
+# $SHORTCUTS &
 
-bspc config top_padding $STATUSBAR_HEIGHT 	# top_padding, customize in .config/.xprofile.local
+# bspc config top_padding $STATUSBAR_HEIGHT 	# top_padding, customize in .config/.xprofile.local
 
 
-# This is the list for lf icons:
-export LF_ICONS="di=📁:\
-fi=📃:\
-tw=🤝:\
-ow=📂:\
-ln=⛓:\
-or=❌:\
-ex=🎯:\
-*.txt=✍:\
-*.mom=✍:\
-*.me=✍:\
-*.ms=✍:\
-*.png=🖼:\
-*.ico=🖼:\
-*.jpg=📸:\
-*.jpeg=📸:\
-*.gif=🖼:\
-*.svg=🗺:\
-*.xcf=🖌:\
-*.html=🌎:\
-*.xml=📰:\
-*.gpg=🔒:\
-*.css=🎨:\
-*.pdf=📚:\
-*.djvu=📚:\
-*.epub=📚:\
-*.csv=📓:\
-*.xlsx=📓:\
-*.tex=📜:\
-*.md=📘:\
-*.r=📊:\
-*.R=📊:\
-*.rmd=📊:\
-*.Rmd=📊:\
-*.mp3=🎵:\
-*.opus=🎵:\
-*.ogg=🎵:\
-*.m4a=🎵:\
-*.flac=🎼:\
-*.mkv=🎥:\
-*.mp4=🎥:\
-*.webm=🎥:\
-*.mpeg=🎥:\
-*.zip=📦:\
-*.rar=📦:\
-*.7z=📦:\
-*.tar.gz=📦:\
-*.z64=🎮:\
-*.v64=🎮:\
-*.n64=🎮:\
-*.1=ℹ:\
-*.nfo=ℹ:\
-*.info=ℹ:\
-*.log=📙:\
-*.iso=📀:\
-*.img=📀:\
-*.bib=🎓:\
-*.ged=👪:\
-*.part=💔:\
-*.torrent=🔽:\
-"
+# # This is the list for lf icons:
+# export LF_ICONS="di=📁:\
+# fi=📃:\
+# tw=🤝:\
+# ow=📂:\
+# ln=⛓:\
+# or=❌:\
+# ex=🎯:\
+# *.txt=✍:\
+# *.mom=✍:\
+# *.me=✍:\
+# *.ms=✍:\
+# *.png=🖼:\
+# *.ico=🖼:\
+# *.jpg=📸:\
+# *.jpeg=📸:\
+# *.gif=🖼:\
+# *.svg=🗺:\
+# *.xcf=🖌:\
+# *.html=🌎:\
+# *.xml=📰:\
+# *.gpg=🔒:\
+# *.css=🎨:\
+# *.pdf=📚:\
+# *.djvu=📚:\
+# *.epub=📚:\
+# *.csv=📓:\
+# *.xlsx=📓:\
+# *.tex=📜:\
+# *.md=📘:\
+# *.r=📊:\
+# *.R=📊:\
+# *.rmd=📊:\
+# *.Rmd=📊:\
+# *.mp3=🎵:\
+# *.opus=🎵:\
+# *.ogg=🎵:\
+# *.m4a=🎵:\
+# *.flac=🎼:\
+# *.mkv=🎥:\
+# *.mp4=🎥:\
+# *.webm=🎥:\
+# *.mpeg=🎥:\
+# *.zip=📦:\
+# *.rar=📦:\
+# *.7z=📦:\
+# *.tar.gz=📦:\
+# *.z64=🎮:\
+# *.v64=🎮:\
+# *.n64=🎮:\
+# *.1=ℹ:\
+# *.nfo=ℹ:\
+# *.info=ℹ:\
+# *.log=📙:\
+# *.iso=📀:\
+# *.img=📀:\
+# *.bib=🎓:\
+# *.ged=👪:\
+# *.part=💔:\
+# *.torrent=🔽:\
+# "
 
-# EXAMPLES FOR ~/.config/xprofile.local
-# # no export needed
-# PLASMA="kstart5 plasmashell"
-# COMP=compton
-# CLUTTER=unclutter
-# SHORTCUTS="launch_sxhkd && remaps &"
-# STATUSBAR_HEIGHT=35
+# # EXAMPLES FOR ~/.config/xprofile.local
+# # # no export needed
+# # PLASMA="kstart5 plasmashell"
+# # COMP=compton
+# # CLUTTER=unclutter
+# # SHORTCUTS="launch_sxhkd && remaps &"
+# # STATUSBAR_HEIGHT=35
 
-# # export because used by shortcuts
-# export TERMINAL=st
-# export BROWSER=chromium-browser
-# export SEARCHBAR="kstart5 krunner"
-# export STATUSBAR="latte-dock"
-# # check for nvida-settings before executing
-# command -v nvidia-settings >/dev/null 2>&1  >/dev/null 2>&1 &&  nvidia-settings --load-config-only
+# # # export because used by shortcuts
+# # export TERMINAL=st
+# # export BROWSER=chromium-browser
+# # export SEARCHBAR="kstart5 krunner"
+# # export STATUSBAR="latte-dock"
+# # # check for nvida-settings before executing
+# # command -v nvidia-settings >/dev/null 2>&1  >/dev/null 2>&1 &&  nvidia-settings --load-config-only

@@ -55,6 +55,18 @@ pikaur -S  ntfs-3g-fuse
 
 
 
+# FISH DEFAULT SHELL
+
+# 1. Copy this file to /usr/local/bin/fishlogin
+sudo ln -s ~/.local/bin/fishlogin /usr/local/bin/fishlogin
+# 2. Make it executable:
+sudo chmod +x /usr/local/bin/fishlogin
+# 3. Add it to /etc/shells
+echo /usr/local/bin/fishlogin | sudo tee -a /etc/shells
+# 4. Switch your login shell
+chsh -s /usr/local/bin/fishlogin $USER
+# source: https://superuser.com/a/1046884
+
 # FISHER
 fish -c 'curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher'
 

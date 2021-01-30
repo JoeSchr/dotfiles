@@ -4,32 +4,30 @@ case $- in
       *) return;;
 esac
 
+# JUST USE FISH
+if [ -e /usr/local/bin/fishlogin ]; then
+  # source local commands
+  [ -e ~/.bashrc.local ] && . ~/.bashrc.local
+  return;
+fi
+
+# NO FISH
+# USE BASH INTERACTIVLY ONLY
+
 # vi mode in bash!!!
 set -o vi
-
-export PATH="$PATH:$HOME/.local/bin:$HOME/.local/bin/statusbar"
-# adds pip bins to path
-export PY_USER_BIN=$(python -c 'import site; print(site.USER_BASE + "/bin")')
-export PY3_USER_BIN=="$(python3 -m site --user-base)/bin"
-export PATH=$PY_USER_BIN:$PY3_USER_BIN:$PATH
-
-#adds clang
-export PATH=/usr/local/clang_9.0.0/bin:$PATH
-export LD_LIBRARY_PATH=/usr/local/clang_9.0.0/lib:$LD_LIBRARY_PATH
-
-#adds nx/nomachine
-export PATH=/usr/NX/bin:$PATH
 
 # Use bash-completion, if available
 if [ -f /etc/bash_completion ]; then
   . /etc/bash_completion
 fi
+
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
 . /usr/share/bash-completion/bash_completion
 
 # Use git-completion, if available
 if [ -f /usr/share/bash-completion/completions/git ]; then
-. /usr/share/bash-completion/completions/git
+  . /usr/share/bash-completion/completions/git
 fi
 [[ $PS1 && -f /usr/share/bash-completion/completions/git ]] && \
 . /usr/share/bash-completion/completions/git
@@ -62,46 +60,7 @@ else
   unset color_prompt force_color_prompt
 fi
 
-
-SSH_ENV=$HOME/.ssh/environment
-
-# important for `sudo -A`
-export SUDO_ASKPASS="/home/joe/.local/bin/dmenupass"
-
-# for docker postgraphile
-export UID;
-
-# e for edit
-# vim is king
-alias e="nvim"
-export EDITOR=/usr/bin/nvim
-export VISUAL=/usr/bin/nvim
-export GUI_EDITOR=/usr/bin/nvim
-export EDITOR="nvim"
-export REACT_EDITOR=code
-
-# Setting for the new UTF-8 terminal support in TMUX
-export LC_CTYPE=en_US.UTF-8
-export LANG=en_US.UTF-8
-
-# start the ssh-agent
-function start_agent {
-        echo "Initializing new SSH agent..."
-        # spawn ssh-agent
-        /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
-        echo succeeded
-        chmod 600 "${SSH_ENV}"
-        . "${SSH_ENV}" > /dev/null
-        /usr/bin/ssh-add
-}
-if [ -f "${SSH_ENV}" ]; then
-        . "${SSH_ENV}" > /dev/null
-        ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-                start_agent;
-        }
-else
-        start_agent;
-fi
+## ALIASES AND COMMANDS
 
 ## csh: pass arguments to windows shell for execution
 function csh {
@@ -122,6 +81,8 @@ docker-armageddon() {
         docker rmi -f $(docker images -qa)
 }
 
+# e for edit
+alias e="nvim"
 
 alias less='less -r'
 # --show-control-chars: help showing Korean or accented characters
@@ -202,30 +163,20 @@ __git_complete gri _git_rebase
 alias gbdr='git branch-delete-remote '
 __git_complete gbdr _git_branch
 
-# install git-revise
-alias install-git-revise='sudo apt update && sudo apt install -y build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget  && curl -O https://www.python.org/ftp/python/3.7.3/Python-3.7.3.tar.xz && tar -xf Python-3.7.3.tar.xz && cd Python-3.7.3 && ./configure --enable-optimizations --with-ensurepip=install  && make -j 8 && sudo make altinstall && python3.7 --version && pip3 install --user git-revise && git revise --version'
-
 alias cls="clear"
-
 # find largest folder/file quickly (seperated in subdirs)
 alias duckS='du -ckSh * | sort -rh | head'
 # find largest folder/file quickly (summarized)
 alias ducks='du -cksh * | sort -rh | head'
-
 # search also hidden files
 alias duckA='du -ckah * | sort -rh | head'
 
-# kill grep
+# alias killgrep
 function killgrep {
   echo kill $(ps aux | grep "$1" | awk '{print $2}');
   kill $(ps aux | grep "$1" | awk '{print $2}');
 }
 export -f killgrep
-
-export LANGUAGE=en_US.UTF-8
-export LANG=en_US.UTF-8
-export LC_CTYPE=en_US.UTF-8
-
 
 # source local commands
 . ~/.bashrc.local
@@ -241,10 +192,6 @@ export LC_CTYPE=en_US.UTF-8
 # alias winreboot='reboot_to_windows'
 # alias manjaroreboot='sudo grub-reboot "Manjaro Linux"'
 
-
-# ## TMUX
-# alias tmux-init="tmux attach -t base || tmux new -s base"
-
 # ## POSTGRAPHILE DOCKER
 # export PG_DUMP="docker-compose exec -T db pg_dump"
 
@@ -257,29 +204,19 @@ export LC_CTYPE=en_US.UTF-8
 # export PATH=$(echo "$PATH" | sed -e 's/\/mnt\/c\/Program Files (x86)\/Yarn\/bin\/://')
 # export PATH=$(echo "$PATH" | sed -e 's/\/mnt\/c\/Users\/Joe\/AppData\/Local\/Yarn\/bin://')
 
-## NVM
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# ## EXPORTS
-# # needed to make X11 forward for electron apps work
-# # see: https://github.com/electron/electron/issues/22775
-# export QT_X11_NO_MITSHM=1
-# POSTGRAPHILE DOCKER
-# export PG_DUMP="docker-compose exec -T db pg_dump"
-#
-# export LANGUAGE=en_US.UTF-8
-# export LANG=en_US.UTF-8
-#
 # ## ALIASES
-# # TMUX
+# ## TMUX
+# alias tmux-init="tmux attach -t base || tmux new -s base"
+# alias ca="config add"
+# alias cs="config status"
 # alias tmux-init="tmux attach -t base || tmux new -s base"
 # alias pip="pip3"
 #
-# # search stackoverflow with googler
-# #alias so='googler -j -w stackoverflow.com (xsel)'
-#
+## search stackoverflow with googler
+##alias so='googler -j -w stackoverflow.com (xsel)'
+
+### ============== TMUX & FISH CONFIGS ==============
 # # exit if inside tmux
 # if [[ "$TERM" =~ "screen".* ]]; then
 #   echo "Already inside TMUX"
@@ -296,17 +233,7 @@ export LC_CTYPE=en_US.UTF-8
 #      ;;
 #   esac
 # fi
-#
-# alias ca="config add"
-# alias cs="config status"
-#
-#
-#
-# export NVM_DIR="$HOME/.nvm"
-# . "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-# export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json
-#
+
 # ## FISH
 # # - ESCAPE HATCH:-------------------------------------------------------------------------------------------------------
 # # | In this setup, use                                                                                                 |
@@ -314,12 +241,12 @@ export LC_CTYPE=en_US.UTF-8
 # # | to manually enter Bash                                                                                             |
 # # | without executing the commands from ~/.bashrc which would run exec fish and drop back into fish.                   |
 # # ----------------------------------------------------------------------------------------------------------------------
-#
+
 # # To have commands such as `bash -c 'echo test'` run the command in Bash instead of starting fish
 # if [ -z "$BASH_EXECUTION_STRING" ]; then exec fish; fi
-#
-# # Drop in to fish only if the parent process is not fish. 
-# # This allows to quickly enter in to bash by invoking bash 
+
+# # Drop in to fish only if the parent process is not fish.
+# # This allows to quickly enter in to bash by invoking bash
 # # command without losing ~/.bashrc configuration:
 # if [[ $(ps --no-header --pid=$PPID --format=cmd) != "fish" ]]
 # then
