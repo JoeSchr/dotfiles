@@ -181,6 +181,22 @@ export -f killgrep
 # source local commands
 . ~/.bashrc.local
 
+ # exit if inside tmux
+if [[ "$TERM" =~ "screen".* ]]; then
+  echo "Already inside TMUX"
+else
+  read -t 2 -n 1 -p "Start tmux (n/Y)? " answer
+  [ -z "$answer" ] && answer="Y"  # 'yes' default choice
+  case ${answer:0:1} in
+     n|N )
+         echo "No Tmux"
+         ;;
+     * )
+         echo "Starting tmux-init"
+         tmux attach -t base || tmux new -s base
+     ;;
+  esac
+fi
 # # -- EXAMPLES BASHRC.LOCAL
 # # Reboot directly to Windows
 # # Inspired by http://askubuntu.com/questions/18170/how-to-reboot-into-windows-from-ubuntu
@@ -235,20 +251,22 @@ export -f killgrep
 # fi
 
 # ## FISH
-# # - ESCAPE HATCH:-------------------------------------------------------------------------------------------------------
-# # | In this setup, use                                                                                                 |
-# # | `bash --norc`                                                                                                      |
-# # | to manually enter Bash                                                                                             |
-# # | without executing the commands from ~/.bashrc which would run exec fish and drop back into fish.                   |
-# # ----------------------------------------------------------------------------------------------------------------------
-
-# # To have commands such as `bash -c 'echo test'` run the command in Bash instead of starting fish
-# if [ -z "$BASH_EXECUTION_STRING" ]; then exec fish; fi
+# echo " |---------------------------------------------------|"
+# echo " | ESCAPE HATCH:                                     |"
+# echo " | In this setup, use                                |"
+# echo " | \`bash --norc\`                                     |"
+# echo " | to manually enter Bash                            |"
+# echo " | without executing the commands from ~/.bashrc     |"
+# echo " | which would run \`exec -l fish\`                    |"
+# echo " |---------------------------------------------------|"
 
 # # Drop in to fish only if the parent process is not fish.
 # # This allows to quickly enter in to bash by invoking bash
 # # command without losing ~/.bashrc configuration:
 # if [[ $(ps --no-header --pid=$PPID --format=cmd) != "fish" ]]
 # then
-#     exec fish
+#   exec -l fish "$@"
 # fi
+# -- MAY NOT BE NEEDED ANYMORE --
+# # To have commands such as `bash -c 'echo test'` run the command in Bash instead of starting fish
+# if [ -z "$BASH_EXECUTION_STRING" ]; then exec fish; fi

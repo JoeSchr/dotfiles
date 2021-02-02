@@ -2,7 +2,7 @@
 
 # Changes the current shell to fish while keeping the bash environment.
 # Fish is a great shell but many CLI tools assume you use bash.
-# This lets you use fish but configure your shell environment 
+# This lets you use fish but configure your shell environment
 #
 # 1. Copy this file to /usr/local/bin/fishlogin
 # 2. Make it executable:
@@ -14,4 +14,21 @@
 #
 # source: https://superuser.com/a/1046884
 
+# fetch local stuff becaus .bashrc isn't called for login
+# shells. need to be working non-interactivly
+if [[ "$TERM" =~ "screen".* ]]; then
+  echo "Already inside TMUX"
+else
+  read -t 2 -n 1 -p "Start tmux (n/Y)? " answer
+  [ -z "$answer" ] && answer="Y"  # 'yes' default choice
+  case ${answer:0:1} in
+     n|N )
+         echo "No Tmux"
+         ;;
+     * )
+         echo "Starting tmux-init"
+         tmux attach -t base "$@" || tmux new -s base "$@"
+     ;;
+  esac
+fi
 exec -l fish "$@"
