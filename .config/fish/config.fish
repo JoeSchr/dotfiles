@@ -32,6 +32,9 @@ if status --is-interactive
   set -x EDITOR nvim
   set -x VISUAL nvim
   # always try to set DISPLAY
-  set -q DISPLAY; or set DISPLAY ":0"
+  set -q DISPLAY; or set -x DISPLAY ":0"
   abbr psa 'ps ax | grep'
+
+  echo "set theme"
+  omf theme yimmy
 end
