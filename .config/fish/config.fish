@@ -9,6 +9,7 @@ if status --is-interactive
   echo -n Setting abbreviations...
   set -g fish_user_abbreviations
   abbr g 'git'
+  abbr 'gri' 'git rebase --rebase-merges -i'
   abbr ga 'git add -p'
   abbr gs 'git status'
   abbr gov 'git lg --all'

@@ -80,3 +80,6 @@
 	autosetuprebase = always
 [help]
 	autocorrect = 20
+[pull]
+	rebase = merges
+	autostash = true
