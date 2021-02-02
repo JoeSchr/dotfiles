@@ -97,9 +97,11 @@ fish -c 'fisher install jorgebucaran/nvm.fish'
 
 #INSTALL GUI & RICE
 # ESSENTIALS DESKTOP
-pikaur -S --noconfirm visual-studio-code-bin signal-desktop cpupower-gui cpupower google-chrome zathura
+pikaur -S --noconfirm latte-dock-git signal-desktop cpupower-gui cpupower google-chrome zathura
 # RICE
-pikaur -S --noconfirm latte-dock-git mntray maim neomutt urlview notmuch xtitle groff imagemagick appmenu-gtk-module
+pikaur -S --noconfirm mntray ytmdesktop appmenu-gtk-module
+# VSCODE
+pikaur -S --noconfirm visual-studio-code-bin
 
 # FONTS
 pikaur -Sy noto-fonts powerline-fonts ttf-inconsolata ttf-joypixels nerd-fonts-hack
@@ -181,11 +183,14 @@ sudo systemctl enable --now nordvpnd.service
 sudo gpasswd -a $(whoami) nordvpn
 
 # cmdg
+cd ~/Downloads
 git clone https://github.com/JoeSchr/cmdg.git ~/.local/sources/cmdg
 cd ~/.local/sources/cmdg
 go build ./cmd/cmdg
 sudo cp cmdg /usr/local/bin
-
+# press Ctrl-A u to open urls in mail
+pikaur -S --noconfirm urlview
+cd ~/Downloads
 
 # CUSTOM KERNEL
 
