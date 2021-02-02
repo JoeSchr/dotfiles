@@ -266,7 +266,9 @@ if !exists('g:vscode')
     " -- git helper
     Plug 'airblade/vim-gitgutter'
     Plug 'tpope/vim-fugitive'
-    " -- linter (works with elint)
+    " -- DEBUGGER --"
+    Plug 'puremourning/vimspector'
+    " -- linter (works with eslint)
     Plug 'dense-analysis/ale'
     " -- emulate vscode-vim stuff
     Plug 'sonph/onehalf', {'rtp': 'vim/'}
@@ -439,6 +441,11 @@ if !exists('g:vscode')
   \   '*': ['remove_trailing_lines', 'trim_whitespace'],
   \   'javascript': ['prettier', 'eslint']
   \}
+
+  " ---------------- VIMSPECTOR -----------------
+  let g:vimspector_enable_mappings = 'HUMAN'
+  " packadd! vimspector
+
   " ---------------- FZF -----------------
   " MAIN KEYBIND
   " nnoremap <C-t> :Files<Cr>
