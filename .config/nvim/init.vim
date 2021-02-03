@@ -194,7 +194,7 @@ source $VIMRUNTIME/menu.vim
 " =======================
 
 " F3 resets search highlight
-nnoremap <F3> :set hlsearch!<CR>
+nnoremap <c-F3> :set hlsearch!<CR>
 
 " exit insert mode without ESC
 " native, but with delay
@@ -443,8 +443,10 @@ if !exists('g:vscode')
   \}
 
   " ---------------- VIMSPECTOR -----------------
-  let g:vimspector_enable_mappings = 'HUMAN'
   " packadd! vimspector
+  let g:vimspector_enable_mappings = 'HUMAN'
+  nmap <C-F9> <Plug>VimspectorToggleBreakpoint
+  nmap <F9> <Plug>VimspectorStepInto
 
   " ---------------- FZF -----------------
   " MAIN KEYBIND
@@ -560,7 +562,7 @@ if !exists('g:vscode')
   noremap <leader>t :<C-U><C-R>=printf("LeaderfBufTagAll")<CR><CR>
   noremap <leader>T :<C-U><C-R>=printf("Vista coc")<CR><CR>
   " search HELP
-  noremap <leader>H :<C-U><C-R>=printf("LeaderfHelp")<CR><CR>
+  noremap <leader><c-h> :<C-U><C-R>=printf("LeaderfHelp")<CR><CR>
 
 ")<CR><CR>
   " Control-/ weird behavior on linux: https://stackoverflow.com/questions/9051837/how-to-map-c-to-toggle-comments-in-vim
