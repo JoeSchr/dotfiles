@@ -213,5 +213,7 @@ sudo systemctl start docker
 sudo chown (id -u):(id -g) /var/run/docker.sock
 
 newgrp docker
-cd
+cd ~/Downloads
+cp /opt/google/chrome-remote-desktop/chrome-remote-desktop .
 patch -i chrome-remote-desktop--use_existing_session.patch chrome-remote-desktop
+sudo cp ./chrome-remote-desktop /opt/google/chrome-remote-desktop/chrome-remote-desktop
