@@ -16,19 +16,4 @@
 
 # fetch local stuff becaus .bashrc isn't called for login
 # shells. need to be working non-interactivly
-# if [[ "$TERM" =~ "screen".* ]]; then
-#   echo "Already inside TMUX"
-# else
-#   read -t 2 -n 1 -p "Start tmux (n/Y)? " answer
-#   [ -z "$answer" ] && answer="Y"  # 'yes' default choice
-#   case ${answer:0:1} in
-#      n|N )
-#          echo "No Tmux"
-#          ;;
-#      * )
-#          echo "Starting tmux-init"
-#          tmux attach -t base "$@" || tmux new -s base "$@"
-#      ;;
-#   esac
-# fi
 exec -l fish "$@"
