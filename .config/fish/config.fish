@@ -35,6 +35,6 @@ if status --is-interactive
   set -q DISPLAY; or set -x DISPLAY ":0"
   abbr psa 'ps ax | grep'
 
-  echo "set theme"
+  echo "Set Theme"
   omf theme yimmy
 end
