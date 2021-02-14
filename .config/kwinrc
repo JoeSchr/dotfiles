@@ -120,7 +120,7 @@ SwitchingMode=1
 LayoutName=coverswitch
 
 [Windows]
-BorderlessMaximizedWindows=true
+BorderlessMaximizedWindows=false
 FocusStealingPreventionLevel=2
 Placement=UnderMouse
 SeparateScreenFocus=true
