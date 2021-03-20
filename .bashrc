@@ -60,6 +60,23 @@ else
   unset color_prompt force_color_prompt
 fi
 
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'mamba init' !!
+export MAMBA_EXE="/usr/bin/micromamba";
+export MAMBA_ROOT_PREFIX="/home/joe/micromamba";
+__mamba_setup="$('/usr/bin/micromamba' shell hook --shell bash --prefix '/home/joe/micromamba' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__mamba_setup"
+else
+    if [ -f "/home/joe/micromamba/etc/profile.d/mamba.sh" ]; then
+        . "/home/joe/micromamba/etc/profile.d/mamba.sh"
+    else
+        export PATH="/home/joe/micromamba/bin:$PATH"
+    fi
+fi
+unset __mamba_setup
+# <<< mamba initialize <<<
+
 ## ALIASES AND COMMANDS
 
 ## csh: pass arguments to windows shell for execution
