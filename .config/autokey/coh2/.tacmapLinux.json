@@ -1,13 +1,13 @@
 {
-    "type": "phrase",
-    "description": "ctrl-b",
+    "type": "script",
+    "description": "tacmapLinux",
+    "store": {},
     "modes": [
         3
     ],
-    "usageCount": 1,
+    "usageCount": 91,
     "prompt": false,
     "omitTrigger": false,
-    "matchCase": false,
     "showInTrayMenu": false,
     "abbreviation": {
         "abbreviations": [],
@@ -18,14 +18,11 @@
         "wordChars": "[\\w]"
     },
     "hotkey": {
-        "modifiers": [
-            "<ctrl>"
-        ],
-        "hotKey": "b"
+        "modifiers": [],
+        "hotKey": " "
     },
     "filter": {
         "regex": null,
         "isRecursive": false
-    },
-    "sendMode": "kb"
+    }
 }

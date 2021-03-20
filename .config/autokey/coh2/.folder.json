@@ -1,0 +1,23 @@
+{
+    "type": "folder",
+    "title": "coh2",
+    "modes": [],
+    "usageCount": 4,
+    "showInTrayMenu": false,
+    "abbreviation": {
+        "abbreviations": [],
+        "backspace": true,
+        "ignoreCase": false,
+        "immediate": false,
+        "triggerInside": false,
+        "wordChars": "[\\w]"
+    },
+    "hotkey": {
+        "modifiers": [],
+        "hotKey": null
+    },
+    "filter": {
+        "regex": "[Cc]ompany [Oo]f [Hh]eroes",
+        "isRecursive": true
+    }
+}

@@ -1,2 +1,2 @@
 #Enter script code
-keyboard.send_key("<np_insert>")
+keyboard.send_key("<space>")

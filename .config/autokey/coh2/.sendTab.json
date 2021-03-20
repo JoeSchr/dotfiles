@@ -1,13 +1,13 @@
 {
-    "type": "phrase",
-    "description": "ctrl-b",
+    "type": "script",
+    "description": "sendTab",
+    "store": {},
     "modes": [
         3
     ],
-    "usageCount": 1,
+    "usageCount": 0,
     "prompt": false,
     "omitTrigger": false,
-    "matchCase": false,
     "showInTrayMenu": false,
     "abbreviation": {
         "abbreviations": [],
@@ -19,13 +19,13 @@
     },
     "hotkey": {
         "modifiers": [
+            "<alt>",
             "<ctrl>"
         ],
-        "hotKey": "b"
+        "hotKey": "<tab>"
     },
     "filter": {
         "regex": null,
         "isRecursive": false
-    },
-    "sendMode": "kb"
+    }
 }

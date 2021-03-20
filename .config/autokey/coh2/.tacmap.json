@@ -1,13 +1,13 @@
 {
-    "type": "phrase",
-    "description": "ctrl-b",
+    "type": "script",
+    "description": "tacmap",
+    "store": {},
     "modes": [
         3
     ],
-    "usageCount": 1,
+    "usageCount": 286,
     "prompt": false,
     "omitTrigger": false,
-    "matchCase": false,
     "showInTrayMenu": false,
     "abbreviation": {
         "abbreviations": [],
@@ -21,11 +21,10 @@
         "modifiers": [
             "<ctrl>"
         ],
-        "hotKey": "b"
+        "hotKey": " "
     },
     "filter": {
         "regex": null,
         "isRecursive": false
-    },
-    "sendMode": "kb"
+    }
 }
