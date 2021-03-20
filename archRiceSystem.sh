@@ -211,8 +211,8 @@ sudo usermod -aG docker (whoami)
 sudo systemctl enable docker
 sudo systemctl start docker
 sudo chown (id -u):(id -g) /var/run/docker.sock
-
 newgrp docker
+
 cd ~/Downloads
 cp /opt/google/chrome-remote-desktop/chrome-remote-desktop .
 patch -i chrome-remote-desktop--use_existing_session.patch chrome-remote-desktop
