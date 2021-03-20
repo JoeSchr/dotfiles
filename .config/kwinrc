@@ -1,5 +1,5 @@
 [$Version]
-update_info=kwin.upd:replace-scalein-with-scale,kwin.upd:port-minimizeanimation-effect-to-js,kwin.upd:port-scale-effect-to-js,kwin.upd:port-dimscreen-effect-to-js,kwin.upd:auto-bordersize,kwin.upd:animation-speed
+update_info=kwin.upd:replace-scalein-with-scale,kwin.upd:port-minimizeanimation-effect-to-js,kwin.upd:port-scale-effect-to-js,kwin.upd:port-dimscreen-effect-to-js,kwin.upd:auto-bordersize,kwin.upd:animation-speed,kwin.upd:desktop-grid-click-behavior,kwin.upd:no-swap-encourage
 
 [Compositing]
 GLCore=true
@@ -15,6 +15,12 @@ Name_2=2
 Name_3=3
 Number=3
 Rows=3
+
+[DrmOutputs][5ade8f275f][0ddc1eb932]
+Scale=1.25
+
+[DrmOutputs][5ade8f275f][60be871c32]
+Scale=1
 
 [DrmOutputs][e5b7a8239c][e5b7a8239c]
 Scale=1
