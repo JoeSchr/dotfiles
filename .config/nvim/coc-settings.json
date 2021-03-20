@@ -2,6 +2,7 @@
   "suggest.noselect": true,
   "coc.preferences.diagnostic.displayByAle": true,
   "diagnostic.displayByAle": true,
+  "python.jediEnabled": false,
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
     "typescript",

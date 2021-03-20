@@ -260,8 +260,11 @@ if !exists('g:vscode')
     Plug 'junegunn/goyo.vim'
     " -- themes
     Plug 'artanikin/vim-synthwave84'
-    Plug 'dracula/vim'
     Plug 'flazz/vim-colorschemes'
+    Plug 'sonph/onehalf', {'rtp': 'vim/'}
+    Plug 'morhetz/gruvbox'
+    Plug 'dracula/vim', { 'as': 'dracula' }
+    Plug 'ericbn/vim-solarized'
 
     " -- git helper
     Plug 'airblade/vim-gitgutter'
@@ -271,9 +274,6 @@ if !exists('g:vscode')
     " -- linter (works with eslint)
     Plug 'dense-analysis/ale'
     " -- emulate vscode-vim stuff
-    Plug 'sonph/onehalf', {'rtp': 'vim/'}
-    Plug 'morhetz/gruvbox'
-    Plug 'ericbn/vim-solarized'
     Plug 'tpope/vim-commentary'
     " -- original easymotion
     Plug 'easymotion/vim-easymotion'
@@ -281,6 +281,10 @@ if !exists('g:vscode')
     Plug 'leafgarland/typescript-vim'
     " -- vue
     Plug 'pangloss/vim-javascript'
+    " PYTHON
+    " iPython support
+    Plug 'jpalardy/vim-slime', { 'for': 'python' }
+    Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
     " -- other
     " Make sure you use single quotes
     " On-demand loading
@@ -390,11 +394,87 @@ if !exists('g:vscode')
   " " open current file in nerdtree
   " map <leader>n :NERDTreeToggle %<CR>
 
+  " ------------------ iPython-cell ------------------
+  "------------------------------------------------------------------------------
+  " slime configuration
+  "------------------------------------------------------------------------------
+  " always use tmux
+  let g:slime_target = 'tmux'
+
+  " fix paste issues in ipython
+  let g:slime_python_ipython = 1
+
+  " always send text to the top-right pane in the current tmux tab without asking
+  let g:slime_default_config = {
+              \ 'socket_name': get(split($TMUX, ','), 0),
+              \ 'target_pane': '{top-right}' }
+  let g:slime_dont_ask_default = 1
+
+  "------------------------------------------------------------------------------
+  " ipython-cell configuration
+  "------------------------------------------------------------------------------
+  " Keyboard mappings. <Leader> is \ (backslash) by default
+
+  " map <Leader>s to start IPython
+  " nnoremap <Leader>s :SlimeSend1 ipython --matplotlib<CR>
+
+  " map <Leader>r to run script
+  nnoremap <Leader>r :IPythonCellRun<CR>
+
+  " map <Leader>R to run script and time the execution
+  nnoremap <Leader>R :IPythonCellRunTime<CR>
+
+  " map <Leader>c to execute the current cell
+  nnoremap <Leader>c :IPythonCellExecuteCell<CR>
+
+  " map <Leader>C to execute the current cell and jump to the next cell
+  nnoremap <Leader>C :IPythonCellExecuteCellJump<CR>
+
+  " map <Leader>l to clear IPython screen
+  " nnoremap <Leader>l :IPythonCellClear<CR>
+
+  " map <Leader>x to close all Matplotlib figure windows
+  nnoremap <Leader>x :IPythonCellClose<CR>
+
+  " map [c and ]c to jump to the previous and next cell header
+  nnoremap [c :IPythonCellPrevCell<CR>
+  nnoremap ]c :IPythonCellNextCell<CR>
+
+  " map <Leader>h to send the current line or current selection to IPython
+  nmap <Leader>h <Plug>SlimeLineSend
+  xmap <Leader>h <Plug>SlimeRegionSend
+
+  " map <Leader>p to run the previous command
+  " nnoremap <Leader>p :IPythonCellPrevCommand<CR>
+
+  " map <Leader>Q to restart ipython
+  " nnoremap <Leader>Q :IPythonCellRestart<CR>
+
+  " map <Leader>d to start debug mode
+  nnoremap <Leader>d :SlimeSend1 %debug<CR>
+
+  " map <Leader>q to exit debug mode or IPython
+  " nnoremap <Leader>q :SlimeSend1 exit<CR>
+  " ------------------ /iPython-cell ------------------
   " ------------------ Vinegar ------------------
   map <C-n> <Plug>VinegarUp
   nmap <leader>n <Plug>VinegarUp
   nmap - <Plug>VinegarUp
+  " disable annoying netrw keeps open
+  autocmd FileType netrw setl bufhidden=wipe
+  let g:netrw_fastbrowse = 0
+  " Remove 'set hidden'
+  set nohidden
+  augroup netrw_buf_hidden_fix
+      autocmd!
 
+      " Set all non-netrw buffers to bufhidden=hide
+      autocmd BufWinEnter *
+                  \  if &ft != 'netrw'
+                  \|     set bufhidden=hide
+                  \| endif
+
+  augroup end
   " ---------------- CAMELCASE -----------------
   " call camelcasemotion#CreateMotionMappings('<leader><leader>')
   " ---------------- YANKSTACK -----------------
@@ -447,6 +527,11 @@ if !exists('g:vscode')
   let g:vimspector_enable_mappings = 'HUMAN'
   nmap <C-F9> <Plug>VimspectorToggleBreakpoint
   nmap <F9> <Plug>VimspectorStepInto
+  " mnemonic 'di' = 'debug inspect' (pick your own, if you prefer!)
+  " for normal mode - the word under the cursor
+  nmap <Leader>di <Plug>VimspectorBalloonEval
+  " for visual mode, the visually selected text
+  xmap <Leader>di <Plug>VimspectorBalloonEval
 
   " ---------------- FZF -----------------
   " MAIN KEYBIND
@@ -781,7 +866,7 @@ if !exists('g:vscode')
               \ 'cmdline': 'firenvim',
               \ 'priority': 0,
               \ 'selector': 'textarea',
-              \ 'takeover': 'nonempty',
+              \ 'takeover': 'never',
           \ },
       \ }
   \ }
@@ -796,6 +881,7 @@ if !exists('g:vscode')
   endif
   " ---------------- FUGITIVE --------------
   nnoremap <silent> <leader>g :G <CR>
+  nnoremap <silent> <leader>G :G <CR>
   command! GHistory call s:view_git_history()
 
   function! s:view_git_history() abort
@@ -1013,7 +1099,7 @@ map T <Plug>Sneak_T
 
 " --------- RIPGREP ---------
 "  Search in files, with:
-"  CTRL+P a
+"  <leader>f
 if executable('rg')
     set grepprg=rg\ --vimgrep\ --no-heading
     set grepformat=%f:%l:%c:%m,%f:%l:%m
