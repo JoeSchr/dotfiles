@@ -226,6 +226,7 @@ if !exists('g:vscode')
     " UNIVERSAL:
     " >============== UNIVERSAL PLUGINS: NATIVE VIM ===================
       " ------ needs to be duplicated because can't call plug#begin twice
+      Plug 'szw/vim-maximizer'
       Plug 'bkad/CamelCaseMotion'
       " Fuzzy Find, use :ctrlp or <c-p>
       Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -988,6 +989,7 @@ if exists('g:vscode')
     " ============== UNIVERSAL PLUGINS: VSCODE-NEOVIM ===================
     " ------ needs to be duplicated because can't call plug#begin twice
       Plug 'bkad/CamelCaseMotion'
+      Plug 'szw/vim-maximizer'
       " Fuzzy Find, use :ctrlp or <c-p>
       Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
       Plug 'junegunn/fzf.vim'
@@ -1038,6 +1040,11 @@ endif
 " ============== / VSCODE-NEOVIM ===================
 
 " ================== UNIVERSAL PLUGINS CONFIG =================
+"
+" ------------------ VIM-MAXIMIZER ------------------
+nnoremap <silent><C-w>O :MaximizerToggle<CR>
+vnoremap <silent><C-w>O :MaximizerToggle<CR>gv
+inoremap <silent><C-w>O <C-o>:MaximizerToggle<CR>
 " ------------------ CAMELCASEMOTION ------------------
 map <silent> w <Plug>CamelCaseMotion_w
 map <silent> b <Plug>CamelCaseMotion_b
