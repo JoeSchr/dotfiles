@@ -48,7 +48,7 @@ pikaur -Syyu
 pikaur -Sy pamac
 
 # ESSENTIALS SYSTEM
-pikaur -S --noconfirm neovim-git ripgrep nvm tmux urlview python3 python-pip mosh htop bash-completion fish fzf nodejs
+pikaur -S --noconfirm neovim-git ripgrep nvm tmux urlview python3 python-pip mosh htop bash-completion fish fzy fzf nodejs
 pip3 install --user wheel pynvim
 # risky/estoric on arm
 pikaur -S  ntfs-3g-fuse
@@ -75,7 +75,7 @@ fish -c 'fisher install oh-my-fish/oh-my-fish'
 # omf theme
 fish -c 'omf install yimmy'
 # fzf
-fish -c 'fisher install jethrokuan/fzf'
+fish -c 'fisher install gyakovlev/fish-fzy'
 
 # MANUAL: install OH-MY-FISH
 # cd ~/Downloads
