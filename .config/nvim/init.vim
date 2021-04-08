@@ -228,13 +228,19 @@ if !exists('g:vscode')
       " ------ needs to be duplicated because can't call plug#begin twice
       Plug 'szw/vim-maximizer'
       Plug 'bkad/CamelCaseMotion'
-      " Fuzzy Find, use :ctrlp or <c-p>
+      " Fuzzy Finder
       Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
       Plug 'junegunn/fzf.vim'
       Plug 'stsewd/fzf-checkout.vim'
       " Fuzzy project file search
       " Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
-      Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+      " Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+      Plug 'nvim-lua/popup.nvim'
+      Plug 'nvim-lua/plenary.nvim'
+      Plug 'nvim-telescope/telescope.nvim'
+      Plug 'nvim-telescope/telescope-fzy-native.nvim'
+      Plug 'nvim-telescope/telescope-github.nvim'
+      Plug 'nvim-telescope/telescope-vimspector.nvim'
       " Easymotion fuzzy search
       Plug 'haya14busa/incsearch.vim'
       Plug 'haya14busa/incsearch-fuzzy.vim'
@@ -610,66 +616,34 @@ if !exists('g:vscode')
   let g:fzf_history_dir = '~/.local/share/fzf-history'
 
   " ---------------- / FZF ------------
-  " === leaderF setup ==="
-  " don't show the help in normal mode
-  let g:Lf_HideHelp = 0
-  let g:Lf_UseCache = 1
-  let g:Lf_UseVersionControlTool = 1
-  let g:Lf_IgnoreCurrentBufferName = 1
-  " popup mode
-  let g:Lf_WindowPosition = 'popup'
-  let g:Lf_PreviewInPopup = 1
-  let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2", 'font': "DejaVu Sans Mono for Powerline" }
-  let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0 }
-
-  " === leaderF shorcuts === "
-  "   <ctrl>p - Browse list of buffers & files  in current directory
+  " ---------------- / TELESCOPE ------------
+  " in ~/.config/nvim/lua/telescope.lua"
+  lua require("telescope-config")
+  lua require('telescope').load_extension('gh')
+  lua require('telescope').load_extension('vimspector')
+  lua require('telescope').load_extension('fzy_native')
+  " === Telescope shorcuts === "
+  "   <ctrl>p - Browse list of buffers & files in current directory/project
   "   <leader>: - Search command history
   "   <leader>; - Search for open buffers
-  "   <Control-/> - Search lines in open buffer
-  "   <leader>f - Search current directory (rg)
-  "   <leader>*p - Search current directory for occurences of word under cursor
-  "   <leader>*f - Search current directory for occurences visually selected text
-  "   <leader>*r - recall last search
-  "   <leader>*/ - search visually selected text literally
-  "   <leader>*/ - Search open buffer for word under cursor
+  "   <leader>fg - Search current directory (rg)
+  "   <leader>fw - Search current directory for occurences of word under cursor
+  "   OUT OF DATE:
+  " Using lua functions
+  nnoremap <C-p> :lua require('telescope.builtin').git_files()<CR>
+  nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+  nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+  nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+  nnoremap <leader>; <cmd>lua require('telescope.builtin').oldfiles()<cr>
+  nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+  noremap <leader>: <cmd>lua require('telescope.builtin').command_history()<cr>
+  noremap <leader>f: <cmd>lua require('telescope.builtin').commands()<cr>
+  noremap <leader>fc <cmd>lua require('telescope.builtin').commands()<cr>
+  nnoremap <leader>fs :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
 
-  " unmap <C-p>
-  let g:Lf_ShortcutF = '<C-p>'
-
-  noremap <leader>P :<C-U><C-R>=printf("Leaderf cmdHistory %s", "")<CR><CR>
-  noremap <leader>: :<C-U><C-R>=printf("Leaderf cmdHistory %s", "")<CR><CR>
-  " search MRU
-  noremap <leader>; :<C-U><C-R>=printf("LeaderfMruCwd")<CR><CR>
-  " search open BUFFER
-  noremap <leader>B :<C-U><C-R>=printf("LeaderfBufferAll")<CR><CR>
-
-  " search tag/all tags
-  noremap <leader>t :<C-U><C-R>=printf("LeaderfBufTagAll")<CR><CR>
-  noremap <leader>T :<C-U><C-R>=printf("Vista coc")<CR><CR>
-  " search HELP
-  noremap <leader><c-h> :<C-U><C-R>=printf("LeaderfHelp")<CR><CR>
-
-")<CR><CR>
-  " Control-/ weird behavior on linux: https://stackoverflow.com/questions/9051837/how-to-map-c-to-toggle-comments-in-vim
-  noremap <C-/> :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
-  noremap <C-_> :<C-U><C-R>=printf("Leaderf line %s", "")<CR><CR>
-  noremap <leader>f :<C-U><C-R>=printf("Rg ")<CR><CR>
-
-  " noremap <leader>*/ :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR><CR>
-  noremap <leader>*p :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR><CR>
-
-  xnoremap <leader>*f :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR><CR>
-  noremap <leader>*r :<C-U>Leaderf! rg --recall<CR>
-  " C-k / C-j are mapped to window change
-  " let g:Lf_CommandMap = {'<C-p>': ['<C-k>'], '<C-n>': ['<C-j>']}
-  " let g:Lf_NormalMap = {
-  "       \   "_": [
-  "       \      ['<C-p>', '<Up>'],
-  "       \      ['<C-n>', '<Down>'],
-  "       \   ],
-  "       \}
-  " ---------------- /leaderF --------
+  nnoremap <leader>fw :lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
+  noremap <leader>ft <cmd>lua require('telescope.builtin').tags()<cr>
+  " ---------------- /Telescope --------
   " ---------------- Vista --------
   " How each level is indented and what to prepend.
   " This could make the display more compact or more spacious.
@@ -1090,6 +1064,9 @@ function! s:config_easyfuzzymotion(...) abort
 endfunction
 
 noremap <silent><expr> <leader>/ incsearch#go(<SID>config_easyfuzzymotion())
+map z/ <Plug>(incsearch-fuzzy-/)
+map z? <Plug>(incsearch-fuzzy-?)
+map g/ <Plug>(incsearch-fuzzy-stay)
 
 " --------- SNEAK-----------
 " 'fs': 2 character Sneak
