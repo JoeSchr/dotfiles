@@ -458,7 +458,7 @@ if !exists('g:vscode')
   " nnoremap <Leader>Q :IPythonCellRestart<CR>
 
   " map <Leader>d to start debug mode
-  nnoremap <Leader>d :SlimeSend1 %debug<CR>
+  " nnoremap <Leader>d :SlimeSend1 %debug<CR>
 
   " map <Leader>q to exit debug mode or IPython
   " nnoremap <Leader>q :SlimeSend1 exit<CR>
@@ -540,6 +540,30 @@ if !exists('g:vscode')
   " for visual mode, the visually selected text
   xmap <Leader>di <Plug>VimspectorBalloonEval
 
+  nnoremap <leader>dd :call vimspector#Launch()<CR>
+  nnoremap <leader>de :call GotoWindow(g:vimspector_session_windows.code)<CR>
+  nnoremap <leader>dt :call GotoWindow(g:vimspector_session_windows.tagpage)<CR>
+  nnoremap <leader>dv :call GotoWindow(g:vimspector_session_windows.variables)<CR>
+  nnoremap <leader>dw :call GotoWindow(g:vimspector_session_windows.watches)<CR>
+  nnoremap <leader>ds :call GotoWindow(g:vimspector_session_windows.stack_trace)<CR>
+  nnoremap <leader>do :call GotoWindow(g:vimspector_session_windows.output)<CR>
+  nnoremap <leader>dq :call vimspector#Reset()<CR>
+
+  nnoremap <leader>dtcb :call vimspector#CleanLineBreakpoint()<CR>
+
+  nmap <leader>dl <Plug>VimspectorStepInto
+  nmap <leader>dj <Plug>VimspectorStepOver
+  nmap <leader>dk <Plug>VimspectorStepOut
+  nmap <leader>d_ <Plug>VimspectorRestart
+  nnoremap <leader>dJ :call vimspector#Continue()<CR>
+
+  nmap <leader>drc <Plug>VimspectorRunToCursor
+  nmap <leader>dbp <Plug>VimspectorToggleBreakpoint
+  nmap <leader>dcbp <Plug>VimspectorToggleConditionalBreakpoint
+
+  " <Plug>VimspectorStop
+  " <Plug>VimspectorPause
+  " <Plug>VimspectorAddFunctionBreakpoint
   " ---------------- FZF -----------------
   " MAIN KEYBIND
   " nnoremap <C-t> :Files<Cr>
