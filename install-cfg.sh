@@ -1,6 +1,7 @@
 #! /bin/bash
 
 # call with
+# sudo pamac -Sy git which rsync
 # curl -Lks https://github.com/JoeSchr/dotfiles/raw/master/install-cfg.sh | /bin/bash
 
 git clone --bare https://github.com/JoeSchr/dotfiles.git $HOME/.cfg
