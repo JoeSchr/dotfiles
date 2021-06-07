@@ -238,7 +238,8 @@ if !exists('g:vscode')
       Plug 'nvim-lua/popup.nvim'
       Plug 'nvim-lua/plenary.nvim'
       Plug 'nvim-telescope/telescope.nvim'
-      Plug 'nvim-telescope/telescope-fzy-native.nvim'
+      " Plug 'nvim-telescope/telescope-fzy-native.nvim'
+      Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
       Plug 'nvim-telescope/telescope-github.nvim'
       Plug 'nvim-telescope/telescope-vimspector.nvim'
       " Easymotion fuzzy search
@@ -250,6 +251,24 @@ if !exists('g:vscode')
       " no visual delay after jk / kj
       Plug 'zhou13/vim-easyescape'
       Plug 'justinmk/vim-sneak'
+
+      "VIM-ABOLISH"
+      " Abolish lets you quickly find, substitute, and abbreviate several variations
+      " of a word at once.  By default, three case variants (foo, Foo, and FOO) are
+      " operated on by every command.
+      " :Subvert provides an alternative, more concise syntax for searching and substituting.
+      " :%S/child{,ren}/adult{,s}/g
+      " COERCE
+      " crs (coerce to snake_case).
+      " MixedCase (crm),
+      " camelCase (crc),
+      " snake_case (crs),
+      " UPPER_CASE (cru),
+      " dash-case (cr-),
+      " dot.case (cr.),
+      " space case (cr<space>),
+      " and Title Case (crt) are all just 3 keystrokes away.
+      Plug 'tpope/vim-abolish'
       " Surround
       Plug 'tpope/vim-surround'
       " unimpaired ([p,]p etc)
@@ -301,7 +320,7 @@ if !exists('g:vscode')
     " zooms font with + and -
     Plug 'thinca/vim-fontzoom'
     " another yankring
-    Plug 'svermeulen/vim-yoink'
+    " Plug 'svermeulen/vim-yoink'
     " yankring with alt+p && alt+shift+p && use :yanks
     " Plug 'maxbrunsfeld/vim-yankstack'
     " airline
@@ -490,24 +509,24 @@ if !exists('g:vscode')
   " ---------------- YOINK -----------------
   " after performing a paste, cycle through history by hitting <c-n> and <c-p>
   " for it to work in VISUAL we need vim-subversive
-  nmap <c-n> <plug>(YoinkPostPasteSwapBack)
-  nmap <leader><c-p> <plug>(YoinkPostPasteSwapForward)
+  " nmap <c-n> <plug>(YoinkPostPasteSwapBack)
+  " nmap <leader><c-p> <plug>(YoinkPostPasteSwapForward)
   " We also need to override the p and P keys to notify Yoink
-  nmap p <plug>(YoinkPaste_p)
-  nmap P <plug>(YoinkPaste_P)
+  " nmap p <plug>(YoinkPaste_p)
+  " nmap P <plug>(YoinkPaste_P)
 
-  " [y/]y change current yank and preview in status bar
-  nmap [y <plug>(YoinkRotateBack)
-  nmap ]y <plug>(YoinkRotateForward)
+  " " [y/]y change current yank and preview in status bar
+  " nmap [y <plug>(YoinkRotateBack)
+  " nmap ]y <plug>(YoinkRotateForward)
 
   " toggling whether the current paste is formatted or not:
   " now hitting <c-=> after a paste will toggle between formatted and unformatted
   " (equivalent to using the = key)
-  nmap <c-=> <plug>(YoinkPostPasteToggleFormat)
+  " nmap <c-=> <plug>(YoinkPostPasteToggleFormat)
 
   " cursor position will not change after performing a yank
-  nmap y <plug>(YoinkYankPreserveCursorPosition)
-  xmap y <plug>(YoinkYankPreserveCursorPosition)
+  " nmap y <plug>(YoinkYankPreserveCursorPosition)
+  " xmap y <plug>(YoinkYankPreserveCursorPosition)
   " ---------------- ALE ----------------------
   " fix files on save
   let g:ale_fix_on_save = 1
@@ -549,7 +568,6 @@ if !exists('g:vscode')
   nnoremap <leader>do :call GotoWindow(g:vimspector_session_windows.output)<CR>
   nnoremap <leader>dq :call vimspector#Reset()<CR>
 
-  nnoremap <leader>dtcb :call vimspector#CleanLineBreakpoint()<CR>
 
   nmap <leader>dl <Plug>VimspectorStepInto
   nmap <leader>dj <Plug>VimspectorStepOver
@@ -558,8 +576,9 @@ if !exists('g:vscode')
   nnoremap <leader>dJ :call vimspector#Continue()<CR>
 
   nmap <leader>drc <Plug>VimspectorRunToCursor
-  nmap <leader>dbp <Plug>VimspectorToggleBreakpoint
-  nmap <leader>dcbp <Plug>VimspectorToggleConditionalBreakpoint
+  nmap <leader>db <Plug>VimspectorToggleBreakpoint
+  nnoremap <leader>dbl <Plug>VimspectorToggleBreakpoint
+  nmap <leader>dbc <Plug>VimspectorToggleConditionalBreakpoint
 
   " <Plug>VimspectorStop
   " <Plug>VimspectorPause
@@ -640,12 +659,9 @@ if !exists('g:vscode')
   let g:fzf_history_dir = '~/.local/share/fzf-history'
 
   " ---------------- / FZF ------------
-  " ---------------- / TELESCOPE ------------
+  " ---------------- TELESCOPE ------------
   " in ~/.config/nvim/lua/telescope.lua"
   lua require("telescope-config")
-  lua require('telescope').load_extension('gh')
-  lua require('telescope').load_extension('vimspector')
-  lua require('telescope').load_extension('fzy_native')
   " === Telescope shorcuts === "
   "   <ctrl>p - Browse list of buffers & files in current directory/project
   "   <leader>: - Search command history
