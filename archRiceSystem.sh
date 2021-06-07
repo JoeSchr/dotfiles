@@ -23,7 +23,7 @@ pacman -Fy
 pacman -Syy
 
 # install buildtools like eg. git make libffi glibc gcc
-pacman -S --noconfirm --needed base-devel git ed
+pacman -S --noconfirm --needed base-devel git ed python python-pip
 
 # exit su -l
 exit
@@ -79,9 +79,9 @@ fish -c 'fisher install gyakovlev/fish-fzy'
 
 # MANUAL: install OH-MY-FISH
 # cd ~/Downloads
-# git clone -c core.autocrlf=false https://github.com/oh-my-fish/oh-my-fish
-# cd oh-my-fish
-# bin/install --offline
+ git clone -c core.autocrlf=false https://github.com/oh-my-fish/oh-my-fish
+ cd oh-my-fish
+ bin/install --offline
 
 # NPM / YARN / NODE / NVM
 nvm install --lts

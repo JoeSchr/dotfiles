@@ -6,10 +6,16 @@ touch ~/.vimrc.local
 touch ~/.bashrc.local
 touch ~/.config/Xresources.local
 
+sudo apt-get install software-properties-common
 ## Adds current GIT
 sudo add-apt-repository ppa:git-core/ppa -y
 # Fish
-sudo apt-add-repository ppa:fish-shell/release-3
+sudo add-apt-repository ppa:fish-shell/release-3
+# NVIM
+sudo add-apt-repository ppa:neovim-ppa/stable
+# nivm
+sudo apt-get update
+sudo apt-get install python-dev python-pip python3-dev python3-pip
 ## Adds to APT repository
 # lazygit
 #sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 68CCF87596E97291
@@ -33,8 +39,10 @@ sudo apt dist-upgrade
 
 # install ALL THE THINGS
 # essentials
-sudo apt install -y neovim git tig mosh python3 python3-pip xsel htop xbacklight ssh-askpass lxappearance maim xcompmgr unclutter neomutt urlview notmuch zathura xcape stterm surf xtitle groff groff-base dbus-x11 compton xauth fish fzf
+sudo apt install -y rsync neovim git python3 python3-pip xsel htop ssh-askpass urlview xauth fish fzf fzy python3-dev python3-pip httping tmux
 
+# gui 
+sudo apt install -y xbacklight lxappearance maim xcompmgr unclutter neomutt notmuch zathura xcape stterm surf xtitle groff groff-base dbus-x11 compton xauth surf 
 # install OH-MY-FISH
 cd ~/Downloads
 git clone -c core.autocrlf=false https://github.com/oh-my-fish/oh-my-fish
@@ -188,15 +196,17 @@ cd ~
 rm -rf node_modules/
 rm yarn.lock
 
-# neovim (latest)
-cd ~/Downloads
-git clone https://github.com/neovim/neovim
-cd neovim
-make CMAKE_BUILD_TYPE=Release
-sudo make install
-# sets accesss rights so normal user can start it
-sudo chown $USER  /usr/bin/nvim
-sudo chown $USER  /usr/local/bin/nvim
+# neovim
+sudo apt-get install neovim
+# neovim (latest/manuell)
+# cd ~/Downloads
+# git clone https://github.com/neovim/neovim
+# cd neovim
+# make CMAKE_BUILD_TYPE=Release
+# sudo make install
+# # sets accesss rights so normal user can start it
+# sudo chown $USER  /usr/bin/nvim
+# sudo chown $USER  /usr/local/bin/nvim
 
 # neovim support
 yarn global add neovim

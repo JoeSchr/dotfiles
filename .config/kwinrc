@@ -28,10 +28,6 @@ Scale=1
 [Effect-Blur]
 BlurStrength=15
 
-[Effect-CoverSwitch]
-TabBox=true
-TabBoxAlternative=true
-
 [Effect-Cube]
 ZOrdering=true
 
@@ -75,6 +71,7 @@ cubeslideEnabled=true
 desktopchangeosdEnabled=true
 desktopgridEnabled=false
 diminactiveEnabled=true
+flipswitchEnabled=true
 highlightwindowEnabled=true
 krohnkiteEnabled=true
 kwin4_effect_eyeonscreenEnabled=true
@@ -117,13 +114,12 @@ count=0
 ActivitiesMode=0
 DesktopLayout=org.kde.breeze.desktop
 DesktopListLayout=org.kde.breeze.desktop
-HighlightWindows=false
-LayoutName=coverswitch
-MinimizedMode=2
+MinimizedMode=1
 SwitchingMode=1
 
 [TabBoxAlternative]
 LayoutName=coverswitch
+ShowTabBox=false
 
 [Windows]
 BorderlessMaximizedWindows=false
