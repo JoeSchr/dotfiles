@@ -35,6 +35,7 @@ if status --is-interactive
   set -q DISPLAY; or set -x DISPLAY ":0"
   abbr psa 'ps ax | grep'
 
+  abbr vultr 'vultr-cli --config ~/vultr-cli.yaml'
   echo "Set Theme"
   omf theme yimmy
 end
