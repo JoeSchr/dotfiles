@@ -128,6 +128,18 @@ registries = ['docker.io']" | sudo tee -a /etc/containers/registries.conf
 sudo curl -L https://github.com/docker/compose/releases/download/1.27.4/docker-compose-(uname -s)-(uname -m) -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 
+# TA-LIB
+cd ~/Downloads \
+  && wget http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz \
+  && tar -xzf ta-lib-0.4.0-src.tar.gz \
+  && rm ta-lib-0.4.0-src.tar.gz \
+  && cd ta-lib/ \
+  && sudo ./configure --prefix=/usr \
+  && sudo make \
+  && sudo make install \
+  && cd .. \
+  && mv ta-lib/ ~/.local/sources/ta-lib \
+  && pip install ta-lib
 
 # TWEAKS
 # increase number of file watcher
